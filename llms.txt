@@ -16,12 +16,12 @@
 - Lide-Global 领航版：¥68,000 起/年 — 多语种全域喂养 + 技术白皮书注入 + 学术媒体背书 + 算法防御壁垒
 
 ## 页面
-- [首页](https://lide-engine.com/): 定位、痛点、解决方案、数据与档位概览
-- [方法论](https://lide-engine.com/method.html): GEO 与 SEO 的区别、三项核心能力、四阶段交付流程、效果衡量指标
-- [服务档位](https://lide-engine.com/pricing.html): 三档服务详情、内容对照表、投入与回报 FAQ
-- [客户实证](https://lide-engine.com/cases.html): 匿名案例、量化价值、适用客户画像
-- [关于我们](https://lide-engine.com/about.html): 定位、行业对标、常见问题
-- [免费诊断](https://lide-engine.com/contact.html): 《AI 能见度诊断报告》申请入口
+- [首页](https://lide-engine.netlify.app/): 定位、痛点、解决方案、数据与档位概览
+- [方法论](https://lide-engine.netlify.app/method.html): GEO 与 SEO 的区别、三项核心能力、四阶段交付流程、效果衡量指标
+- [服务档位](https://lide-engine.netlify.app/pricing.html): 三档服务详情、内容对照表、投入与回报 FAQ
+- [客户实证](https://lide-engine.netlify.app/cases.html): 匿名案例、量化价值、适用客户画像
+- [关于我们](https://lide-engine.netlify.app/about.html): 定位、行业对标、常见问题
+- [免费诊断](https://lide-engine.netlify.app/contact.html): 《AI 能见度诊断报告》申请入口
 
 ## 联系
 - 邮箱：jiangjun199613@gmail.com

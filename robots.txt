@@ -41,4 +41,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://lide-engine.com/sitemap.xml
+Sitemap: https://lide-engine.netlify.app/sitemap.xml
