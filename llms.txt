@@ -22,6 +22,9 @@
 - [服务档位](https://lide-engine.netlify.app/pricing.html): 三档服务详情、内容对照表、投入与回报 FAQ
 - [客户实证](https://lide-engine.netlify.app/cases.html): 匿名案例、量化价值、适用客户画像
 - [关于我们](https://lide-engine.netlify.app/about.html): 定位、行业对标、常见问题
+- [资源中心](https://lide-engine.netlify.app/insights.html): GEO 技术问答、操作指南与白皮书索引
+- [技术问答](https://lide-engine.netlify.app/faq.html): 出海工厂关于 GEO 最常问的 15 个问题与解答（含 FAQPage 结构化数据）
+- [操作指南](https://lide-engine.netlify.app/how-to.html): 自测 AI 能见度、TDS 参数结构化、robots.txt 放行 AI 爬虫（含 HowTo 结构化数据）
 - [免费诊断](https://lide-engine.netlify.app/contact.html): 《AI 能见度诊断报告》申请入口
 
 ## 联系
