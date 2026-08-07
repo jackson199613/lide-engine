@@ -458,3 +458,18 @@ td strong { color: #fff; }
   .hero-grid { grid-template-columns: 1fr; gap: var(--space-md); }
   .terminal-body { font-size: .72rem; padding: 18px; }
 }
+
+/* Cookie consent --------------------------------------------------------- */
+.cookiebar {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80;
+  max-width: 720px; margin: 0 auto;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg); padding: 18px 22px;
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  box-shadow: 0 20px 60px rgba(0,0,0,.7);
+  transform: translateY(140%); transition: transform .5s var(--ease);
+}
+.cookiebar.is-on { transform: none; }
+.cookiebar p { margin: 0; flex: 1 1 320px; font-size: .88rem; color: var(--fg-muted); }
+.cookiebar .btn { min-height: 40px; padding: 8px 18px; font-size: .88rem; }
+@media (max-width: 560px) { .cookiebar { padding: 16px; } .cookiebar .btn-row { width: 100%; } .cookiebar .btn { flex: 1; } }

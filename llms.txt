@@ -17,6 +17,7 @@
 
 ## 页面
 - [首页](https://lide-engine.netlify.app/): 定位、痛点、解决方案、数据与档位概览
+- [行业方案](https://lide-engine.netlify.app/solutions.html): 六类行业的典型卡点与对应打法、行业×卡点×档位选型表
 - [方法论](https://lide-engine.netlify.app/method.html): GEO 与 SEO 的区别、三项核心能力、四阶段交付流程、效果衡量指标
 - [服务档位](https://lide-engine.netlify.app/pricing.html): 三档服务详情、内容对照表、投入与回报 FAQ
 - [客户实证](https://lide-engine.netlify.app/cases.html): 匿名案例、量化价值、适用客户画像

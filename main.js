@@ -81,3 +81,34 @@
     items[i].classList.add('is-active');
   }, 2200);
 })();
+
+/* Cookie consent bar ------------------------------------------------------ */
+(function () {
+  var KEY = 'le_consent';
+  function get(n) {
+    var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+  function set(v) {
+    document.cookie = KEY + '=' + v + ';path=/;max-age=' + (60 * 60 * 24 * 180) + ';SameSite=Lax';
+  }
+  if (get(KEY)) return;
+  var bar = document.createElement('div');
+  bar.className = 'cookiebar';
+  bar.setAttribute('role', 'dialog');
+  bar.setAttribute('aria-label', 'Cookie 同意');
+  bar.innerHTML =
+    '<p>本站仅使用保障功能的必要 Cookie 与匿名统计，不做广告追踪。详见'
+    + '<a href="privacy.html">隐私政策</a>。</p>'
+    + '<div class="btn-row"><button class="btn btn--ghost" data-c="essential">仅必要</button>'
+    + '<button class="btn btn--primary" data-c="all">全部接受</button></div>';
+  document.body.appendChild(bar);
+  setTimeout(function () { bar.classList.add('is-on'); }, 700);
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-c]');
+    if (!b) return;
+    set(b.getAttribute('data-c'));
+    bar.classList.remove('is-on');
+    setTimeout(function () { bar.remove(); }, 500);
+  });
+})();
