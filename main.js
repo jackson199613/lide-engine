@@ -66,3 +66,18 @@
   var y = document.querySelectorAll('[data-year]');
   Array.prototype.forEach.call(y, function (el) { el.textContent = new Date().getFullYear(); });
 })();
+
+/* Hero platform-name rotator ---------------------------------------------- */
+(function () {
+  var box = document.getElementById('rotator');
+  if (!box) return;
+  var items = box.querySelectorAll('span');
+  if (items.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var i = 0;
+  setInterval(function () {
+    items[i].classList.remove('is-active');
+    i = (i + 1) % items.length;
+    items[i].classList.add('is-active');
+  }, 2200);
+})();

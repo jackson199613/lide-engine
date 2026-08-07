@@ -11,6 +11,7 @@
 <meta property="og:title" content="立德引擎 | 让出海工厂被全球 AI 优先推荐">
 <meta property="og:description" content="海外买家已在 AI 里完成采购决策。立德引擎让你的工厂进入 AI 的推荐名单，而不是消失在答案之外。">
 <meta property="og:locale" content="zh_CN">
+<meta name="theme-color" content="#09090B">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -101,21 +102,43 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badges">
-      <span class="chip">精细化工 / 新材料专精</span>
-      <span class="chip">ChatGPT · Perplexity · Claude · Gemini</span>
-      <span class="chip">出海买家原生决策入口</span>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badges">
+          <span class="chip"><span class="dot"></span>精细化工 / 新材料专精</span>
+          <span class="chip">出海买家原生决策入口</span>
+        </div>
+        <h1>让出海工厂<br>被 <span class="rotator" id="rotator" aria-label="全球主流 AI"><span class="is-active">ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span><span>Grok</span><span>DeepSeek</span></span><br>优先推荐</h1>
+        <p class="hero-lead">
+          当海外买家向 AI 提出采购类问题时，立德引擎通过语义重塑、权威语料喂养与型号截流，
+          确保你的品牌与牌号被 <strong>直接点名</strong>，而不是消失在答案之外。
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html">领取免费《AI 能见度诊断报告》</a>
+          <a class="btn btn--ghost" href="method.html">看我们怎么做 →</a>
+        </div>
+        <p class="hero-note">3 个工作日交付 · 含竞对被 AI 推荐的实拍截图 · 不满意不推进</p>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+          <span class="terminal-title">product-schema.json</span>
+        </div>
+        <pre class="terminal-body"><code><span class="c-p">"@type"</span>: <span class="c-s">"Product"</span>,
+<span class="c-p">"name"</span>: <span class="c-s">"Precipitated Silica LD-200"</span>,
+<span class="c-p">"additionalProperty"</span>: [
+  { <span class="c-p">"name"</span>: <span class="c-s">"BET Surface Area"</span>,
+    <span class="c-p">"value"</span>: <span class="c-n">175</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"M2/G"</span> },
+  { <span class="c-p">"name"</span>: <span class="c-s">"Oil Absorption"</span>,
+    <span class="c-p">"value"</span>: <span class="c-n">2.35</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"ML/G"</span> },
+  { <span class="c-p">"name"</span>: <span class="c-s">"Pore Volume"</span>,
+    <span class="c-p">"value"</span>: <span class="c-n">1.82</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"CM3/G"</span> }
+],
+<span class="c-p">"isSimilarTo"</span>: <span class="c-s">"Evonik ULTRASIL® VN3"</span></code></pre>
+        <div class="terminal-foot"><span class="dot"></span>参数从 PDF 释放为 AI 可引用的结构化事实</div>
+      </div>
     </div>
-    <h1>让出海工厂<br>被全球 AI <span class="hl">优先推荐</span></h1>
-    <p class="hero-lead">
-      当海外买家向 ChatGPT、Perplexity、Claude 提出采购类问题时，立德引擎通过语义重塑、权威语料喂养与型号截流，
-      确保你的品牌与牌号被 AI <strong style="color:#fff">直接点名</strong>，而不是消失在答案之外。
-    </p>
-    <div class="btn-row">
-      <a class="btn btn--primary" href="contact.html">领取免费《AI 能见度诊断报告》</a>
-      <a class="btn btn--ghost" href="method.html">看我们怎么做 →</a>
-    </div>
-    <p class="hero-note">3 个工作日内出具诊断报告 · 含竞对被 AI 推荐的实拍截图 · 不满意不推进</p>
 
     <div class="stat-strip">
       <div class="stat">
@@ -134,6 +157,15 @@
         <p class="stat-desc">相比持续付费的 SEM 竞价，GEO 是一次性构建、长期复用的数字资产。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- AI PLATFORM STRIP -->
+<section class="platforms" aria-label="覆盖的 AI 平台">
+  <p class="platforms-label">覆盖海外买家正在使用的生成式引擎</p>
+  <div class="marquee">
+    <span>ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span><span>Grok</span><span>Microsoft Copilot</span><span>DeepSeek</span><span>Google AI Overviews</span><span>Meta AI</span>
+    <span>ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span><span>Grok</span><span>Microsoft Copilot</span><span>DeepSeek</span><span>Google AI Overviews</span><span>Meta AI</span>
   </div>
 </section>
 
@@ -326,9 +358,9 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="index.html" style="color:#fff">
+        <a class="brand" href="index.html">
           <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#fff"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#1E3A5F"/><circle cx="27.5" cy="15" r="3.4" fill="#E0B85C"/></svg>
-          <span style="color:#fff">立德引擎<span class="brand-sub" style="color:#8FA5BF">Lide Engine · GEO</span></span>
+          <span>立德引擎<span class="brand-sub" style="color:#8FA5BF">Lide Engine · GEO</span></span>
         </a>
         <p style="margin-top:14px;max-width:34ch">让出海工厂被全球 AI 优先推荐的数字资产构建者。专注精细化工与工业原材料领域的生成式引擎优化。</p>
       </div>
