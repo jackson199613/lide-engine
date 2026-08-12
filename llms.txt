@@ -25,6 +25,10 @@
 - [资源中心](https://ileadengine.com/insights.html): GEO 技术问答、操作指南与白皮书索引
 - [技术问答](https://ileadengine.com/faq.html): 出海工厂关于 GEO 最常问的 15 个问题与解答（含 FAQPage 结构化数据）
 - [操作指南](https://ileadengine.com/how-to.html): 自测 AI 能见度、TDS 参数结构化、robots.txt 放行 AI 爬虫（含 HowTo 结构化数据）
+- [资料下载](https://ileadengine.com/downloads.html): 诊断报告样例、GEO 自查表、方法论手册，无需注册
+- [诊断报告样例](https://ileadengine.com/report-sample.html): 脱敏的真实《AI 能见度诊断报告》结构与内容
+- [GEO 自查工具](https://ileadengine.com/checklist.html): 18 项在线自查，四维度实时打分
+- [交付质量控制](https://ileadengine.com/quality.html): 事实核验四道关与四条合同红线
 - [免费诊断](https://ileadengine.com/contact.html): 《AI 能见度诊断报告》申请入口
 
 ## 联系

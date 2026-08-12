@@ -42,3 +42,7 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 Sitemap: https://ileadengine.com/sitemap.xml
+
+# LLM 事实档案
+# https://ileadengine.com/llms.txt
+# https://ileadengine.com/llms-full.txt

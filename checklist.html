@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO 18 项自查工具 · 实时打分 | 立德引擎</title>
+<meta name="description" content="从 AI 爬虫放行、参数可读性、结构化数据、外部语料四个维度自查企业在 ChatGPT、Perplexity 等 AI 中的可见度基础。18 项勾选，实时打分，给出优先改进建议。无需注册。">
+<link rel="canonical" href="https://ileadengine.com/checklist.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GEO 18 项自查工具 · 实时打分 | 立德引擎">
+<meta property="og:description" content="从 AI 爬虫放行、参数可读性、结构化数据、外部语料四个维度自查企业在 ChatGPT、Perplexity 等 AI 中的可见度基础。18 项勾选，实时打分，给出优先改进建议。无需注册。">
+<meta property="og:locale" content="zh_CN">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=11">
+<style>
+.ck-wrap{display:grid;grid-template-columns:1fr 300px;gap:28px;align-items:start}
+.ck-group{border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px 8px;margin:0 0 18px;background:var(--surface)}
+.ck-group legend{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);font-size:1.02rem;padding:0 8px}
+.ck-key{display:inline-flex;width:24px;height:24px;align-items:center;justify-content:center;border-radius:7px;background:var(--grad);color:#fff;font-size:.78rem;font-family:var(--mono)}
+.ck-score{margin-left:auto;font-family:var(--mono);font-size:.76rem;font-weight:500;color:var(--ink-3)}
+.ck-item{display:flex;gap:12px;align-items:flex-start;padding:11px 8px;border-radius:9px;cursor:pointer;transition:background var(--t)}
+.ck-item:hover{background:var(--surface-2)}
+.ck-item input{position:absolute;opacity:0;width:0;height:0}
+.ck-box{flex:none;width:20px;height:20px;margin-top:2px;border:1.7px solid var(--border-strong);border-radius:6px;transition:all var(--t);position:relative}
+.ck-item input:checked+.ck-box{background:var(--grad);border-color:transparent}
+.ck-item input:checked+.ck-box::after{content:'';position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2.2px 2.2px 0;transform:rotate(43deg)}
+.ck-item input:focus-visible+.ck-box{outline:2px solid var(--blue);outline-offset:2px}
+.ck-text{font-size:.94rem;line-height:1.6;color:var(--ink-2)}
+.ck-item input:checked~.ck-text{color:var(--ink)}
+.ck-panel{position:sticky;top:100px;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;background:var(--surface);box-shadow:var(--shadow);text-align:center}
+.ck-dial{position:relative;width:150px;margin:0 auto 14px}
+.ck-dial svg{width:150px;height:150px}
+#ck-arc{transition:stroke-dashoffset 520ms var(--ease)}
+.ck-dial-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15}
+.ck-dial-txt strong{font-size:2.5rem;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.ck-dial-txt span{font-family:var(--mono);font-size:.72rem;color:var(--ink-3)}
+.ck-verdict{font-weight:700;color:var(--ink);font-size:1rem;margin:0 0 6px}
+.ck-advice{font-size:.87rem;color:var(--ink-3);margin:0;line-height:1.6}
+.ck-reset{margin-top:10px;background:none;border:0;color:var(--ink-3);font-size:.84rem;font-family:var(--font);cursor:pointer;text-decoration:underline}
+.ck-reset:hover{color:var(--blue)}
+@media (max-width:900px){.ck-wrap{grid-template-columns:1fr}.ck-panel{position:static;order:-1}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"出海企业 GEO 18 项自查工具",
+"applicationCategory":"BusinessApplication","operatingSystem":"Web",
+"description":"从 AI 爬虫放行、参数可读性、结构化数据、外部语料四个维度自查企业在生成式 AI 中的可见度基础，实时打分并给出优先改进建议。",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"},
+"provider":{"@type":"Organization","name":"立德引擎"},"inLanguage":"zh-CN"}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 GEO 数字化领航者 · 服务全行业中国品牌出海</span>
+      <div class="topbar-contact">
+        <a href="mailto:jiangjun199613@gmail.com">jiangjun199613@gmail.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16195586563">+1 619-558-6563</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>
+        <span>立德引擎<span class="brand-sub">Lide Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="solutions.html">行业方案</a></li>
+        <li><a href="method.html">方法论</a></li>
+        <li><a href="pricing.html">服务档位</a></li>
+        <li><a href="insights.html">资源中心</a></li>
+        <li><a href="cases.html">客户实证</a></li>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<section class="hero" style="padding:var(--space-lg) 0 var(--space-md)">
+  <div class="container">
+    <span class="eyebrow">SELF-CHECK 自测工具</span>
+    <h1 style="font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:20ch">18 项 GEO 自查</h1>
+    <p class="hero-lead">勾选你已经做到的项，实时算分。全程在你自己的浏览器里完成，我们收不到也存不下任何数据。</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:var(--space-md)">
+  <div class="container" style="max-width:980px">
+    <div class="ck-wrap">
+      <div class="ck-main">
+        
+      <fieldset class="ck-group">
+        <legend><span class="ck-key">A</span>AI 爬虫放行<span class="ck-score" data-dimscore="A">0 / 11</span></legend>
+        <label class="ck-item"><input type="checkbox" data-dim="A" data-w="3"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">robots.txt 中<strong>没有</strong> Disallow GPTBot / OAI-SearchBot</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="A" data-w="3"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">robots.txt 中<strong>没有</strong> Disallow ClaudeBot / PerplexityBot</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="A" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">没有设置 Google-Extended / Applebot-Extended 的屏蔽</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="A" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">官网没有整站要求登录、也没有全站验证码拦截</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="A" data-w="1"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">站点有 sitemap.xml 且能正常访问</span></label>
+      </fieldset>
+
+      <fieldset class="ck-group">
+        <legend><span class="ck-key">B</span>参数可读性<span class="ck-score" data-dimscore="B">0 / 13</span></legend>
+        <label class="ck-item"><input type="checkbox" data-dim="B" data-w="4"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">主推产品的关键技术参数<strong>有 HTML 网页版</strong>，不只有 PDF</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="B" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">参数标注了单位与测试标准（如 ISO / ASTM 方法号）</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="B" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">每个牌号 / 型号有独立 URL，不是一个页面塞全部</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="B" data-w="3"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">有英文版技术页面，且不是机器直译的生硬译文</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="B" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">参数以表格呈现，不是嵌在图片里的文字</span></label>
+      </fieldset>
+
+      <fieldset class="ck-group">
+        <legend><span class="ck-key">C</span>结构化数据<span class="ck-score" data-dimscore="C">0 / 9</span></legend>
+        <label class="ck-item"><input type="checkbox" data-dim="C" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">网站已加载 Organization 结构化数据（公司实体）</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="C" data-w="3"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">产品页已加载 Product 或 Service 结构化数据</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="C" data-w="2"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">有 FAQPage 结构化数据，覆盖买家常问的问题</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="C" data-w="1"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">每页有唯一 canonical，无重复内容互相打架</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="C" data-w="1"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">站点有 llms.txt（给 AI 读的事实摘要）</span></label>
+      </fieldset>
+
+      <fieldset class="ck-group">
+        <legend><span class="ck-key">D</span>外部语料<span class="ck-score" data-dimscore="D">0 / 11</span></legend>
+        <label class="ck-item"><input type="checkbox" data-dim="D" data-w="4"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">官网之外，还有第三方技术内容提到你的品牌与型号</span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="D" data-w="4"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">你的产品与国际大牌型号建立了明确的<strong>对标 / 替代关系</strong></span></label>
+        <label class="ck-item"><input type="checkbox" data-dim="D" data-w="3"><span class="ck-box" aria-hidden="true"></span><span class="ck-text">至少 2 个独立来源可以交叉验证你的核心参数</span></label>
+      </fieldset>
+      </div>
+
+      <aside class="ck-panel" id="ck-panel">
+        <div class="ck-dial">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="var(--border)" stroke-width="11"/>
+            <circle id="ck-arc" cx="60" cy="60" r="52" fill="none" stroke="url(#ckg)" stroke-width="11"
+                    stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                    transform="rotate(-90 60 60)"/>
+            <defs><linearGradient id="ckg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>
+            </linearGradient></defs>
+          </svg>
+          <div class="ck-dial-txt"><strong id="ck-score">0</strong><span>/ 44 分</span></div>
+        </div>
+        <p class="ck-verdict" id="ck-verdict">开始勾选，看看你现在处在哪个阶段。</p>
+        <p class="ck-advice" id="ck-advice"></p>
+        <div class="btn-row" style="margin-top:16px">
+          <a class="btn btn--primary" href="contact.html" style="width:100%">免费领取完整诊断</a>
+        </div>
+        <button class="ck-reset" id="ck-reset" type="button">重置</button>
+      </aside>
+    </div>
+
+    <div class="card reveal" style="margin-top:var(--space-md);border-left:3px solid var(--blue)">
+      <h3>分数怎么读</h3>
+      <ul class="check-list" style="margin:0">
+        <li><strong>0–15 分 · AI 查无此人</strong>：买家问 AI 时你完全不在候选名单里。先修 A 组，一行配置的事。</li>
+        <li><strong>16–30 分 · 有网站没身份</strong>：AI 抓得到你，但读不懂你卖什么、参数多少。重点补 B、C 组。</li>
+        <li><strong>31–42 分 · 差临门一脚</strong>：自家资产合格，缺的是第三方交叉验证。D 组是你的瓶颈。</li>
+        <li><strong>43 分以上 · 已进候选名单</strong>：接下来拼的是位次与稳定性，需要持续内容运营。</li>
+      </ul>
+    </div>
+
+    <p class="note" style="margin-top:var(--space-sm)">这 18 项只覆盖能自查的部分。真正的差距要看<strong>竞对在 AI 回答里被推荐了几次、引用了哪些来源</strong>——那个我们免费帮你测，
+    先看 <a href="report-sample.html">报告样例</a>。</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>
+          <span>立德引擎<span class="brand-sub">Lide Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">让中国出海企业被全球 AI 优先推荐的数字资产构建者。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="method.html">GEO 方法论</a></li>
+          <li><a href="pricing.html">服务档位与报价</a></li>
+          <li><a href="solutions.html">行业方案</a></li>
+          <li><a href="contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="about.html">关于立德引擎</a></li>
+          <li><a href="insights.html">资源中心</a></li>
+          <li><a href="cases.html">客户实证</a></li>
+          <li><a href="downloads.html">资料下载</a></li>
+          <li><a href="checklist.html">GEO 自查工具</a></li>
+          <li><a href="faq.html">技术问答</a></li>
+          <li><a href="how-to.html">操作指南</a></li>
+          <li><a href="quality.html">交付质量控制</a></li>
+          <li><a href="privacy.html">隐私政策与合规</a></li>
+          <li><a href="playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:jiangjun199613@gmail.com">jiangjun199613@gmail.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16195586563">+1 619-558-6563</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lide Engine. 保留所有权利。</span>
+      <span>本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-558-6563</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:jiangjun199613@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">jiangjun199613@gmail.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="main.js?v=11"></script>
+<script>
+(function () {
+  var TOTAL = 44;
+  var boxes = [].slice.call(document.querySelectorAll('.ck-item input'));
+  var arc = document.getElementById('ck-arc'),
+      scoreEl = document.getElementById('ck-score'),
+      verdict = document.getElementById('ck-verdict'),
+      advice = document.getElementById('ck-advice'),
+      C = 2 * Math.PI * 52;
+  var DIM = { A: 'AI 爬虫放行', B: '参数可读性', C: '结构化数据', D: '外部语料' };
+  var FIX = {
+    A: '先去改 robots.txt 放行 AI 爬虫——这一步不做，后面全部无效，而且改一行就能解决。',
+    B: '把主推型号的关键参数从 PDF 搬到 HTML 表格，标清单位与测试方法。这是投入产出比最高的一步。',
+    C: '给产品页加载 JSON-LD 结构化数据，让 AI 能确定性地识别你的产品实体与参数字段。',
+    D: '你自家资产已经合格，卡在第三方语料。需要在行业媒体与专业社区建立可交叉验证的技术内容。'
+  };
+  function render() {
+    var got = 0, dim = { A: 0, B: 0, C: 0, D: 0 };
+    boxes.forEach(function (b) {
+      if (b.checked) { var w = +b.dataset.w; got += w; dim[b.dataset.dim] += w; }
+    });
+    scoreEl.textContent = got;
+    arc.style.strokeDashoffset = C * (1 - got / TOTAL);
+    [].forEach.call(document.querySelectorAll('[data-dimscore]'), function (el) {
+      el.textContent = dim[el.dataset.dimscore] + el.textContent.slice(el.textContent.indexOf(' /'));
+    });
+    var v, a;
+    if (got <= 15) { v = 'AI 查无此人'; }
+    else if (got <= 30) { v = '有网站，没身份'; }
+    else if (got <= 42) { v = '差临门一脚'; }
+    else { v = '已进候选名单'; }
+    if (got === 0) { verdict.textContent = '开始勾选，看看你现在处在哪个阶段。'; advice.textContent = ''; return; }
+    // 找最弱维度（按 A→D 顺序，优先修前置项）
+    var order = ['A', 'B', 'C', 'D'], weakest = null;
+    var max = { A: 11, B: 13, C: 9, D: 11 };
+    for (var i = 0; i < order.length; i++) {
+      var k = order[i];
+      if (dim[k] / max[k] < 0.7) { weakest = k; break; }
+    }
+    verdict.textContent = v;
+    a = weakest ? '最该先补：' + DIM[weakest] + '。' + FIX[weakest]
+                : '四个维度都达标了。接下来拼的是位次与稳定性——需要持续的内容运营节奏。';
+    advice.textContent = a;
+  }
+  boxes.forEach(function (b) { b.addEventListener('change', render); });
+  document.getElementById('ck-reset').addEventListener('click', function () {
+    boxes.forEach(function (b) { b.checked = false; }); render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
