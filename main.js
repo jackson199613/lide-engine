@@ -199,3 +199,94 @@
       });
   });
 })();
+
+/* 开场加载动画 ------------------------------------------------------------ */
+(function () {
+  if (!document.body || document.body.dataset.intro !== 'on') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try { if (sessionStorage.getItem('le_intro')) return; } catch (e) {}
+
+  var el = document.createElement('div');
+  el.className = 'intro';
+  el.innerHTML =
+    '<div class="intro-inner">'
+    + '<div class="intro-brand">立德引擎<small>Lide Engine · GEO</small></div>'
+    + '<p class="intro-tag">让出海工厂被全球 AI 优先推荐</p>'
+    + '</div>'
+    + '<div class="intro-pct">0%</div>'
+    + '<div class="intro-bar"><i></i></div>';
+  document.body.appendChild(el);
+  document.body.style.overflow = 'hidden';
+
+  var bar = el.querySelector('.intro-bar i');
+  var pct = el.querySelector('.intro-pct');
+  var v = 0;
+  var t = setInterval(function () {
+    v += Math.random() * 18 + 8;
+    if (v >= 100) {
+      v = 100; clearInterval(t);
+      setTimeout(function () {
+        el.classList.add('is-done');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem('le_intro', '1'); } catch (e) {}
+        setTimeout(function () { el.remove(); }, 800);
+      }, 320);
+    }
+    bar.style.width = v + '%';
+    pct.textContent = Math.round(v) + '%';
+  }, 130);
+})();
+
+/* 顶部滚动进度条 ---------------------------------------------------------- */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bar = document.createElement('div');
+  bar.className = 'scroll-bar';
+  document.body.appendChild(bar);
+  var ticking = false;
+  function update() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* Hero 鼠标跟随光晕 + 视差 ------------------------------------------------ */
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  var glow = document.createElement('div');
+  glow.className = 'hero-glow';
+  hero.insertBefore(glow, hero.firstChild);
+
+  var raf = null;
+  hero.addEventListener('mousemove', function (e) {
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      raf = null;
+    });
+  }, { passive: true });
+
+  // 轻视差：aurora 背景随滚动微移
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        hero.style.setProperty('--par', (y * 0.12) + 'px');
+      }
+      ticking = false;
+    });
+  }, { passive: true });
+})();
