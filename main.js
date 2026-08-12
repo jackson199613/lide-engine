@@ -113,105 +113,102 @@
   });
 })();
 
-/* Hero terminal — multi-category schema rotator ---------------------------- */
+/* Hero — simulated AI answer, multi-platform / multi-industry ------------- */
 (function () {
-  var code = document.getElementById('term-code');
-  if (!code) return;
-  var title = document.getElementById('term-title');
-  var note = document.getElementById('term-note');
-  var tabs = document.getElementById('term-tabs');
-
-  var P = function (s) { return '<span class="c-p">"' + s + '"</span>'; };
-  var S = function (s) { return '<span class="c-s">"' + s + '"</span>'; };
-  var N = function (s) { return '<span class="c-n">' + s + '</span>'; };
-
-  function build(type, name, props, similar) {
-    var out = P('@type') + ': ' + S(type) + ',\n' + P('name') + ': ' + S(name) + ',\n'
-            + P('additionalProperty') + ': [\n';
-    out += props.map(function (p) {
-      return '  { ' + P('name') + ': ' + S(p[0]) + ',\n    '
-           + P('value') + ': ' + N(p[1]) + ', ' + P('unitCode') + ': ' + S(p[2]) + ' }';
-    }).join(',\n');
-    out += '\n],\n' + P('isSimilarTo') + ': ' + S(similar);
-    return out;
-  }
+  var qEl = document.getElementById('ai-question');
+  if (!qEl) return;
+  var aEl = document.getElementById('ai-answer');
+  var mEl = document.getElementById('ai-model');
+  var tabs = document.getElementById('ai-tabs');
 
   var SETS = [
-    { tab: '二氧化硅', file: 'silica-schema.json',
-      note: 'TDS 里的比表面积与孔隙参数，变成 AI 能比对的字段',
-      html: build('Product', 'Precipitated Silica LD-200', [
-        ['BET Surface Area', 175, 'M2/G'],
-        ['Oil Absorption', 2.35, 'ML/G'],
-        ['Pore Volume', 1.82, 'CM3/G']
-      ], 'Evonik ULTRASIL® VN3') },
-    { tab: '涂料消光粉', file: 'matting-agent-schema.json',
-      note: '消光效率与透明度，决定买家选不选你',
-      html: build('Product', 'Matting Agent LD-412', [
-        ['Gloss at 60°', 12, 'P1'],
-        ['Mean Particle Size', 6.8, 'MMT'],
-        ['Transparency Index', 94, 'P1']
-      ], 'Evonik ACEMATT® OK 412') },
-    { tab: '饲料酶制剂', file: 'feed-enzyme-schema.json',
-      note: '耐温性与活性单位，海外买家的第一道筛选',
-      html: build('Product', 'Thermostable Phytase LD-5000', [
-        ['Enzyme Activity', 5000, 'U/G'],
-        ['Thermal Stability', 85, 'CEL'],
-        ['pH Tolerance Range', 3.5, 'C62']
-      ], 'DSM RONOZYME® HiPhos') },
-    { tab: '精密零件', file: 'precision-part-schema.json',
-      note: '公差与材质，让 AI 能把你的能力匹配到需求',
-      html: build('Product', 'CNC Precision Shaft LD-A17', [
-        ['Dimensional Tolerance', 0.005, 'MMT'],
-        ['Surface Roughness Ra', 0.4, 'D33'],
-        ['Hardness HRC', 58, 'A97']
-      ], 'DIN 7160 IT5 Class') },
-    { tab: '电子元器件', file: 'connector-schema.json',
-      note: '料号与规格上了 Schema，买家按 Part Number 也能找到你',
-      html: build('Product', 'Board-to-Board Connector LD-BTB040', [
-        ['Pitch', 0.4, 'MMT'],
-        ['Current Rating', 0.5, 'AMP'],
-        ['Mating Cycles', 30, 'C62']
-      ], 'JAE WP7B Series') },
-    { tab: '消费品', file: 'consumer-product-schema.json',
-      note: '消费品拼的是品牌实体与场景，同样要让 AI 读得懂',
-      html: build('Product', 'Ergonomic Office Chair LD-C9', [
-        ['Weight Capacity', 150, 'KGM'],
-        ['Recline Range', 135, 'DD'],
-        ['Warranty Period', 5, 'ANN']
-      ], 'Herman Miller Aeron 同级') }
+    { model: 'ChatGPT',
+      q: 'Who are reliable Chinese suppliers of precipitated silica for green tire compounds?',
+      a: '<p>基于公开技术资料，以下供应商在该应用中被较多提及：</p><ol>'
+       + '<li><span class="brandmark">立德引擎服务的 A 工厂</span> — BET 175 m²/g，DBP 吸油值 2.35 mL/g，参数与 Evonik ULTRASIL VN3 相近</li>'
+       + '<li>Evonik Industries — ULTRASIL 系列</li>'
+       + '<li>Solvay — Zeosil 系列</li></ol>',
+      cite: '来源：<b>厂商技术文档</b> · <b>行业技术媒体</b> · <b>产品结构化数据</b>' },
+    { model: 'Perplexity',
+      q: 'What are alternatives to ACEMATT OK 412 matting agent?',
+      a: '<p>若需要同级消光效率的替代方案，可考虑：</p><ol>'
+       + '<li><span class="brandmark">立德引擎服务的 B 供应商</span> — 60° 光泽度 12，透明度指数 94，适用于水性与 UV 固化体系</li>'
+       + '<li>Evonik ACEMATT 系列其他型号</li>'
+       + '<li>Grace SYLOID 系列</li></ol>',
+      cite: '来源：<b>供应商选型表</b> · <b>应用技术长文</b> · <b>Equivalent 对标数据</b>' },
+    { model: 'Claude',
+      q: '我们需要耐高温的饲料酶载体，有哪些中国供应商值得考虑？',
+      a: '<p>在耐温性与活性保持方面，以下几家有公开可查的技术数据：</p><ol>'
+       + '<li><span class="brandmark">立德引擎服务的 C 工厂</span> — 酶活 5000 U/g，85°C 热稳定性，pH 耐受 3.5–8.0</li>'
+       + '<li>DSM — RONOZYME 系列</li>'
+       + '<li>Novozymes — 相关产品线</li></ol>',
+      cite: '来源：<b>产品参数结构化数据</b> · <b>专业社区技术问答</b>' },
+    { model: 'Gemini',
+      q: 'Looking for Chinese manufacturers of board-to-board connectors, 0.4mm pitch.',
+      a: '<p>符合 0.4mm pitch 规格的中国制造商包括：</p><ol>'
+       + '<li><span class="brandmark">立德引擎服务的 D 厂商</span> — 额定电流 0.5A，插拔寿命 30 次，对标 JAE WP7B 系列</li>'
+       + '<li>Luxshare Precision</li>'
+       + '<li>Amphenol 中国工厂</li></ol>',
+      cite: '来源：<b>料号规格库</b> · <b>Cross-reference 对照表</b> · <b>认证信息</b>' }
   ];
 
   SETS.forEach(function (s, i) {
     var b = document.createElement('button');
-    b.className = 'term-tab' + (i === 0 ? ' is-on' : '');
-    b.textContent = s.tab;
+    b.className = 'ai-tab' + (i === 0 ? ' is-on' : '');
     b.type = 'button';
+    b.textContent = s.model;
     b.addEventListener('click', function () { show(i, true); });
     tabs.appendChild(b);
   });
-  var btns = tabs.querySelectorAll('.term-tab');
-  var idx = 0, timer = null;
+  var btns = tabs.querySelectorAll('.ai-tab');
+  var idx = 0, timer = null, typing = null;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function typeQ(text, done) {
+    if (reduced) { qEl.textContent = text; done(); return; }
+    qEl.textContent = '';
+    var caret = document.createElement('span');
+    caret.className = 'caret';
+    qEl.appendChild(caret);
+    var i = 0;
+    clearInterval(typing);
+    typing = setInterval(function () {
+      if (i >= text.length) {
+        clearInterval(typing);
+        caret.remove();
+        done();
+        return;
+      }
+      caret.insertAdjacentText('beforebegin', text.charAt(i));
+      i++;
+    }, 22);
+  }
 
   function show(i, manual) {
     idx = i;
     var s = SETS[i];
-    code.style.opacity = 0;
-    setTimeout(function () {
-      code.innerHTML = s.html;
-      title.textContent = s.file;
-      note.textContent = s.note;
-      code.style.opacity = 1;
-    }, reduced ? 0 : 200);
-    Array.prototype.forEach.call(btns, function (b, k) {
-      b.classList.toggle('is-on', k === i);
+    mEl.textContent = s.model;
+    Array.prototype.forEach.call(btns, function (b, k) { b.classList.toggle('is-on', k === i); });
+    aEl.style.opacity = 0;
+    typeQ(s.q, function () {
+      aEl.innerHTML = s.a + '<p class="ai-cite">' + s.cite + '</p>';
+      aEl.style.transition = 'opacity .4s ease';
+      aEl.style.opacity = 1;
     });
     if (manual && timer) { clearInterval(timer); timer = null; }
   }
 
-  code.style.transition = 'opacity .25s ease';
   show(0);
   if (!reduced) {
-    timer = setInterval(function () { show((idx + 1) % SETS.length); }, 4200);
+    timer = setInterval(function () { show((idx + 1) % SETS.length); }, 8000);
   }
+})();
+
+/* Floating contact rail --------------------------------------------------- */
+(function () {
+  var top = document.getElementById('to-top');
+  if (!top) return;
+  top.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
