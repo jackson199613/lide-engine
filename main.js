@@ -388,15 +388,14 @@
   }, { threshold: 0 }).observe(hero);
 })();
 
-/* 开场页 Splash —— 停留式，点击进入 -------------------------------------- */
+/* 开场页 Splash · 两幕（能量环 → 地球光弧），点击进入 -------------------- */
 (function () {
   if (!document.body || document.body.dataset.intro !== 'on') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   try { if (sessionStorage.getItem('le_splash')) return; } catch (e) {}
 
-  var NAME = '立德引擎';
-  var chars = NAME.split('').map(function (c, i) {
-    return '<span style="animation-delay:' + (0.45 + i * 0.11) + 's">' + c + '</span>';
+  var chars = '立德引擎'.split('').map(function (c, i) {
+    return '<span style="animation-delay:' + (0.72 + i * 0.12) + 's">' + c + '</span>';
   }).join('');
 
   var el = document.createElement('div');
@@ -404,44 +403,54 @@
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-label', '立德引擎 · 进入官网');
   el.innerHTML =
-    '<div class="splash-bg"></div>'
-    + '<button class="splash-skip" type="button">跳过 →</button>'
-    + '<div class="splash-inner">'
-    + '<div class="splash-logo">'
-    + '<svg viewBox="0 0 40 40"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">'
-    + '<stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>'
-    + '</linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#sg)"/>'
-    + '<path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>'
+      '<div class="sp-scene sp-earth"><img src="splash-earth.webp" alt="" aria-hidden="true"></div>'
+    + '<div class="sp-scene sp-ring"><img src="splash-ring.webp" alt="" aria-hidden="true"></div>'
+    + '<div class="sp-veil"></div>'
+    + '<button class="sp-skip" type="button">跳过 →</button>'
+    + '<div class="sp-inner">'
+    +   '<div class="sp-logo">'
+    +     '<svg viewBox="0 0 40 40"><defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="1">'
+    +     '<stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>'
+    +     '</linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#spg)"/>'
+    +     '<path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>'
+    +   '</div>'
+    +   '<h1 class="sp-name">' + chars + '</h1>'
+    +   '<p class="sp-en">Lide Engine · GEO</p>'
+    +   '<p class="sp-slogan">让出海工厂被全球 AI <b>优先推荐</b></p>'
+    +   '<div class="sp-markets"><i>欧美</i><i>东南亚</i><i>中东</i><i>南美</i></div>'
+    +   '<div class="sp-plat"><i>ChatGPT</i><i>Perplexity</i><i>Claude</i><i>Gemini</i><i>Grok</i><i>DeepSeek</i></div>'
+    +   '<button class="sp-enter" type="button">进入官网'
+    +     '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+    +   '</button>'
     + '</div>'
-    + '<h1 class="splash-name">' + chars + '</h1>'
-    + '<p class="splash-en">Lide Engine · GEO</p>'
-    + '<p class="splash-slogan">让出海工厂被全球 AI <b>优先推荐</b></p>'
-    + '<div class="splash-plat"><i>ChatGPT</i><i>Perplexity</i><i>Claude</i><i>Gemini</i><i>Grok</i><i>DeepSeek</i></div>'
-    + '<button class="splash-enter" type="button">进入官网'
-    + '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
-    + '</button>'
-    + '</div>'
-    + '<p class="splash-hint">点击任意位置进入</p>';
+    + '<div class="sp-dots"><i class="on"></i><i></i></div>'
+    + '<p class="sp-hint">点击任意位置进入</p>';
 
   document.body.appendChild(el);
   document.body.classList.add('splash-on');
+
+  // 第二幕：3.4 秒后切到地球
+  var dots = el.querySelectorAll('.sp-dots i');
+  var t2 = setTimeout(function () {
+    el.classList.add('act2');
+    dots[0].classList.remove('on');
+    dots[1].classList.add('on');
+  }, 3400);
 
   var gone = false;
   function enter() {
     if (gone) return;
     gone = true;
+    clearTimeout(t2);
     el.classList.add('is-out');
     document.body.classList.remove('splash-on');
     try { sessionStorage.setItem('le_splash', '1'); } catch (e) {}
-    setTimeout(function () { el.remove(); }, 1000);
+    setTimeout(function () { el.remove(); }, 1100);
   }
 
   el.addEventListener('click', enter);
   document.addEventListener('keydown', function onKey(e) {
-    if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
-      enter(); document.removeEventListener('keydown', onKey);
-    }
+    if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { enter(); document.removeEventListener('keydown', onKey); }
   });
-  // 滚动也可进入
   window.addEventListener('wheel', enter, { once: true, passive: true });
 })();
