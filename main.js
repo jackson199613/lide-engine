@@ -200,43 +200,6 @@
   });
 })();
 
-/* 开场加载动画 ------------------------------------------------------------ */
-(function () {
-  if (!document.body || document.body.dataset.intro !== 'on') return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  try { if (sessionStorage.getItem('le_intro')) return; } catch (e) {}
-
-  var el = document.createElement('div');
-  el.className = 'intro';
-  el.innerHTML =
-    '<div class="intro-inner">'
-    + '<div class="intro-brand">立德引擎<small>Lide Engine · GEO</small></div>'
-    + '<p class="intro-tag">让出海工厂被全球 AI 优先推荐</p>'
-    + '</div>'
-    + '<div class="intro-pct">0%</div>'
-    + '<div class="intro-bar"><i></i></div>';
-  document.body.appendChild(el);
-  document.body.style.overflow = 'hidden';
-
-  var bar = el.querySelector('.intro-bar i');
-  var pct = el.querySelector('.intro-pct');
-  var v = 0;
-  var t = setInterval(function () {
-    v += Math.random() * 18 + 8;
-    if (v >= 100) {
-      v = 100; clearInterval(t);
-      setTimeout(function () {
-        el.classList.add('is-done');
-        document.body.style.overflow = '';
-        try { sessionStorage.setItem('le_intro', '1'); } catch (e) {}
-        setTimeout(function () { el.remove(); }, 800);
-      }, 320);
-    }
-    bar.style.width = v + '%';
-    pct.textContent = Math.round(v) + '%';
-  }, 130);
-})();
-
 /* 顶部滚动进度条 ---------------------------------------------------------- */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -423,4 +386,62 @@
       if (running) draw();
     });
   }, { threshold: 0 }).observe(hero);
+})();
+
+/* 开场页 Splash —— 停留式，点击进入 -------------------------------------- */
+(function () {
+  if (!document.body || document.body.dataset.intro !== 'on') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try { if (sessionStorage.getItem('le_splash')) return; } catch (e) {}
+
+  var NAME = '立德引擎';
+  var chars = NAME.split('').map(function (c, i) {
+    return '<span style="animation-delay:' + (0.45 + i * 0.11) + 's">' + c + '</span>';
+  }).join('');
+
+  var el = document.createElement('div');
+  el.className = 'splash';
+  el.setAttribute('role', 'dialog');
+  el.setAttribute('aria-label', '立德引擎 · 进入官网');
+  el.innerHTML =
+    '<div class="splash-bg"></div>'
+    + '<button class="splash-skip" type="button">跳过 →</button>'
+    + '<div class="splash-inner">'
+    + '<div class="splash-logo">'
+    + '<svg viewBox="0 0 40 40"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">'
+    + '<stop offset="0" stop-color="#2B5BFF"/><stop offset=".52" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>'
+    + '</linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#sg)"/>'
+    + '<path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>'
+    + '</div>'
+    + '<h1 class="splash-name">' + chars + '</h1>'
+    + '<p class="splash-en">Lide Engine · GEO</p>'
+    + '<p class="splash-slogan">让出海工厂被全球 AI <b>优先推荐</b></p>'
+    + '<div class="splash-plat"><i>ChatGPT</i><i>Perplexity</i><i>Claude</i><i>Gemini</i><i>Grok</i><i>DeepSeek</i></div>'
+    + '<button class="splash-enter" type="button">进入官网'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+    + '</button>'
+    + '</div>'
+    + '<p class="splash-hint">点击任意位置进入</p>';
+
+  document.body.appendChild(el);
+  document.body.classList.add('splash-on');
+
+  var gone = false;
+  function enter() {
+    if (gone) return;
+    gone = true;
+    el.classList.add('is-out');
+    document.body.classList.remove('splash-on');
+    try { sessionStorage.setItem('le_splash', '1'); } catch (e) {}
+    setTimeout(function () { el.remove(); }, 1000);
+  }
+
+  el.addEventListener('click', enter);
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+      enter(); document.removeEventListener('keydown', onKey);
+    }
+  });
+  // 滚动也可进入
+  window.addEventListener('wheel', enter, { once: true, passive: true });
 })();
