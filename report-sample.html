@@ -76,10 +76,10 @@
       <div class="table-wrap" style="margin-top:14px">
         <table>
           <tbody>
-            <tr><td><strong>受测品牌</strong></td><td>某精细化工厂（匿名）</td></tr>
-            <tr><td><strong>目标品类</strong></td><td>沉淀法二氧化硅 · 绿色轮胎应用</td></tr>
+            <tr><td><strong>受测品牌</strong></td><td>某工业密封件制造商（匿名）</td></tr>
+            <tr><td><strong>目标品类</strong></td><td>工业密封件 · 液压系统应用</td></tr>
             <tr><td><strong>目标市场</strong></td><td>欧洲、东南亚</td></tr>
-            <tr><td><strong>对比竞对</strong></td><td>Evonik、Solvay、某国内同行</td></tr>
+            <tr><td><strong>对比竞对</strong></td><td>国际品牌 A、国际品牌 B、某国内同行</td></tr>
             <tr><td><strong>测试模型</strong></td><td>ChatGPT、Perplexity、Claude、Gemini</td></tr>
             <tr><td><strong>测试问题数</strong></td><td>12 个（买家视角，英文为主）</td></tr>
             <tr><td><strong>测试日期</strong></td><td>2026-07-XX</td></tr>
@@ -96,10 +96,10 @@
         <table>
           <thead><tr><th scope="col">测试问题</th><th scope="col">ChatGPT</th><th scope="col">Perplexity</th><th scope="col">Claude</th><th scope="col">Gemini</th></tr></thead>
           <tbody>
-            <tr><td>可靠的中国二氧化硅供应商？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
-            <tr><td>绿色轮胎用高分散白炭黑推荐？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
-            <tr><td>ULTRASIL VN3 的替代方案？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
-            <tr><td>BET 170-180 的沉淀法二氧化硅？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
+            <tr><td>可靠的中国液压密封件供应商？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
+            <tr><td>高压液压系统用密封件推荐？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
+            <tr><td>某国际型号密封圈的替代方案？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
+            <tr><td>耐温 200 °C 以上的氟橡胶密封件？</td><td>未提及</td><td>未提及</td><td>未提及</td><td>未提及</td></tr>
             <tr><td colspan="5" style="text-align:center;color:var(--ink-3)">… 其余 8 题略 …</td></tr>
           </tbody>
         </table>
@@ -117,8 +117,8 @@
         <table>
           <thead><tr><th scope="col">竞对</th><th scope="col">被点名次数</th><th scope="col">AI 引用的来源类型</th></tr></thead>
           <tbody>
-            <tr><td><strong>Evonik</strong></td><td class="td-win">41 / 48</td><td>官网技术页、行业媒体、学术文献、维基条目</td></tr>
-            <tr><td><strong>Solvay</strong></td><td class="td-win">33 / 48</td><td>官网产品数据库、技术白皮书、行业平台</td></tr>
+            <tr><td><strong>国际品牌 A</strong></td><td class="td-win">41 / 48</td><td>官网技术页、行业媒体、学术文献、维基条目</td></tr>
+            <tr><td><strong>国际品牌 B</strong></td><td class="td-win">33 / 48</td><td>官网产品数据库、技术白皮书、行业平台</td></tr>
             <tr><td><strong>某国内同行</strong></td><td>7 / 48</td><td>阿里国际站页面、少量英文技术文章</td></tr>
             <tr><td><strong>受测品牌</strong></td><td>0 / 48</td><td>—— 无任何来源被引用</td></tr>
           </tbody>
@@ -156,9 +156,9 @@
       <p class="note">按「投入产出比」排序，前两项你自己就能做完。</p>
       <div class="steps reveal" style="margin-top:16px">
         <div class="step"><h3>解除 AI 爬虫屏蔽<span class="note"> · 10 分钟 · 自己可做</span></h3><p>robots.txt 放行 GPTBot、ClaudeBot、PerplexityBot、Google-Extended。不做这一步，后面全部无效。</p></div>
-        <div class="step"><h3>Top 3 产品参数上 HTML<span class="note"> · 1–2 天 · 自己可做</span></h3><p>把主推牌号的 BET、吸油值、粒径分布从 PDF 搬到网页表格，标注单位与测试方法。</p></div>
+        <div class="step"><h3>Top 3 产品参数上 HTML<span class="note"> · 1–2 天 · 自己可做</span></h3><p>把主推牌号的耐温范围、压缩永久变形、邵氏硬度从 PDF 搬到网页表格，标注单位与测试方法。</p></div>
         <div class="step"><h3>加载 Product 结构化数据<span class="note"> · 需要技术支持</span></h3><p>用 JSON-LD 标注产品实体与参数字段，让 AI 能确定性地引用。</p></div>
-        <div class="step"><h3>建立大牌型号对标关系<span class="note"> · 需要行业知识</span></h3><p>与 ULTRASIL VN3 等型号建立参数对标，切入「替代方案」类查询。</p></div>
+        <div class="step"><h3>建立大牌型号对标关系<span class="note"> · 需要行业知识</span></h3><p>与国际主流型号建立参数对标，切入「替代方案」类查询。</p></div>
         <div class="step"><h3>外部技术语料投放<span class="note"> · 持续进行</span></h3><p>行业媒体与专业社区的多源交叉验证，这是提及率能否稳住的关键。</p></div>
       </div>
     </div>

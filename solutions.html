@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="style.css?v=11">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","name":"立德引擎行业 GEO 解决方案","itemListElement":[
-{"@type":"ListItem","position":1,"name":"二氧化硅 / 白炭黑 GEO 解决方案","description":"BET 比表面积、孔容、吸油值、粒径分布这些决定性参数全躺在 PDF 里，AI 读不到，只能复述你官网那句「质量优良」。"},
+{"@type":"ListItem","position":1,"name":"医疗器械 / 实验室耗材 GEO 解决方案","description":"CE、FDA、ISO 13485 这些认证信息与规格参数分散在 PDF 和图片里，AI 无法确认你的合规资质，直接把你排除在候选之外。"},
 {"@type":"ListItem","position":2,"name":"特种涂料 / 助剂 GEO 解决方案","description":"买家搜的是「OK 412 替代方案」这类具体型号，AI 只会推原厂，你连候选名单都进不去。"},
 {"@type":"ListItem","position":3,"name":"橡胶助剂 / 化学品 GEO 解决方案","description":"品类高度同质化，AI 判断不出你和别人的差异，只能按品牌知名度排序——你必然靠后。"},
 {"@type":"ListItem","position":4,"name":"饲料添加剂 / 生物制品 GEO 解决方案","description":"海外买家用的是英文专业术语提问（耐高温载体、包被工艺），你的中文技术文档 AI 用不上。"},
@@ -83,12 +83,12 @@
       <p class="lead">找到最接近你的那一类。没找到也不要紧——方法是通用的，只是每个行业的关键字段不同。不确定就直接做诊断，我们用实测结果告诉你卡在哪。</p>
     </div>
     <div class="grid grid-3">
-      <article class="card reveal" id="silica">
-        <span class="card-num">SILICA</span>
-        <h3>二氧化硅 / 白炭黑</h3>
-        <p class="note" style="margin-bottom:14px">沉淀法、气相法二氧化硅生产商</p>
-        <p><strong>典型困境：</strong>BET 比表面积、孔容、吸油值、粒径分布这些决定性参数全躺在 PDF 里，AI 读不到，只能复述你官网那句「质量优良」。</p>
-        <ul class="check-list" style="margin-top:14px"><li>参数结构化：BET、孔容、吸油值、DBP 吸收值全字段建模</li><li>型号对标：与 Evonik ULTRASIL、Solvay Zeosil 建立 Equivalent 关系</li><li>应用场景卡位：绿色轮胎、鞋材、饲料载体、涂料消光</li></ul>
+      <article class="card reveal" id="medical">
+        <span class="card-num">MEDICAL</span>
+        <h3>医疗器械 / 实验室耗材</h3>
+        <p class="note" style="margin-bottom:14px">耗材、器械配件、实验室用品制造商</p>
+        <p><strong>典型困境：</strong>这一行买家先筛合规再谈价格。你的 CE、FDA、ISO 13485 信息躺在 PDF 和证书图片里，AI 确认不了你的资质，直接把你排除在候选之外。</p>
+        <ul class="check-list" style="margin-top:14px"><li>合规信息结构化：认证类型、编号、有效期、覆盖品类全字段建模</li><li>规格建模：材质、灭菌方式、适用标准逐项 HTML 化</li><li>场景卡位：按临床科室与实验流程建立应用场景内容</li></ul>
         <p class="note" style="margin:0"><strong>建议档位：</strong>Lide-Pro 专家版</p>
       </article>
       <article class="card reveal" id="coatings">
@@ -175,8 +175,8 @@
       <div class="card reveal" style="padding:24px">
         <span class="card-num">化工 / 新材料</span>
         <p class="ba-mini-q">「有哪些可靠的中国助剂供应商？」</p>
-        <div class="ba-mini ba-mini--before"><span>合作前</span>Evonik · BASF · Solvay<b>你的品牌未被提及</b></div>
-        <div class="ba-mini ba-mini--after"><span>合作后</span><em>你的品牌</em> · Evonik · BASF<b>进入首位推荐</b></div>
+        <div class="ba-mini ba-mini--before"><span>合作前</span>BASF · 3M · Henkel<b>你的品牌未被提及</b></div>
+        <div class="ba-mini ba-mini--after"><span>合作后</span><em>你的品牌</em> · BASF · 3M<b>进入首位推荐</b></div>
       </div>
 
       <div class="card reveal" style="padding:24px">
@@ -209,7 +209,7 @@
       <table>
         <thead><tr><th scope="col">行业品类</th><th scope="col">被 AI 忽略的原因</th><th scope="col">对应打法</th><th scope="col">建议档位</th></tr></thead>
         <tbody>
-<tr><td><strong>二氧化硅 / 白炭黑</strong></td><td>参数躺在 PDF 里，AI 读不到</td><td class="td-win">参数结构化 + 大牌型号对标</td><td>Lide-Pro</td></tr>
+<tr><td><strong>医疗器械 / 实验室耗材</strong></td><td>合规资质 AI 确认不了，直接出局</td><td class="td-win">认证信息结构化 + 规格 HTML 化</td><td>Lide-Pro</td></tr>
 <tr><td><strong>特种涂料 / 助剂</strong></td><td>买家搜大牌型号，你进不了候选</td><td class="td-win">Equivalent 截流 + 体系适配表</td><td>Lide-Pro</td></tr>
 <tr><td><strong>橡胶助剂 / 化学品</strong></td><td>品类同质化，AI 按知名度排序</td><td class="td-win">可验证指标差异化 + 外部交叉验证</td><td>Lide-Pro</td></tr>
 <tr><td><strong>饲料添加剂 / 生物制品</strong></td><td>中文文档，海外买家用英文术语提问</td><td class="td-win">术语双语建模 + 稳定性数据结构化</td><td>Lide-Pro</td></tr>
