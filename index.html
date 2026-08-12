@@ -13,7 +13,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -122,37 +122,48 @@
         <p class="hero-note">3 个工作日交付 · 含竞对被 AI 推荐的实拍截图 · 不满意不推进</p>
       </div>
 
-      <div style="position:relative">
-        <div class="ai-panel" aria-hidden="true">
-          <div class="ai-bar">
-            <span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>
-            <span class="ai-model" id="ai-model">ChatGPT</span>
-            <span class="ai-tabs" id="ai-tabs"></span>
-          </div>
-          <div class="ai-body">
-            <div class="ai-q">
-              <span class="ai-avatar">买家</span>
-              <p id="ai-question"></p>
-            </div>
-            <div class="ai-a">
-              <span class="ai-avatar ai-avatar--ai">AI</span>
-              <div class="ai-a-body" id="ai-answer"></div>
-            </div>
+      <div class="ba-wrap">
+        <p class="ba-q">
+          <span class="ba-q-tag">海外买家问 AI</span>
+          「有哪些可靠的中国供应商？」
+        </p>
+
+        <!-- 合作前 -->
+        <div class="ba-card ba-card--before">
+          <div class="ba-label ba-label--before">合作前</div>
+          <p class="ba-answer-title">AI 的回答：</p>
+          <ol class="ba-list">
+            <li>Evonik（德国）</li>
+            <li>BASF（德国）</li>
+            <li>Solvay（比利时）</li>
+          </ol>
+          <div class="ba-verdict ba-verdict--bad">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            你的品牌 · <strong>一次都没被提到</strong>
           </div>
         </div>
 
-        <div class="float-card fc-1">
-          <span class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg></span>
-          <span><b>+64%</b>AI 提及率（近 90 天）</span>
+        <div class="ba-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          <span>立德引擎 GEO</span>
         </div>
-        <div class="float-card fc-2">
-          <span class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-          <span><b>第 1 位</b>目标品类推荐位次</span>
+
+        <!-- 合作后 -->
+        <div class="ba-card ba-card--after">
+          <div class="ba-label ba-label--after">合作后</div>
+          <p class="ba-answer-title">AI 的回答：</p>
+          <ol class="ba-list">
+            <li class="ba-you"><span class="ba-you-mark">你的品牌</span> — 参数与国际大牌同级，性价比更优</li>
+            <li>Evonik（德国）</li>
+            <li>BASF（德国）</li>
+          </ol>
+          <div class="ba-verdict ba-verdict--good">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            你的品牌 · <strong>进入首位推荐</strong>
+          </div>
         </div>
-        <div class="float-card fc-3">
-          <span class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
-          <span><b>3 条</b>今日新增询盘</span>
-        </div>
+
+        <p class="ba-foot">买家在 AI 里就完成了初筛。名单上没有你，后面的报价、打样、谈判都不会发生。</p>
       </div>
     </div>
 
@@ -465,6 +476,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=4"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>
