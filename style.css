@@ -498,3 +498,7 @@ td strong { color: var(--ink); }
   .rail-pop::after { right: auto; left: 50%; top: auto; bottom: -5px; transform: translateX(-50%) rotate(45deg); }
   .ai-body { min-height: 280px; padding: 18px; }
 }
+
+/* WeChat QR in rail popup ------------------------------------------------- */
+.rail-pop img { display: block; }
+@media (max-width: 860px) { .rail-pop img { width: 112px; height: 112px; } }
