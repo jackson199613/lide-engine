@@ -23,12 +23,12 @@
       "@id": "https://ileadengine.com/#org",
       "name": "立德引擎",
       "alternateName": ["Lide Engine", "立德引擎 GEO 数字化领航者"],
-      "description": "面向中国出海工厂的 GEO（生成式引擎优化）专家服务商，帮助精细化工与工业原材料制造商在 ChatGPT、Perplexity、Claude 等生成式 AI 中被优先推荐。",
+      "description": "面向中国出海企业的 GEO（生成式引擎优化）专家服务商，覆盖化工、新材料、机械装备、电子元器件、消费品等全行业，帮助中国品牌在 ChatGPT、Perplexity、Claude 等生成式 AI 中被优先推荐。",
       "url": "https://ileadengine.com/",
       "telephone": ["+86-189-5017-4503", "+1-619-558-6563"],
       "email": "jiangjun199613@gmail.com",
       "areaServed": ["CN", "US", "EU", "SEA", "ME", "SA"],
-      "knowsAbout": ["生成式引擎优化", "Generative Engine Optimization", "Answer Engine Optimization", "Schema 结构化数据", "精细化工出海营销", "AI 能见度诊断"],
+      "knowsAbout": ["生成式引擎优化", "Generative Engine Optimization", "Answer Engine Optimization", "Schema 结构化数据", "中国品牌出海营销", "AI 能见度诊断"],
       "slogan": "让出海工厂被全球 AI 优先推荐"
     },
     {
@@ -37,7 +37,7 @@
       "name": "GEO 生成式引擎优化服务",
       "serviceType": "Generative Engine Optimization (GEO)",
       "provider": { "@id": "https://ileadengine.com/#org" },
-      "audience": { "@type": "BusinessAudience", "audienceType": "中大型出口导向型工厂、精细化工生产商、工业原材料贸易商" },
+      "audience": { "@type": "BusinessAudience", "audienceType": "各行业出口导向型企业：制造工厂、品牌商、贸易商、细分领域隐形冠军" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "立德引擎服务档位",
@@ -65,7 +65,7 @@
 <header class="site-header">
   <div class="topbar">
     <div class="container">
-      <span>立德引擎 GEO 数字化领航者 · 专注精细化工与工业原材料出海</span>
+      <span>立德引擎 GEO 数字化领航者 · 服务全行业中国品牌出海</span>
       <div class="topbar-contact">
         <a href="mailto:jiangjun199613@gmail.com">jiangjun199613@gmail.com</a>
         <a href="tel:+8618950174503">+86 189 5017 4503</a>
@@ -107,7 +107,7 @@
     <div class="hero-grid">
       <div>
         <div class="hero-badges">
-          <span class="chip"><span class="dot"></span>精细化工 / 新材料专精</span>
+          <span class="chip"><span class="dot"></span>全行业覆盖 · 技术型产品见长</span>
           <span class="chip">出海买家原生决策入口</span>
         </div>
         <h1>让出海工厂<br>被 <span class="rotator" id="rotator" aria-label="全球主流 AI"><span class="is-active">ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span><span>Grok</span><span>DeepSeek</span></span><br>优先推荐</h1>
@@ -125,20 +125,11 @@
       <div class="terminal" aria-hidden="true">
         <div class="terminal-bar">
           <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
-          <span class="terminal-title">product-schema.json</span>
+          <span class="terminal-title" id="term-title">product-schema.json</span>
+          <span class="term-tabs" id="term-tabs"></span>
         </div>
-        <pre class="terminal-body"><code><span class="c-p">"@type"</span>: <span class="c-s">"Product"</span>,
-<span class="c-p">"name"</span>: <span class="c-s">"Precipitated Silica LD-200"</span>,
-<span class="c-p">"additionalProperty"</span>: [
-  { <span class="c-p">"name"</span>: <span class="c-s">"BET Surface Area"</span>,
-    <span class="c-p">"value"</span>: <span class="c-n">175</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"M2/G"</span> },
-  { <span class="c-p">"name"</span>: <span class="c-s">"Oil Absorption"</span>,
-    <span class="c-p">"value"</span>: <span class="c-n">2.35</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"ML/G"</span> },
-  { <span class="c-p">"name"</span>: <span class="c-s">"Pore Volume"</span>,
-    <span class="c-p">"value"</span>: <span class="c-n">1.82</span>, <span class="c-p">"unitCode"</span>: <span class="c-s">"CM3/G"</span> }
-],
-<span class="c-p">"isSimilarTo"</span>: <span class="c-s">"Evonik ULTRASIL® VN3"</span></code></pre>
-        <div class="terminal-foot"><span class="dot"></span>参数从 PDF 释放为 AI 可引用的结构化事实</div>
+        <pre class="terminal-body"><code id="term-code"></code></pre>
+        <div class="terminal-foot"><span class="dot"></span><span id="term-note">参数从 PDF 释放为 AI 可引用的结构化事实</span></div>
       </div>
     </div>
 
@@ -211,7 +202,7 @@
       <article class="card reveal">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
         <h3>语义重塑<span class="note"> / Schema 结构化改造</span></h3>
-        <p>把 TDS / COA 中的 BET、孔容、吸油值、粒径分布等关键参数，从 PDF 的「黑箱」里释放出来，改造为 AI 可抓取、可比对、可引用的结构化数据。</p>
+        <p>把 TDS / COA 中真正决定选型的参数——化工的比表面积与活性单位、涂料的消光效率与粒径、零件的公差与硬度——从 PDF 的「黑箱」里释放出来，改造为 AI 可抓取、可比对、可引用的结构化数据。</p>
         <p class="note"><strong>对应痛点 01：</strong>解决「AI 查无此人」。</p>
       </article>
       <article class="card reveal">
@@ -278,7 +269,7 @@
           <tr><th scope="col">对比维度</th><th scope="col">立德引擎 Lide Engine</th><th scope="col">通用型 GEO / 营销公司</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>行业基因</strong></td><td class="td-win">深耕精细化工与工业原材料，理解专业技术语言</td><td>通用营销背景，内容空泛，AI 难以判定为事实</td></tr>
+          <tr><td><strong>行业基因</strong></td><td class="td-win">覆盖全行业，且真正读得懂技术参数与专业语言</td><td>通用营销背景，内容空泛，AI 难以判定为事实</td></tr>
           <tr><td><strong>决策阵地</strong></td><td class="td-win">专攻海外模型（Perplexity / ChatGPT / Claude）</td><td>偏向国内模型优化，出海转化弱</td></tr>
           <tr><td><strong>核心打法</strong></td><td class="td-win">型号对标截流 + 痛点场景卡位 + 学术信任链</td><td>关键词覆盖 + 内容批量生成</td></tr>
           <tr><td><strong>效果验证</strong></td><td class="td-win">月度提及率报告，可复现的真实模型实测截图</td><td>以流量/收录数交付，与订单弱相关</td></tr>
@@ -364,7 +355,7 @@
           <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9" fill="#131317" stroke="#33333B"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#35E0C8"/></svg>
           <span>立德引擎<span class="brand-sub">Lide Engine · GEO</span></span>
         </a>
-        <p style="margin-top:14px;max-width:34ch">让出海工厂被全球 AI 优先推荐的数字资产构建者。专注精细化工与工业原材料领域的生成式引擎优化。</p>
+        <p style="margin-top:14px;max-width:34ch">让中国出海企业被全球 AI 优先推荐的数字资产构建者。覆盖全行业，尤擅技术型与参数密集型产品。</p>
       </div>
       <div>
         <h4>服务</h4>

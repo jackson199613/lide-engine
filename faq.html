@@ -79,7 +79,7 @@
    "name": "TDS / COA 是 PDF，AI 能读到吗？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "多数情况下读不到，或者读得很不可靠。PDF 里的表格经常被解析成乱序文本，参数和单位对不上。正确做法是把关键参数（BET 比表面积、孔容、吸油值、粒径分布等）以 HTML + Schema 标记的形式发布，PDF 作为附件保留。"
+    "text": "多数情况下读不到，或者读得很不可靠。PDF 里的表格经常被解析成乱序文本，参数和单位对不上。正确做法是把决定选型的关键参数以 HTML + Schema 标记的形式发布，PDF 作为附件保留。哪几项算关键，因品类而异——化工看性能指标，零件看公差与材质。"
    }
   },
   {
@@ -87,7 +87,7 @@
    "name": "什么是 Schema 结构化数据？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "一种给机器读的标注格式（JSON-LD）。同样一句「BET 175 m²/g」，普通文本 AI 得靠猜；标成 additionalProperty 的 name/value/unitCode 三元组之后，它知道这是一个可比对、可引用的确定事实。"
+    "text": "一种给机器读的标注格式（JSON-LD）。同样一句「活性 5000 U/g」或「公差 ±0.005 mm」，写成普通文本 AI 得靠猜；标成 additionalProperty 的 name/value/unitCode 三元组之后，它知道这是一个可比对、可引用的确定事实。"
    }
   },
   {
@@ -146,7 +146,7 @@
 <header class="site-header">
   <div class="topbar">
     <div class="container">
-      <span>立德引擎 GEO 数字化领航者 · 专注精细化工与工业原材料出海</span>
+      <span>立德引擎 GEO 数字化领航者 · 服务全行业中国品牌出海</span>
       <div class="topbar-contact">
         <a href="mailto:jiangjun199613@gmail.com">jiangjun199613@gmail.com</a>
         <a href="tel:+8618950174503">+86 189 5017 4503</a>
@@ -198,8 +198,8 @@
     <details class="faq reveal"><summary>05 · GEO 多久能看到效果？</summary><div class="faq-body"><p>结构化改造上线后 2–6 周，可以观察到 AI 复述你产品参数的准确度改善——这是最早的信号。提及率的显著变化通常出现在第 2–4 个月，取决于品类竞争度和你既有的语料基础。</p></div></details>
     <details class="faq reveal"><summary>06 · 怎么验证 GEO 到底有没有效果？</summary><div class="faq-body"><p>四个可复现的指标：提及率（目标品类问题中品牌被点名的占比）、推荐位次（在候选名单里排第几）、被引用来源（AI 引的是你官网还是第三方语料）、参数准确度（AI 复述你的参数对不对）。这四项你都可以自己在模型里复测，不用信任何人的说法。</p></div></details>
     <details class="faq reveal"><summary>07 · 我官网已经是英文的了，还需要做什么？</summary><div class="faq-body"><p>英文只是能被读懂，不等于能被引用。关键差距通常在三处：技术参数还锁在 PDF 里、没有结构化数据标记、缺少第三方交叉验证。英文官网是必要条件，不是充分条件。</p></div></details>
-    <details class="faq reveal"><summary>08 · TDS / COA 是 PDF，AI 能读到吗？</summary><div class="faq-body"><p>多数情况下读不到，或者读得很不可靠。PDF 里的表格经常被解析成乱序文本，参数和单位对不上。正确做法是把关键参数（BET 比表面积、孔容、吸油值、粒径分布等）以 HTML + Schema 标记的形式发布，PDF 作为附件保留。</p></div></details>
-    <details class="faq reveal"><summary>09 · 什么是 Schema 结构化数据？</summary><div class="faq-body"><p>一种给机器读的标注格式（JSON-LD）。同样一句「BET 175 m²/g」，普通文本 AI 得靠猜；标成 additionalProperty 的 name/value/unitCode 三元组之后，它知道这是一个可比对、可引用的确定事实。</p></div></details>
+    <details class="faq reveal"><summary>08 · TDS / COA 是 PDF，AI 能读到吗？</summary><div class="faq-body"><p>多数情况下读不到，或者读得很不可靠。PDF 里的表格经常被解析成乱序文本，参数和单位对不上。正确做法是把决定选型的关键参数以 HTML + Schema 标记的形式发布，PDF 作为附件保留。哪几项算关键，因品类而异——化工看性能指标，零件看公差与材质。</p></div></details>
+    <details class="faq reveal"><summary>09 · 什么是 Schema 结构化数据？</summary><div class="faq-body"><p>一种给机器读的标注格式（JSON-LD）。同样一句「活性 5000 U/g」或「公差 ±0.005 mm」，写成普通文本 AI 得靠猜；标成 additionalProperty 的 name/value/unitCode 三元组之后，它知道这是一个可比对、可引用的确定事实。</p></div></details>
     <details class="faq reveal"><summary>10 · robots.txt 放行 AI 爬虫，内容会不会被白嫖？</summary><div class="faq-body"><p>这是最常见的误解。屏蔽 AI 爬虫的结果不是保护内容，而是让 AI 在回答买家问题时永远想不起你。你的技术参数本来就是要给买家看的——目的是被引用，不是被藏起来。真正需要保护的是配方和工艺，那些本来就不该上网。</p></div></details>
     <details class="faq reveal"><summary>11 · llms.txt 是什么？有用吗？</summary><div class="faq-body"><p>放在网站根目录的一份 Markdown 摘要，用简洁语言告诉大模型：这家公司是谁、做什么、关键事实有哪些、重要页面在哪。它不是强制标准，但成本极低，且在模型抓取时提供了一份高信噪比的事实来源。</p></div></details>
     <details class="faq reveal"><summary>12 · 什么是「大牌型号截流」？这样做合法吗？</summary><div class="faq-body"><p>建立你的牌号与国际大牌型号之间的参数对标关系，让 AI 在买家询问「X 型号的替代方案」时能有依据地把你列为候选。合法性的边界很清楚：可以做客观参数对比、可以标注「适用于同类场景」，不可以冒用对方商标、不可以宣称「等同」或「原厂授权」。我们的做法是只陈述可验证的参数事实。</p></div></details>
@@ -229,7 +229,7 @@
           <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9" fill="#131317" stroke="#33333B"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#35E0C8"/></svg>
           <span>立德引擎<span class="brand-sub">Lide Engine · GEO</span></span>
         </a>
-        <p style="margin-top:14px;max-width:34ch">让出海工厂被全球 AI 优先推荐的数字资产构建者。专注精细化工与工业原材料领域的生成式引擎优化。</p>
+        <p style="margin-top:14px;max-width:34ch">让中国出海企业被全球 AI 优先推荐的数字资产构建者。覆盖全行业，尤擅技术型与参数密集型产品。</p>
       </div>
       <div>
         <h4>服务</h4>

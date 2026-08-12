@@ -473,3 +473,18 @@ td strong { color: #fff; }
 .cookiebar p { margin: 0; flex: 1 1 320px; font-size: .88rem; color: var(--fg-muted); }
 .cookiebar .btn { min-height: 40px; padding: 8px 18px; font-size: .88rem; }
 @media (max-width: 560px) { .cookiebar { padding: 16px; } .cookiebar .btn-row { width: 100%; } .cookiebar .btn { flex: 1; } }
+
+/* Terminal category tabs -------------------------------------------------- */
+.term-tabs { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+.term-tab {
+  background: transparent; border: 1px solid transparent; border-radius: 999px;
+  padding: 3px 10px; font-family: var(--mono); font-size: .68rem;
+  color: var(--fg-subtle); cursor: pointer; transition: all var(--t); white-space: nowrap;
+}
+.term-tab:hover { color: var(--fg); border-color: var(--border-strong); }
+.term-tab.is-on { color: var(--gold); border-color: rgba(53,224,200,.35); background: var(--gold-dim); }
+.terminal-body { min-height: 232px; }
+@media (max-width: 980px) {
+  .term-tabs { width: 100%; margin: 8px 0 0; }
+  .terminal-body { min-height: 200px; }
+}

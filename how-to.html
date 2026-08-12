@@ -27,7 +27,7 @@
      "@type": "HowToStep",
      "position": 1,
      "name": "列出买家真实会问的 5 个问题",
-     "text": "用采购视角而不是卖货视角写。例如「What are reliable suppliers of precipitated silica for green tires?」而不是「XX公司二氧化硅」。买家不知道你的名字，这正是问题所在。"
+     "text": "用采购视角而不是卖货视角写。例如「What are reliable Chinese suppliers of thermostable feed enzymes?」或「Who supplies matting agents equivalent to ACEMATT OK 412?」，而不是「XX公司产品」。买家不知道你的名字，这正是问题所在。"
     },
     {
      "@type": "HowToStep",
@@ -65,7 +65,7 @@
      "@type": "HowToStep",
      "position": 1,
      "name": "挑出真正决定选型的参数",
-     "text": "不要全搬。以沉淀法二氧化硅为例，决定性的通常是 BET 比表面积、孔容、吸油值（DBP）、粒径分布、pH、灼烧减量。买家拿这几个做筛选，就先做这几个。"
+     "text": "不要全搬，挑买家真正用来筛选的那几项。化工原料通常是比表面积、活性单位、粒径分布、纯度；涂料助剂是消光效率、透明度、手感；精密零件是尺寸公差、表面粗糙度、硬度。判断标准很简单：买家询价时会先问哪几个数，就先做哪几个。"
     },
     {
      "@type": "HowToStep",
@@ -139,7 +139,7 @@
 <header class="site-header">
   <div class="topbar">
     <div class="container">
-      <span>立德引擎 GEO 数字化领航者 · 专注精细化工与工业原材料出海</span>
+      <span>立德引擎 GEO 数字化领航者 · 服务全行业中国品牌出海</span>
       <div class="topbar-contact">
         <a href="mailto:jiangjun199613@gmail.com">jiangjun199613@gmail.com</a>
         <a href="tel:+8618950174503">+86 189 5017 4503</a>
@@ -190,7 +190,7 @@
       <p class="lead">不用工具、不用花钱，你现在就能知道自己在不在 AI 的推荐名单里。</p>
     </div>
     <div class="steps reveal">
-      <div class="step"><h3>列出买家真实会问的 5 个问题</h3><p>用采购视角而不是卖货视角写。例如「What are reliable suppliers of precipitated silica for green tires?」而不是「XX公司二氧化硅」。买家不知道你的名字，这正是问题所在。</p></div>
+      <div class="step"><h3>列出买家真实会问的 5 个问题</h3><p>用采购视角而不是卖货视角写。例如「What are reliable Chinese suppliers of thermostable feed enzymes?」或「Who supplies matting agents equivalent to ACEMATT OK 412?」，而不是「XX公司产品」。买家不知道你的名字，这正是问题所在。</p></div>
       <div class="step"><h3>在 4 个模型里逐个提问</h3><p>ChatGPT、Perplexity、Claude、Gemini 各问一遍。用英文，因为你的目标买家用英文。开新对话，避免历史上下文干扰结果。</p></div>
       <div class="step"><h3>记录三件事</h3><p>AI 点名了哪些公司、你的品牌有没有出现、排在第几位。同时看它引用了哪些来源链接。</p></div>
       <div class="step"><h3>追问一句「有中国供应商吗」</h3><p>这一步最能说明问题。如果 AI 此时才勉强给出几个名字，说明中国供应商整体在该品类语料稀薄——这是机会窗口。</p></div>
@@ -207,7 +207,7 @@
       <p class="lead">PDF 里的参数 AI 读不准。把它搬到 HTML 并加上 Schema 标记，AI 才敢引用。</p>
     </div>
     <div class="steps reveal">
-      <div class="step"><h3>挑出真正决定选型的参数</h3><p>不要全搬。以沉淀法二氧化硅为例，决定性的通常是 BET 比表面积、孔容、吸油值（DBP）、粒径分布、pH、灼烧减量。买家拿这几个做筛选，就先做这几个。</p></div>
+      <div class="step"><h3>挑出真正决定选型的参数</h3><p>不要全搬，挑买家真正用来筛选的那几项。化工原料通常是比表面积、活性单位、粒径分布、纯度；涂料助剂是消光效率、透明度、手感；精密零件是尺寸公差、表面粗糙度、硬度。判断标准很简单：买家询价时会先问哪几个数，就先做哪几个。</p></div>
       <div class="step"><h3>为每个产品建一个 HTML 页面</h3><p>一个牌号一页。标题用完整牌号，正文用表格列出参数、单位、测试方法。PDF 作为下载附件保留，但不要只有 PDF。</p></div>
       <div class="step"><h3>加上 Product 结构化数据</h3><p>用 JSON-LD 标注 name、sku、manufacturer，参数放进 additionalProperty 数组，每项包含 name / value / unitCode。单位务必用 UN/CEFACT 标准码（如 M2/G、ML/G）。</p></div>
       <div class="step"><h3>补上应用场景与对标关系</h3><p>用 applicationCategory 说明适用场景，用 isSimilarTo 指向参数相近的国际型号——只陈述参数事实，不用「等同」「替代」这类断言。</p></div>
@@ -264,7 +264,7 @@
           <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9" fill="#131317" stroke="#33333B"/><path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#35E0C8"/></svg>
           <span>立德引擎<span class="brand-sub">Lide Engine · GEO</span></span>
         </a>
-        <p style="margin-top:14px;max-width:34ch">让出海工厂被全球 AI 优先推荐的数字资产构建者。专注精细化工与工业原材料领域的生成式引擎优化。</p>
+        <p style="margin-top:14px;max-width:34ch">让中国出海企业被全球 AI 优先推荐的数字资产构建者。覆盖全行业，尤擅技术型与参数密集型产品。</p>
       </div>
       <div>
         <h4>服务</h4>
