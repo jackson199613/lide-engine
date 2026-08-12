@@ -34,7 +34,7 @@ Netlify 直接部署，无需构建命令，发布目录为仓库根目录（见
 
 ## 上线前待替换
 
-- [ ] 域名：购买正式域名后，全站 `https://lide-engine.netlify.app` 替换为新域名（canonical / sitemap / llms.txt / JSON-LD），并在 Netlify 配置自定义域名 + 301 跳转
+- [ ] 域名：购买正式域名后，全站 `https://ileadengine.com` 替换为新域名（canonical / sitemap / llms.txt / JSON-LD），并在 Netlify 配置自定义域名 + 301 跳转
 - [x] 联系方式：jiangjun199613@gmail.com、+86 189 5017 4503、+1 619-558-6563
 - [ ] 案例配图：模型实测截图、工厂实景、参展照片
 - [ ] 备案号与公司注册信息（页脚）
