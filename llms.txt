@@ -29,6 +29,7 @@
 - [诊断报告样例](https://ileadengine.com/report-sample.html): 脱敏的真实《AI 能见度诊断报告》结构与内容
 - [GEO 自查工具](https://ileadengine.com/checklist.html): 18 项在线自查，四维度实时打分
 - [交付质量控制](https://ileadengine.com/quality.html): 事实核验四道关与四条合同红线
+- [动态与行业观察](https://ileadengine.com/news.html): AI 推荐格局的公开数据观察（附来源）与本站发布日志
 - [免费诊断](https://ileadengine.com/contact.html): 《AI 能见度诊断报告》申请入口
 
 ## 联系
