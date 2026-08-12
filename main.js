@@ -290,3 +290,137 @@
     });
   }, { passive: true });
 })();
+
+/* 首屏科技场景：粒子网络 + 标题逐字入场 --------------------------------- */
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- 装饰层 --- */
+  if (!reduced) {
+    var floor = document.createElement('div');
+    floor.className = 'hero-floor';
+    hero.insertBefore(floor, hero.firstChild);
+
+    var beams = document.createElement('div');
+    beams.className = 'hero-beams';
+    beams.innerHTML = '<i></i><i></i><i></i><i></i>';
+    hero.insertBefore(beams, hero.firstChild);
+
+    var ghost = document.createElement('div');
+    ghost.className = 'hero-ghost';
+    ghost.textContent = 'AI VISIBILITY';
+    ghost.setAttribute('aria-hidden', 'true');
+    hero.insertBefore(ghost, hero.firstChild);
+  }
+
+  /* --- 标题逐字入场 --- */
+  var h1 = hero.querySelector('h1');
+  if (h1 && !reduced) {
+    var walk = function (node) {
+      var out = [];
+      node.childNodes.forEach(function (n) {
+        if (n.nodeType === 3) {
+          n.textContent.split('').forEach(function (ch) {
+            if (ch === ' ') { out.push(document.createTextNode(' ')); return; }
+            var s = document.createElement('span');
+            s.className = 'h-char'; s.textContent = ch;
+            out.push(s);
+          });
+        } else { out.push(n); }
+      });
+      return out;
+    };
+    var frag = document.createDocumentFragment();
+    walk(h1).forEach(function (n) { frag.appendChild(n); });
+    h1.innerHTML = ''; h1.appendChild(frag);
+    var chars = h1.querySelectorAll('.h-char');
+    Array.prototype.forEach.call(chars, function (c, i) {
+      c.style.animationDelay = (i * 0.032 + 0.15) + 's';
+      c.classList.add('in');
+    });
+  }
+
+  /* --- 粒子网络 --- */
+  if (reduced) return;
+  var cv = document.createElement('canvas');
+  cv.className = 'hero-canvas';
+  cv.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(cv, hero.firstChild);
+  var ctx = cv.getContext('2d');
+
+  var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var pts = [], LINK = 132, running = true, mouse = { x: -9999, y: -9999 };
+
+  function size() {
+    var r = hero.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var target = Math.min(88, Math.round(W * H / 15000));
+    pts = [];
+    for (var i = 0; i < target; i++) {
+      pts.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28,
+        r: Math.random() * 1.7 + .8
+      });
+    }
+  }
+
+  function draw() {
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+
+      var dxm = p.x - mouse.x, dym = p.y - mouse.y;
+      var dm = Math.sqrt(dxm * dxm + dym * dym);
+      if (dm < 150) {
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(124,92,255,' + (0.22 * (1 - dm / 150)) + ')';
+        ctx.lineWidth = 1; ctx.stroke();
+      }
+
+      for (var j = i + 1; j < pts.length; j++) {
+        var q = pts[j], dx = p.x - q.x, dy = p.y - q.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(43,91,255,' + (0.16 * (1 - d / LINK)) + ')';
+          ctx.lineWidth = 1; ctx.stroke();
+        }
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(43,91,255,.45)';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  hero.addEventListener('mousemove', function (e) {
+    var r = hero.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+  hero.addEventListener('mouseleave', function () { mouse.x = mouse.y = -9999; });
+
+  var ro = new ResizeObserver(size);
+  ro.observe(hero);
+  size(); draw();
+
+  // 滚出视口暂停，省电
+  new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      running = e.isIntersecting;
+      if (running) draw();
+    });
+  }, { threshold: 0 }).observe(hero);
+})();
