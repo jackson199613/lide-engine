@@ -13,7 +13,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,14 +102,21 @@
 <main>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero--visual">
+  <picture class="hero-bg">
+    <source media="(max-width: 860px)" srcset="hero-visual-m.webp" type="image/webp">
+    <img src="hero-visual.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-veil" aria-hidden="true"></div>
+
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="hero-badges">
           <span class="chip"><span class="dot"></span>全行业覆盖 · 技术型产品见长</span>
           <span class="chip">出海买家原生决策入口</span>
         </div>
+        <p class="hero-kicker">立德引擎 · Lide Engine</p>
         <h1>让出海工厂<br>被 <span class="rotator" id="rotator" aria-label="全球主流 AI"><span class="is-active">ChatGPT</span><span>Perplexity</span><span>Claude</span><span>Gemini</span><span>Grok</span><span>DeepSeek</span></span><br>优先推荐</h1>
         <p class="hero-lead">
           当海外买家向 AI 提出采购类问题时，立德引擎通过语义重塑、权威语料喂养与型号截流，
@@ -128,7 +135,6 @@
           「有哪些可靠的中国供应商？」
         </p>
 
-        <!-- 合作前 -->
         <div class="ba-card ba-card--before">
           <div class="ba-label ba-label--before">合作前</div>
           <p class="ba-answer-title">AI 的回答：</p>
@@ -148,7 +154,6 @@
           <span>立德引擎 GEO</span>
         </div>
 
-        <!-- 合作后 -->
         <div class="ba-card ba-card--after">
           <div class="ba-label ba-label--after">合作后</div>
           <p class="ba-answer-title">AI 的回答：</p>
@@ -476,6 +481,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=7"></script>
+<script src="main.js?v=8"></script>
 </body>
 </html>
