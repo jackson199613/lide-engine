@@ -94,3 +94,5 @@ export default async (req) => {
     return new Response('push failed but submission is safe', { status: 200 });
   }
 };
+
+# 触发重新部署以载入 FEISHU_WEBHOOK 环境变量
