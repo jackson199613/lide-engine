@@ -626,6 +626,20 @@ td strong { color: var(--ink); }
 @keyframes nudge { 0%,100% { transform: translateY(0); opacity: .75; } 50% { transform: translateY(5px); opacity: 1; } }
 
 .ba-foot { font-size: .85rem; color: var(--ink-3); margin: 16px 0 0; text-align: center; }
+
+/* 四阶段流程图 ----------------------------------------------------------- */
+.flow {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 26px 28px 18px;
+  margin-bottom: var(--space-md); box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+.flow svg { width: 100%; min-width: 640px; height: auto; font-family: var(--font); }
+
+/* 三维差距条形图 --------------------------------------------------------- */
+.gapchart { margin-top: 20px; overflow-x: auto; }
+.gapchart svg { width: 100%; min-width: 480px; height: auto; font-family: var(--font); }
+.gapchart rect[fill^="url(#gb)"] { transition: width 900ms var(--ease); }
 .ba-foot-note {
   display: inline-block; margin-top: 6px; font-size: .78rem; color: var(--ink-3);
   opacity: .85; font-style: normal;
