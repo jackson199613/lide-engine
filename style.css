@@ -690,6 +690,52 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 询盘产线：模式全景图 ---------------------------------------------------- */
+.pipe {
+  display: grid; grid-template-columns: 1fr auto 1.9fr auto 1fr; gap: 18px; align-items: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm);
+}
+.pipe-col { display: grid; gap: 14px; }
+.pipe-box { padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--border); }
+.pipe-box strong { display: block; font-size: 1.02rem; color: var(--ink); margin-bottom: 6px; }
+.pipe-box p { margin: 0; font-size: .85rem; line-height: 1.6; color: var(--ink-3); }
+.pipe-box--base { background: var(--surface-2); }
+.pipe-box--out  { background: var(--surface-2); }
+.pipe-box--active  { background: rgba(43,91,255,.06); border-left: 3px solid var(--blue); }
+.pipe-box--passive { background: rgba(124,92,255,.06); border-left: 3px solid var(--violet); }
+.pipe-tag {
+  display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em;
+  color: var(--blue); margin-bottom: 5px;
+}
+.pipe-box--passive .pipe-tag { color: var(--violet); }
+.pipe-arrow { color: var(--border-strong); font-size: 1.3rem; }
+@media (max-width: 980px) {
+  .pipe { grid-template-columns: 1fr; padding: 20px; }
+  .pipe-arrow { text-align: center; transform: rotate(90deg); }
+}
+
+/* 交叉验证漏斗 ----------------------------------------------------------- */
+.funnel {
+  margin-top: var(--space-md); background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 24px 26px; box-shadow: var(--shadow-sm);
+}
+.funnel-lab {
+  display: block; font-family: var(--mono); font-size: .7rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px;
+}
+.funnel-row { display: flex; align-items: center; gap: 14px; margin-bottom: 9px; }
+.funnel-row span { flex: none; width: 130px; font-size: .84rem; color: var(--ink-2); }
+.funnel-row i {
+  height: 26px; border-radius: 6px; background: var(--grad); opacity: .82;
+  transition: width 900ms var(--ease); min-width: 4px;
+}
+.funnel-row b { font-family: var(--mono); font-size: .86rem; color: var(--ink); }
+.funnel-row--end i { background: var(--ink); opacity: 1; }
+.funnel-row--end b { color: var(--blue); font-size: 1rem; }
+@media (max-width: 620px) { .funnel-row span { width: 92px; font-size: .76rem; } }
+
 /* 创始人区块 ------------------------------------------------------------- */
 .founder {
   display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start;
