@@ -690,6 +690,47 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 创始人区块 ------------------------------------------------------------- */
+.founder {
+  display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 36px 40px; box-shadow: var(--shadow-sm);
+}
+.founder-side { position: sticky; top: 108px; }
+.founder-photo {
+  width: 100%; aspect-ratio: 1; border-radius: var(--radius-lg);
+  background: var(--grad); display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-brand);
+}
+.founder-photo span { font-size: 5.4rem; font-weight: 700; color: #fff; letter-spacing: 0; }
+.founder-side img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow);
+}
+.founder-id { margin-top: 18px; }
+.founder-id strong { display: block; font-size: 1.14rem; color: var(--ink); }
+.founder-id span { font-size: .86rem; color: var(--ink-3); }
+.founder-tags { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 7px; }
+.founder-tags li {
+  font-size: .8rem; color: var(--ink-2); margin: 0;
+  padding: 7px 12px; background: var(--surface-2); border-radius: 8px;
+}
+.founder-body h3 { font-size: 1.06rem; margin-top: var(--space-sm); }
+.founder-body h3:first-child { margin-top: 0; }
+.founder-quote {
+  margin: var(--space-sm) 0 0; padding: 20px 24px; border-radius: var(--radius);
+  background: var(--grad-soft); border-left: 3px solid var(--blue);
+  font-size: 1.04rem; line-height: 1.7; color: var(--ink);
+}
+.founder-quote strong { display: inline-block; margin-top: 4px; }
+@media (max-width: 880px) {
+  .founder { grid-template-columns: 1fr; gap: 26px; padding: 26px 22px; }
+  .founder-side { position: static; display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; }
+  .founder-photo, .founder-side img { max-width: 120px; }
+  .founder-photo span { font-size: 3rem; }
+  .founder-tags { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+
 /* 内容页中段转化衔接卡（playbook #70） ------------------------------------ */
 .inline-cta {
   max-width: 880px; margin: var(--space-md) auto; padding: 22px 26px;
