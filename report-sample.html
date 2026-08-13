@@ -12,7 +12,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=17">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"《AI 能见度诊断报告》样例",
 "description":"立德引擎交付给客户的 AI 能见度诊断报告的真实结构：四大模型实测、竞对对比、三维差距分析、优先改进清单。",
@@ -91,7 +91,7 @@
     <div class="card reveal" style="margin-bottom:var(--space-md)">
       <span class="card-num">第 2 部分</span>
       <h2 style="font-size:1.4rem">实测结果：提及率与推荐位次</h2>
-      <p class="note">每个问题在四个模型中各测一次，记录品牌是否被点名、排在第几位。<strong>报告正式版中每一条都附有实拍截图。</strong></p>
+      <p class="note">每个问题在四个模型中各测一次，记录品牌是否被点名、排在第几位。<strong>每一条都附实拍截图与时间戳，你可以自己复现。</strong></p>
       <div class="table-wrap" style="margin-top:14px">
         <table>
           <thead><tr><th scope="col">测试问题</th><th scope="col">ChatGPT</th><th scope="col">Perplexity</th><th scope="col">Claude</th><th scope="col">Gemini</th></tr></thead>
@@ -103,6 +103,19 @@
             <tr><td colspan="5" style="text-align:center;color:var(--ink-3)">… 其余 8 题略 …</td></tr>
           </tbody>
         </table>
+      </div>
+      <p class="note" style="margin-top:20px"><strong>下面是正式报告中截图部分的真实样子</strong>（本样例用公开品类演示，你的报告里换成你自己的品类与竞对）：</p>
+      <div class="shot-grid shot-grid--2" style="margin-top:14px">
+        <figure class="shot shot--bad">
+        <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are the most reliable suppliers of hydraulic seals for industrial equipment?</code></div>
+        <img src="ai-seal.webp" alt="Parker、Trelleborg、SKF、Freudenberg、Hallite" loading="lazy" decoding="async" width="1164" height="598">
+        <figcaption><strong>Parker、Trelleborg、SKF、Freudenberg、Hallite</strong> —— 5 家全欧美，无一家中国供应商</figcaption>
+      </figure>
+        <figure class="shot shot--warn">
+        <div class="shot-q"><span class="shot-tag">实测提问</span><code>reliable suppliers of industrial electrical connectors（Google AI Overview）</code></div>
+        <img src="ai-google-connector.webp" alt="引用了中国厂的官网做来源，却推荐了别人" loading="lazy" decoding="async" width="1164" height="598">
+        <figcaption><strong>引用了中国厂的官网做来源，却推荐了别人</strong> —— 注意答案下方的来源标记 weipu-group.com —— 网站被读了，品牌没被提</figcaption>
+      </figure>
       </div>
       <div class="ba-verdict ba-verdict--bad" style="margin-top:16px">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -295,6 +308,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=16"></script>
+<script src="main.js?v=17"></script>
 </body>
 </html>

@@ -686,6 +686,46 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* AI 实测截图 ------------------------------------------------------------ */
+.shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.shot-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.shot {
+  margin: 0; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; transition: box-shadow var(--t), transform var(--t);
+}
+.shot:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.shot-q {
+  padding: 13px 16px; border-bottom: 1px solid var(--border); background: var(--surface-2);
+}
+.shot-tag {
+  display: inline-block; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px;
+}
+.shot-q code {
+  display: block; font-family: var(--mono); font-size: .74rem; line-height: 1.55;
+  color: var(--ink); word-break: break-word;
+}
+.shot img {
+  width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border);
+}
+.shot figcaption {
+  padding: 13px 16px; font-size: .84rem; line-height: 1.6; color: var(--ink-3); margin-top: auto;
+}
+.shot figcaption strong { display: block; margin-bottom: 3px; font-size: .88rem; }
+.shot--bad figcaption strong { color: var(--danger); }
+.shot--warn figcaption strong { color: #B8860B; }
+.shot--good figcaption strong { color: var(--success); }
+.shot--bad  { border-top: 3px solid var(--danger); }
+.shot--warn { border-top: 3px solid var(--amber); }
+.shot--good { border-top: 3px solid var(--success); }
+#ai-audit-0812 .shot { max-width: 700px; margin: 22px 0; }
+.q-cell code { font-family: var(--mono); font-size: .74rem; line-height: 1.5; color: var(--ink-2); }
+.td-bad { color: var(--danger); font-weight: 700; }
+@media (max-width: 980px) {
+  .shot-grid, .shot-grid--2 { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; }
+}
+
 /* 次级页面 hero 几何装饰（纯 CSS，无图片） -------------------------------- */
 .hero--deco { position: relative; overflow: hidden; }
 .hero--deco::before {
