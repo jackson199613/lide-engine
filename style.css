@@ -4,7 +4,9 @@
    Generated with ui-ux-pro-max design intelligence (Aurora UI / Enterprise Gateway)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+/* 字体不在这里 @import —— CSS 的 @import 会阻塞渲染，而 fonts.googleapis.com
+   在中国大陆访问不到，会一直等到超时。改为在每个 HTML 的 <head> 里异步加载，
+   连不上就直接用系统字体，页面照常秒开。改动见各页 <head> 的 preload 写法。 */
 
 :root {
   /* Surfaces — light */
@@ -40,8 +42,10 @@
   --success: #12A594;
   --amber: #E0A106;
 
-  --font: 'Lexend', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Lexend 加载不到时（例如国内），自动落到系统中英文字体，观感差异很小 */
+  --font: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+          'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --space-xs: 8px;  --space-sm: 16px; --space-md: 32px;
   --space-lg: 64px; --space-xl: 104px;

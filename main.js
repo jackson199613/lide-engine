@@ -422,8 +422,10 @@
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-label', '立德引擎 · 进入官网');
   el.innerHTML =
-      '<div class="sp-scene sp-earth"><img src="splash-earth.webp" alt="" aria-hidden="true"></div>'
-    + '<div class="sp-scene sp-ring"><img src="splash-ring.webp" alt="" aria-hidden="true"></div>'
+      // 第二幕的地球图不在首屏渲染时下载——先留空 src，第一幕开演后再补。
+      // 这样首访少压 90KB，第一幕出现得更快。
+      '<div class="sp-scene sp-earth"><img data-src="splash-earth.webp" alt="" aria-hidden="true"></div>'
+    + '<div class="sp-scene sp-ring"><img src="splash-ring.webp" alt="" aria-hidden="true" fetchpriority="high"></div>'
     + '<div class="sp-veil"></div>'
     + '<button class="sp-skip" type="button">跳过 →</button>'
     + '<div class="sp-inner">'
@@ -447,6 +449,12 @@
 
   document.body.appendChild(el);
   document.body.classList.add('splash-on');
+
+  // 第一幕已经开演，这时才去取第二幕的地球图——首屏不为它等待
+  var earth = el.querySelector('.sp-earth img');
+  setTimeout(function () {
+    if (earth && earth.dataset.src) earth.src = earth.dataset.src;
+  }, 500);
 
   // 第二幕：3.4 秒后切到地球
   var dots = el.querySelectorAll('.sp-dots i');

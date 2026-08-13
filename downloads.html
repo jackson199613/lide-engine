@@ -12,7 +12,12 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=18">
+<!-- 字体异步加载：连得上就用 Lexend，连不上（如中国大陆）立即回落系统字体，绝不阻塞渲染 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="style.css?v=19">
 
 </head>
 <body>
@@ -217,6 +222,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=18"></script>
+<script src="main.js?v=19"></script>
 </body>
 </html>
