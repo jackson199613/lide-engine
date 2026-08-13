@@ -1,12 +1,15 @@
 /**
  * 立德引擎 — 表单提交后自动推送到飞书群机器人
  *
- * Netlify 在每次表单提交成功后会自动触发这个函数（事件名 submission-created）。
- * 需要在 Netlify 后台设置环境变量 FEISHU_WEBHOOK，值是飞书自定义机器人的 webhook 地址。
- * 未设置时函数直接跳过，不影响表单本身与邮件通知。
+ * Netlify 在每次表单提交成功后自动触发本函数（事件名 submission-created）。
+ * 需在 Netlify 后台设置环境变量 FEISHU_WEBHOOK。未设置时直接跳过，
+ * 不影响表单本身、邮件通知与后台记录。
+ *
+ * 注意：本文件必须是 CommonJS（exports.handler）。Netlify 默认按 CJS 加载 .js，
+ * 用 ESM 的 export default 会直接抛 Runtime.UserCodeSyntaxError。
  */
 
-const FIELD_LABELS = {
+var FIELD_LABELS = {
   // 联系页 · 免费诊断表单
   name: '姓名',
   company: '公司',
@@ -21,32 +24,31 @@ const FIELD_LABELS = {
   page: '来源页面',
 };
 
-const SKIP = new Set(['bot-field', 'form-name', 'consent', 'ip', 'user_agent', 'referrer']);
+var SKIP = ['bot-field', 'form-name', 'consent', 'ip', 'user_agent', 'referrer'];
 
-function buildContent(formName, data, submittedAt) {
-  const title = formName === 'chat' ? '在线咨询留言' : '免费诊断申请';
+function buildMessage(formName, data, submittedAt) {
+  var title = formName === 'chat' ? '在线咨询留言' : '免费诊断申请';
+  var content = [];
 
-  const lines = [];
+  function push(label, value) {
+    if (value && String(value).trim()) {
+      content.push([{ tag: 'text', text: label + '：' + String(value).trim() }]);
+    }
+  }
+
   Object.keys(FIELD_LABELS).forEach(function (k) {
-    const v = data[k];
-    if (v && String(v).trim()) {
-      lines.push({ tag: 'text', text: FIELD_LABELS[k] + '：' + String(v).trim() + '\n' });
-    }
+    push(FIELD_LABELS[k], data[k]);
   });
-  // 兜底：把没在标签表里、但确实有值的字段也带上，避免以后加字段忘了改这里
+  // 兜底：以后表单加了新字段也不会漏
   Object.keys(data).forEach(function (k) {
-    if (FIELD_LABELS[k] || SKIP.has(k)) return;
-    const v = data[k];
-    if (v && String(v).trim()) {
-      lines.push({ tag: 'text', text: k + '：' + String(v).trim() + '\n' });
-    }
+    if (FIELD_LABELS[k] || SKIP.indexOf(k) !== -1) return;
+    push(k, data[k]);
   });
 
-  const content = lines.map(function (l) { return [l]; });
-  content.push([{ tag: 'text', text: '\n提交时间：' + submittedAt }]);
+  content.push([{ tag: 'text', text: '' }]);
+  content.push([{ tag: 'text', text: '提交时间：' + submittedAt }]);
   content.push([
-    { tag: 'text', text: '\n' },
-    { tag: 'a', text: '在 Netlify 后台查看全部询盘', href: 'https://app.netlify.com/projects/lide-engine/forms' },
+    { tag: 'a', text: '→ 在 Netlify 后台查看全部询盘', href: 'https://app.netlify.com/projects/lide-engine/forms' },
   ]);
 
   return {
@@ -55,44 +57,42 @@ function buildContent(formName, data, submittedAt) {
   };
 }
 
-export default async (req) => {
-  const hook = process.env.FEISHU_WEBHOOK;
+exports.handler = async function (event) {
+  var hook = process.env.FEISHU_WEBHOOK;
   if (!hook) {
     console.log('FEISHU_WEBHOOK 未配置，跳过推送');
-    return new Response('skipped: no webhook configured', { status: 200 });
+    return { statusCode: 200, body: 'skipped: no webhook configured' };
   }
 
-  let payload;
+  var sub = {};
   try {
-    payload = await req.json();
+    var parsed = JSON.parse(event.body || '{}');
+    sub = parsed.payload || parsed || {};
   } catch (e) {
-    console.error('解析提交内容失败', e);
-    return new Response('bad payload', { status: 400 });
+    console.error('解析提交内容失败：', e && e.message);
+    return { statusCode: 200, body: 'bad payload' };
   }
 
-  const sub = (payload && payload.payload) || {};
-  const data = sub.data || {};
-  const formName = sub.form_name || data['form-name'] || 'unknown';
-  const submittedAt = sub.created_at
+  var data = sub.data || {};
+  var formName = sub.form_name || data['form-name'] || 'unknown';
+  var submittedAt = sub.created_at
     ? new Date(sub.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
     : new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
 
-  const body = buildContent(formName, data, submittedAt);
+  console.log('收到提交，表单：' + formName + '，字段数：' + Object.keys(data).length);
 
   try {
-    const r = await fetch(hook, {
+    var r = await fetch(hook, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      body: JSON.stringify(buildMessage(formName, data, submittedAt)),
     });
-    const text = await r.text();
-    console.log('飞书推送返回', r.status, text);
-    return new Response('ok', { status: 200 });
+    var text = await r.text();
+    console.log('飞书返回 ' + r.status + ' ' + text);
   } catch (e) {
-    // 推送失败不能影响表单本身——邮件通知与 Netlify 后台记录都还在
-    console.error('飞书推送失败', e);
-    return new Response('push failed but submission is safe', { status: 200 });
+    // 推送失败绝不能影响表单本身
+    console.error('飞书推送失败：', e && e.message);
   }
-};
 
-# 触发重新部署以载入 FEISHU_WEBHOOK 环境变量
+  return { statusCode: 200, body: 'ok' };
+};
