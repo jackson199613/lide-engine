@@ -85,6 +85,8 @@
 /* Cookie consent bar ------------------------------------------------------ */
 (function () {
   var KEY = 'le_consent';
+  var BAIDU_ID = '8c37eedbf705c47be64579f96c8256ad';
+
   function get(n) {
     var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
     return m ? m.pop() : '';
@@ -92,6 +94,21 @@
   function set(v) {
     document.cookie = KEY + '=' + v + ';path=/;max-age=' + (60 * 60 * 24 * 180) + ';SameSite=Lax';
   }
+
+  // 统计脚本只在用户明确接受后加载。选「仅必要」或尚未选择时不加载——
+  // 隐私政策里写了「统计 Cookie 你可以拒绝」，这里必须对得上。
+  function loadAnalytics() {
+    if (window.__leAnalytics) return;
+    window.__leAnalytics = true;
+    window._hmt = window._hmt || [];
+    var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?' + BAIDU_ID;
+    hm.async = true;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+  }
+
+  if (get(KEY) === 'all') { loadAnalytics(); return; }
   if (get(KEY)) return;
   var bar = document.createElement('div');
   bar.className = 'cookiebar';
@@ -107,7 +124,9 @@
   bar.addEventListener('click', function (e) {
     var b = e.target.closest('[data-c]');
     if (!b) return;
-    set(b.getAttribute('data-c'));
+    var choice = b.getAttribute('data-c');
+    set(choice);
+    if (choice === 'all') loadAnalytics();
     bar.classList.remove('is-on');
     setTimeout(function () { bar.remove(); }, 500);
   });
