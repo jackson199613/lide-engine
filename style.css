@@ -661,7 +661,12 @@ td strong { color: var(--ink); }
 }
 .section--navy .statbar-k { color: var(--dark-fg-2); }
 .section--navy .statbar-track { background: rgba(255,255,255,.12); }
-.section--navy .statbar-track i { background: rgba(255,255,255,.34); }
+.section--navy .statbar-track i { background: rgba(255,255,255,.30); }
+/* 深色区块里「合作后」仍需保留品牌渐变，否则前后看不出差别 */
+.section--navy .statbar-row--after .statbar-track i { background: var(--grad); }
+.section--navy .statbar--down .statbar-row--after .statbar-track i {
+  background: linear-gradient(90deg, #12A594, #3ECFB4);
+}
 .hero--visual .statbar-track { background: rgba(11,16,32,.09); }
 
 /* GEO vs SEO 双轨图 ------------------------------------------------------- */
