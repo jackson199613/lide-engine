@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 <style>
 .post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
 .post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
@@ -209,7 +209,7 @@ AI 答出的是英文技术内容做得完整的那几家，而不是营收规�
 
       <h3>一、通用问法：五个品类，中国供应商全部缺席</h3>
       <p>先用最普通的问法——买家不会主动提"中国"，他只是想找到可靠的供应商。</p>
-      <figure class="shot shot--bad">
+      <figure class="shot shot--bad" id="shot-connector">
         <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of industrial electrical connectors?</code></div>
         <img src="ai-connector.webp" alt="9 家全部欧美，中国厂 0 家" loading="lazy" decoding="async" width="1164" height="598">
         <figcaption><strong>9 家全部欧美，中国厂 0 家</strong> —— Perplexity，2026-08-12</figcaption>
@@ -217,15 +217,15 @@ AI 答出的是英文技术内容做得完整的那几家，而不是营收规�
 
       <p>换三个完全不同的行业，结果一模一样：</p>
       <div class="shot-grid" style="margin:18px 0">
-        <figure class="shot shot--bad"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of precision fasteners for industrial assembly?</code></div><img src="ai-fastener.webp" alt="Bossard（瑞士）、Bufab（瑞典）" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>Bossard（瑞士）、Bufab（瑞典）</strong> —— 中国是全球最大紧固件出口国，名单里没有</figcaption></figure>
-        <figure class="shot shot--bad"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of coating additives such as defoamers and dispersants?</code></div><img src="ai-coating.webp" alt="BYK、Evonik、BASF、Allnex、Arkema、Borchers" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>BYK、Evonik、BASF、Allnex、Arkema、Borchers</strong> —— 6 家全欧美</figcaption></figure>
-        <figure class="shot shot--bad"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of feed enzymes such as thermostable phytase?</code></div><img src="ai-feed.webp" alt="BASF、dsm-firmenich、IFF / Danisco" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>BASF、dsm-firmenich、IFF / Danisco</strong> —— 连表格里的产品线都是欧美牌号</figcaption></figure>
+        <figure class="shot shot--bad" id="shot-fastener"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of precision fasteners for industrial assembly?</code></div><img src="ai-fastener.webp" alt="Bossard（瑞士）、Bufab（瑞典）" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>Bossard（瑞士）、Bufab（瑞典）</strong> —— 中国是全球最大紧固件出口国，名单里没有</figcaption></figure>
+        <figure class="shot shot--bad" id="shot-coating"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of coating additives such as defoamers and dispersants?</code></div><img src="ai-coating.webp" alt="BYK、Evonik、BASF、Allnex、Arkema、Borchers" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>BYK、Evonik、BASF、Allnex、Arkema、Borchers</strong> —— 6 家全欧美</figcaption></figure>
+        <figure class="shot shot--bad" id="shot-feed"><div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of feed enzymes such as thermostable phytase?</code></div><img src="ai-feed.webp" alt="BASF、dsm-firmenich、IFF / Danisco" loading="lazy" decoding="async" width="1164" height="598"><figcaption><strong>BASF、dsm-firmenich、IFF / Danisco</strong> —— 连表格里的产品线都是欧美牌号</figcaption></figure>
       </div>
       <p>连接器这条尤其值得琢磨：<strong>立讯精密是全球规模最大的连接器与线束制造商之一，世界 500 强，但它不在这份名单里。</strong>
       不是小厂没被看见，是巨头也没被看见。</p>
 
       <h3>二、明确问「中国供应商」：AI 答得出，但答的不是最大的那几家</h3>
-      <figure class="shot shot--warn">
+      <figure class="shot shot--warn" id="shot-connector-cn">
         <div class="shot-q"><span class="shot-tag">实测提问</span><code>Which Chinese suppliers of industrial electrical connectors are worth considering?</code></div>
         <img src="ai-connector-cn.webp" alt="DEGSON、Yonggui、JONHON、CNLINKO、WEIPU" loading="lazy" decoding="async" width="1164" height="598">
         <figcaption><strong>DEGSON、Yonggui、JONHON、CNLINKO、WEIPU</strong> —— 英文技术内容做得好的那几家</figcaption>
@@ -237,12 +237,12 @@ AI 答出的是英文技术内容做得完整的那几家，而不是营收规�
 
       <h3>三、对照组：光伏和储能，中国厂霸榜</h3>
       <p>如果 AI 真的系统性排斥中国供应商，那这两个品类应该也一样。事实恰恰相反。</p>
-      <figure class="shot shot--good">
+      <figure class="shot shot--good" id="shot-solar">
         <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are the leading suppliers of solar PV modules?</code></div>
         <img src="ai-solar.webp" alt="「led mainly by Chinese manufacturers」" loading="lazy" decoding="async" width="1164" height="598">
         <figcaption><strong>「led mainly by Chinese manufacturers」</strong> —— 晶科、晶澳、隆基、天合、阿特斯</figcaption>
       </figure>
-      <figure class="shot shot--good">
+      <figure class="shot shot--good" id="shot-battery">
         <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are the leading suppliers of lithium-ion battery cells for energy storage?</code></div>
         <img src="ai-battery.webp" alt="「predominantly Chinese manufacturers」" loading="lazy" decoding="async" width="1164" height="598">
         <figcaption><strong>「predominantly Chinese manufacturers」</strong> —— 宁德时代领跑，亿纬/海辰/比亚迪/中创新航/瑞浦兰钧紧随</figcaption>
@@ -252,7 +252,7 @@ AI 答出的是英文技术内容做得完整的那几家，而不是营收规�
       有大量英文技术媒体报道，AI 有足够的语料可以引用和交叉验证。</p>
 
       <h3>四、最值得警惕的一条：网站被读了，品牌没被提</h3>
-      <figure class="shot shot--warn">
+      <figure class="shot shot--warn" id="shot-google">
         <div class="shot-q"><span class="shot-tag">实测提问</span><code>reliable suppliers of industrial electrical connectors</code></div>
         <img src="ai-google-connector.webp" alt="引用了 weipu-group.com 做来源，却推荐了 TE / Amphenol / HARTING / Stäubli" loading="lazy" decoding="async" width="1164" height="598">
         <figcaption><strong>引用了 weipu-group.com 做来源，却推荐了 TE / Amphenol / HARTING / Stäubli</strong> —— Google AI Overview，2026-08-12</figcaption>
@@ -511,6 +511,6 @@ ChatGPT 更倾向维基百科与成熟新闻源；Perplexity 的 .edu 域名占�
   </div>
 </aside>
 
-<script src="main.js?v=20"></script>
+<script src="main.js?v=21"></script>
 </body>
 </html>

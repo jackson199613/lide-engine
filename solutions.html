@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","name":"立德引擎行业 GEO 解决方案","itemListElement":[
 {"@type":"ListItem","position":1,"name":"医疗器械 / 实验室耗材 GEO 解决方案","description":"CE、FDA、ISO 13485 这些认证信息与规格参数分散在 PDF 和图片里，AI 无法确认你的合规资质，直接把你排除在候选之外。"},
@@ -87,6 +87,20 @@
       <h2>九类客户，九种打法</h2>
       <p class="lead">找到最接近你的那一类。没找到也不要紧——方法是通用的，只是每个行业的关键字段不同。不确定就直接做诊断，我们用实测结果告诉你卡在哪。</p>
     </div>
+
+    <nav class="ind-jump reveal" aria-label="按行业跳转">
+      <span class="ind-jump-lab">你是做哪一行的？</span>
+      <a href="#medical">医疗器械 / 实验室耗材</a>
+      <a href="#coatings">特种涂料 / 助剂</a>
+      <a href="#rubber">橡胶助剂 / 化学品</a>
+      <a href="#feed">饲料添加剂 / 生物制品</a>
+      <a href="#machinery">机械精密零件</a>
+      <a href="#machinery-eq">机械装备 / 工业设备</a>
+      <a href="#electronics">电子元器件 / 组件</a>
+      <a href="#consumer">消费品 / 家居 / 纺织</a>
+      <a href="#niche">细分领域隐形冠军</a>
+    </nav>
+
     <div class="grid grid-3">
       <article class="card reveal" id="medical">
         <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 013 3v3h3a3 3 0 013 3v3M12 2a3 3 0 00-3 3v14a3 3 0 003 3 3 3 0 003-3M9 8H6a3 3 0 00-3 3v3"/><circle cx="18" cy="15" r="2.5"/><circle cx="6" cy="15" r="2.5"/></svg></div>
@@ -104,6 +118,7 @@
         <p class="note" style="margin-bottom:14px">涂料树脂、消光粉、流变助剂、分散剂厂商</p>
         <p><strong>典型困境：</strong>买家搜的是「OK 412 替代方案」这类具体型号，AI 只会推原厂，你连候选名单都进不去。</p>
         <ul class="check-list" style="margin-top:14px"><li>Equivalent 型号对标库：主流大牌明星型号一一映射</li><li>体系适配表：水性 / 溶剂型 / UV 固化 × 推荐牌号</li><li>性能场景内容：消光效率、透明度、手感、耐刮擦</li></ul>
+        <p class="evidence"><a href="news.html#shot-coating">这一行的 AI 实测：消泡剂/分散剂问题下，6 家全是欧美品牌 <span aria-hidden="true">→</span></a></p>
         <p class="note" style="margin:0"><strong>建议档位：</strong>Lide-Pro 专家版</p>
       </article>
       <article class="card reveal" id="rubber">
@@ -122,6 +137,7 @@
         <p class="note" style="margin-bottom:14px">酶制剂、载体、微生态制剂生产商</p>
         <p><strong>典型困境：</strong>海外买家用的是英文专业术语提问（耐高温载体、包被工艺），你的中文技术文档 AI 用不上。</p>
         <ul class="check-list" style="margin-top:14px"><li>专业术语双语建模，对齐买家真实提问语言</li><li>耐受性与稳定性数据结构化（耐温、耐酸、货架期）</li><li>法规与认证语料：目标市场准入信息</li></ul>
+        <p class="evidence"><a href="news.html#shot-feed">这一行的 AI 实测：耐高温植酸酶问题下，AI 只点名欧美三家 <span aria-hidden="true">→</span></a></p>
         <p class="note" style="margin:0"><strong>建议档位：</strong>Lide-Pro 专家版</p>
       </article>
       <article class="card reveal" id="machinery">
@@ -131,6 +147,7 @@
         <p class="note" style="margin-bottom:14px">精密加工、模具、专用装备制造商</p>
         <p><strong>典型困境：</strong>非标定制业务难以被检索，AI 无法把你的加工能力和买家的具体需求匹配上。</p>
         <ul class="check-list" style="margin-top:14px"><li>能力矩阵建模：材质 × 精度 × 工艺 × 产能</li><li>行业应用案例结构化，让 AI 能按场景推荐</li><li>认证与质量体系语料化</li></ul>
+        <p class="evidence"><a href="news.html#shot-fastener">这一行的 AI 实测：精密紧固件问题下，AI 点名 Bossard、Bufab <span aria-hidden="true">→</span></a></p>
         <p class="note" style="margin:0"><strong>建议档位：</strong>Lide-Entry 破冰版</p>
       </article>
 
@@ -151,6 +168,7 @@
         <p class="note" style="margin-bottom:14px">连接器、模组、PCBA、被动元件厂商</p>
         <p><strong>典型困境：</strong>买家按规格书选型，用 Part Number 检索，你的料号在 AI 语料里完全不存在。</p>
         <ul class="check-list" style="margin-top:14px"><li>料号与规格参数全字段建模</li><li>与国际大厂料号建立 Cross-reference 关系</li><li>认证与合规信息（RoHS/REACH/UL）结构化</li></ul>
+        <p class="evidence"><a href="news.html#shot-connector">这一行的 AI 实测：连接器问题下，AI 点名 9 家全是欧美品牌 <span aria-hidden="true">→</span></a></p>
         <p class="note" style="margin:0"><strong>建议档位：</strong>Lide-Pro 专家版</p>
       </article>
 
@@ -339,6 +357,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=20"></script>
+<script src="main.js?v=21"></script>
 </body>
 </html>

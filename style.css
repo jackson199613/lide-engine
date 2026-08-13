@@ -690,6 +690,53 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 行业快速跳转 ----------------------------------------------------------- */
+.ind-jump {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-bottom: var(--space-md); padding: 16px 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+}
+.ind-jump-lab {
+  font-size: .88rem; font-weight: 600; color: var(--ink);
+  margin-right: 6px; flex: none;
+}
+.ind-jump a {
+  font-size: .84rem; padding: 7px 14px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink-2); border: 1px solid transparent;
+  transition: all var(--t); white-space: nowrap;
+}
+.ind-jump a:hover {
+  background: var(--grad-soft); color: var(--blue);
+  border-color: rgba(43,91,255,.28); transform: translateY(-1px);
+}
+@media (max-width: 640px) { .ind-jump-lab { flex-basis: 100%; margin-bottom: 4px; } }
+
+/* 行业卡片上的实测证据链接 ------------------------------------------------ */
+.evidence { margin: 0 0 10px; }
+.evidence a {
+  display: inline-flex; align-items: flex-start; gap: 6px;
+  font-size: .84rem; line-height: 1.5; font-weight: 500;
+  color: var(--danger); text-decoration: none;
+  padding: 9px 12px; border-radius: 10px;
+  background: #FFF6F6; border: 1px solid #F5D3D4;
+  transition: all var(--t);
+}
+.evidence a:hover { background: #FFECEC; border-color: #EBB9BA; color: #B3272C; }
+.evidence span { flex: none; }
+
+/* 被锚点跳到的实测图高亮一下，让人知道看哪张 */
+.shot:target {
+  outline: 3px solid var(--blue); outline-offset: 4px;
+  animation: shotFlash 1.6s var(--ease);
+}
+@keyframes shotFlash {
+  0%, 100% { box-shadow: var(--shadow-sm); }
+  30%      { box-shadow: 0 0 0 8px rgba(43,91,255,.16); }
+}
+.shot { scroll-margin-top: 110px; }
+[id^="shot-"] { scroll-margin-top: 110px; }
+
 /* AI 实测截图 ------------------------------------------------------------ */
 .shot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .shot-grid--2 { grid-template-columns: repeat(2, 1fr); }
