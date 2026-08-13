@@ -12,7 +12,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 
 </head>
 <body>
@@ -52,7 +52,7 @@
   </div>
 </header>
 <main>
-<section class="hero" style="padding:var(--space-lg) 0 var(--space-xl)">
+<section class="hero hero--deco" style="padding:var(--space-lg) 0 var(--space-xl)">
   <div class="container">
     <span class="eyebrow" style="color:#E0B85C">METHODOLOGY 方法论</span>
     <h1 style="font-size:clamp(1.9rem,3.6vw,2.8rem);max-width:22ch">AI 不是搜索引擎，<br>它在挑选「可以负责任地说出口」的事实</h1>
@@ -70,6 +70,63 @@
       <span class="eyebrow">GEO vs SEO</span>
       <h2>换了阵地，也换了规则</h2>
     </div>
+
+    <div class="lanes reveal" role="img" aria-label="SEO 与 GEO 两条路径对比：SEO 是用户搜索后点进网站，GEO 是 AI 直接在答案里点名你的品牌">
+      <svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgd" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2B5BFF"/><stop offset=".55" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>
+          </linearGradient>
+          <marker id="la" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#B9C4DC"/>
+          </marker>
+          <marker id="lb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#7C5CFF"/>
+          </marker>
+        </defs>
+
+        <!-- SEO 轨道 -->
+        <text x="0" y="20" font-size="12.5" font-weight="600" fill="#6B7897">传统 SEO · 用户还要自己找</text>
+        <g font-size="12.5" fill="#33405C">
+          <rect x="0"   y="36" width="150" height="46" rx="10" fill="#F2F5FC" stroke="#E3E9F5"/>
+          <text x="75"  y="64" text-anchor="middle">买家搜关键词</text>
+          <line x1="156" y1="59" x2="196" y2="59" stroke="#B9C4DC" stroke-width="1.5" marker-end="url(#la)"/>
+          <rect x="204" y="36" width="150" height="46" rx="10" fill="#F2F5FC" stroke="#E3E9F5"/>
+          <text x="279" y="64" text-anchor="middle">十条蓝色链接</text>
+          <line x1="360" y1="59" x2="400" y2="59" stroke="#B9C4DC" stroke-width="1.5" marker-end="url(#la)"/>
+          <rect x="408" y="36" width="150" height="46" rx="10" fill="#F2F5FC" stroke="#E3E9F5"/>
+          <text x="483" y="64" text-anchor="middle">逐个点开比较</text>
+          <line x1="564" y1="59" x2="604" y2="59" stroke="#B9C4DC" stroke-width="1.5" marker-end="url(#la)"/>
+          <rect x="612" y="36" width="150" height="46" rx="10" fill="#F2F5FC" stroke="#E3E9F5"/>
+          <text x="687" y="64" text-anchor="middle">进入你的网站</text>
+        </g>
+        <text x="790" y="64" font-size="12" fill="#6B7897">你要争的是</text>
+        <text x="790" y="80" font-size="12.5" font-weight="600" fill="#33405C">列表里的位次</text>
+
+        <line x1="0" y1="118" x2="980" y2="118" stroke="#E3E9F5" stroke-width="1"/>
+
+        <!-- GEO 轨道 -->
+        <text x="0" y="152" font-size="12.5" font-weight="600" fill="#2B5BFF">GEO · AI 直接给答案，没有第二次机会</text>
+        <g font-size="12.5" fill="#0B1020">
+          <rect x="0"   y="168" width="150" height="46" rx="10" fill="#fff" stroke="#CBD6EC"/>
+          <text x="75"  y="196" text-anchor="middle">买家问 AI</text>
+          <line x1="156" y1="191" x2="196" y2="191" stroke="#7C5CFF" stroke-width="1.7" marker-end="url(#lb)"/>
+          <rect x="204" y="168" width="354" height="46" rx="10" fill="url(#lgd)"/>
+          <text x="381" y="196" text-anchor="middle" fill="#fff" font-weight="600">AI 生成一份答案，只点名 3–5 家</text>
+          <line x1="564" y1="191" x2="604" y2="191" stroke="#7C5CFF" stroke-width="1.7" marker-end="url(#lb)"/>
+          <rect x="612" y="168" width="150" height="46" rx="10" fill="#fff" stroke="#CBD6EC"/>
+          <text x="687" y="196" text-anchor="middle">直接发询盘</text>
+        </g>
+        <text x="790" y="196" font-size="12" fill="#6B7897">你要争的是</text>
+        <text x="790" y="212" font-size="12.5" font-weight="600" fill="#2B5BFF">名单上有没有你</text>
+
+        <rect x="0" y="246" width="980" height="46" rx="10" fill="#FFF6F6" stroke="#F5D3D4"/>
+        <text x="20" y="274" font-size="12.5" fill="#B3272C">
+          关键差别：SEO 排第 8 名还有人翻到你；AI 的答案里没有你的名字，买家就永远不知道你存在。
+        </text>
+      </svg>
+    </div>
+
     <div class="table-wrap reveal">
       <table>
         <thead><tr><th scope="col">维度</th><th scope="col">传统 SEO</th><th scope="col">GEO 生成式引擎优化</th></tr></thead>
@@ -332,6 +389,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=14"></script>
+<script src="main.js?v=15"></script>
 </body>
 </html>

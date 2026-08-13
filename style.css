@@ -640,6 +640,69 @@ td strong { color: var(--ink); }
 .gapchart { margin-top: 20px; overflow-x: auto; }
 .gapchart svg { width: 100%; min-width: 480px; height: auto; font-family: var(--font); }
 .gapchart rect[fill^="url(#gb)"] { transition: width 900ms var(--ease); }
+
+/* 数字下的前后对比迷你条 -------------------------------------------------- */
+.statbar { margin: 12px 0 10px; display: grid; gap: 7px; }
+.statbar-row { display: flex; align-items: center; gap: 10px; }
+.statbar-k {
+  flex: none; width: 60px; font-size: .7rem; font-family: var(--mono);
+  color: var(--ink-3); letter-spacing: -.01em;
+}
+.statbar-track {
+  flex: 1; height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden;
+}
+.statbar-track i {
+  display: block; height: 100%; border-radius: 99px; background: var(--border-strong);
+  transform-origin: left; transition: width 1s var(--ease);
+}
+.statbar-row--after .statbar-track i { background: var(--grad); }
+.statbar--down .statbar-row--after .statbar-track i {
+  background: linear-gradient(90deg, #12A594, #3ECFB4);
+}
+.section--navy .statbar-k { color: var(--dark-fg-2); }
+.section--navy .statbar-track { background: rgba(255,255,255,.12); }
+.section--navy .statbar-track i { background: rgba(255,255,255,.34); }
+.hero--visual .statbar-track { background: rgba(11,16,32,.09); }
+
+/* GEO vs SEO 双轨图 ------------------------------------------------------- */
+.lanes {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 26px 28px;
+  margin-bottom: var(--space-md); box-shadow: var(--shadow-sm); overflow-x: auto;
+}
+.lanes svg { width: 100%; min-width: 720px; height: auto; font-family: var(--font); }
+
+/* 服务档位阶梯图 --------------------------------------------------------- */
+.stairs {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 26px 28px 20px;
+  margin-bottom: var(--space-md); box-shadow: var(--shadow-sm); overflow-x: auto;
+}
+.stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
+.stairs-note { margin: 14px 0 0; text-align: center; }
+
+/* 次级页面 hero 几何装饰（纯 CSS，无图片） -------------------------------- */
+.hero--deco { position: relative; overflow: hidden; }
+.hero--deco::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(620px 300px at 88% 4%, rgba(43,91,255,.13), transparent 66%),
+    radial-gradient(520px 300px at 4% 96%, rgba(124,92,255,.11), transparent 66%),
+    radial-gradient(420px 260px at 62% 100%, rgba(34,211,238,.10), transparent 68%);
+}
+.hero--deco::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(43,91,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,91,255,.055) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(720px 340px at 82% 12%, #000, transparent 72%);
+          mask-image: radial-gradient(720px 340px at 82% 12%, #000, transparent 72%);
+}
+.hero--deco > .container { position: relative; z-index: 1; }
+@media (max-width: 720px) {
+  .hero--deco::after { background-size: 34px 34px; }
+}
 .ba-foot-note {
   display: inline-block; margin-top: 6px; font-size: .78rem; color: var(--ink-3);
   opacity: .85; font-style: normal;
