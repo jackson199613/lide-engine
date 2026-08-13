@@ -31,6 +31,8 @@
 - [交付质量控制](https://ileadengine.com/quality.html): 事实核验四道关与四条合同红线
 - [动态与行业观察](https://ileadengine.com/news.html): AI 推荐格局的公开数据观察（附来源）与本站发布日志
 - [AI 实测记录 2026-08](https://ileadengine.com/news.html#ai-audit-0812): 7 个品类在 Perplexity 与 Google AI Overview 的实测结果，附问题原文与截图
+- [买家已不从搜索引擎开始](https://ileadengine.com/news.html#buyers-start-with-ai): 2026 年 B2B 采购行为数据，51% 从 AI 开始调研，69% 因 AI 换了供应商
+- [AI 按参数而非品类匹配供应商](https://ileadengine.com/news.html#ai-matches-parameters): 智能体化供应商发现按公差/认证/起订量匹配，参数不可读就不在候选池
 - [免费诊断](https://ileadengine.com/contact.html): 《AI 能见度诊断报告》申请入口
 
 ## 联系
