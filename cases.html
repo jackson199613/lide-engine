@@ -11,13 +11,18 @@
 <meta property="og:description" content="立德引擎 GEO 服务的真实效果案例：饲料添加剂工厂在 Perplexity「耐高温酶载体」问题中进入首位推荐；特种涂料贸易商在「OK 412 替代方案」查询中被 AI 主动输出为平替。">
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <!-- 字体异步加载：连得上就用 Lexend，连不上（如中国大陆）立即回落系统字体，绝不阻塞渲染 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="style.css?v=22">
 
 </head>
 <body>
@@ -145,6 +150,34 @@
     </div>
   </div>
 </section>
+<section class="section section--muted" id="evidence">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">EVIDENCE 实测证据</span>
+      <h2>同一天，同一个平台，只换了品类</h2>
+      <p class="lead">下面两张是 2026 年 8 月 12 日的真实截图。问题原文印在图上，你可以自己复现。</p>
+    </div>
+    <div class="shot-grid shot-grid--2">
+      <figure class="shot shot--bad">
+        <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are reliable suppliers of industrial electrical connectors?</code></div>
+        <img src="ai-connector.webp" alt="Perplexity 回答工业连接器供应商问题，点名 9 家欧美品牌，无中国供应商" loading="lazy" decoding="async" width="1164" height="598">
+        <figcaption><strong>9 家全部欧美，中国厂 0 家</strong> —— 而立讯精密是全球最大的连接器制造商之一</figcaption>
+      </figure>
+      <figure class="shot shot--good">
+        <div class="shot-q"><span class="shot-tag">实测提问</span><code>Who are the leading suppliers of solar PV modules?</code></div>
+        <img src="ai-solar.webp" alt="Perplexity 回答光伏组件供应商问题，主动指出以中国制造商为主并点名五家" loading="lazy" decoding="async" width="1164" height="598">
+        <figcaption><strong>AI 主动说「以中国制造商为主」</strong> —— 晶科、晶澳、隆基、天合、阿特斯全部点名</figcaption>
+      </figure>
+    </div>
+    <div class="card reveal" style="margin-top:var(--space-md);border-left:3px solid var(--blue)">
+      <h3>这两张图放在一起，才是我们真正在卖的东西</h3>
+      <p style="margin:0">AI 不因为你是中国企业就不推荐你——<strong>它只推荐它读得到、且能交叉验证的供应商。</strong>
+      光伏行业有大量英文出货排名与技术媒体报道，所以中国厂霸榜；连接器行业没有，所以集体隐身。
+      差距不在产品，在语料。<a href="news.html#ai-audit-0812">看完整实测记录（7 个品类）→</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="section section--navy" id="markets" style="background-image:linear-gradient(rgba(10,14,31,.86),rgba(10,14,31,.92)),url('earth-wide.webp');background-size:cover;background-position:center">
   <div class="container">
     <div class="section-head reveal">
@@ -282,6 +315,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=21"></script>
+<script src="main.js?v=22"></script>
 </body>
 </html>

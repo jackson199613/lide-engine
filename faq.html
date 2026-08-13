@@ -11,13 +11,18 @@
 <meta property="og:description" content="GEO 是什么、和 SEO 有何区别、AI 为什么总推大牌、小众品类值不值得做、多久见效、怎么验证效果——15 个出海工厂最常问的 GEO 问题与解答。">
 <meta property="og:locale" content="zh_CN">
 <meta name="theme-color" content="#2B5BFF">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <!-- 字体异步加载：连得上就用 Lexend，连不上（如中国大陆）立即回落系统字体，绝不阻塞渲染 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=21">
+<link rel="stylesheet" href="style.css?v=22">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -204,6 +209,11 @@
     <details class="faq reveal"><summary>06 · 怎么验证 GEO 到底有没有效果？</summary><div class="faq-body"><p>四个可复现的指标：提及率（目标品类问题中品牌被点名的占比）、推荐位次（在候选名单里排第几）、被引用来源（AI 引的是你官网还是第三方语料）、参数准确度（AI 复述你的参数对不对）。这四项你都可以自己在模型里复测，不用信任何人的说法。</p></div></details>
     <details class="faq reveal"><summary>07 · 我官网已经是英文的了，还需要做什么？</summary><div class="faq-body"><p>英文只是能被读懂，不等于能被引用。关键差距通常在三处：技术参数还锁在 PDF 里、没有结构化数据标记、缺少第三方交叉验证。英文官网是必要条件，不是充分条件。</p></div></details>
     <details class="faq reveal"><summary>08 · TDS / COA 是 PDF，AI 能读到吗？</summary><div class="faq-body"><p>多数情况下读不到，或者读得很不可靠。PDF 里的表格经常被解析成乱序文本，参数和单位对不上。正确做法是把决定选型的关键参数以 HTML + Schema 标记的形式发布，PDF 作为附件保留。哪几项算关键，因品类而异——化工看性能指标，零件看公差与材质。</p></div></details>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>看到第八个问题了，说明你确实在琢磨这件事</strong><p>与其继续读，不如直接看你自己的数据。我们用买家的真实提问实测你的品牌与竞对，3 个工作日出报告，免费，做完不绑定合作。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="contact.html">免费领取诊断报告</a></div>
+</aside>
+
     <details class="faq reveal"><summary>09 · 什么是 Schema 结构化数据？</summary><div class="faq-body"><p>一种给机器读的标注格式（JSON-LD）。同样一句「活性 5000 U/g」或「公差 ±0.005 mm」，写成普通文本 AI 得靠猜；标成 additionalProperty 的 name/value/unitCode 三元组之后，它知道这是一个可比对、可引用的确定事实。</p></div></details>
     <details class="faq reveal"><summary>10 · robots.txt 放行 AI 爬虫，内容会不会被白嫖？</summary><div class="faq-body"><p>这是最常见的误解。屏蔽 AI 爬虫的结果不是保护内容，而是让 AI 在回答买家问题时永远想不起你。你的技术参数本来就是要给买家看的——目的是被引用，不是被藏起来。真正需要保护的是配方和工艺，那些本来就不该上网。</p></div></details>
     <details class="faq reveal"><summary>11 · llms.txt 是什么？有用吗？</summary><div class="faq-body"><p>放在网站根目录的一份 Markdown 摘要，用简洁语言告诉大模型：这家公司是谁、做什么、关键事实有哪些、重要页面在哪。它不是强制标准，但成本极低，且在模型抓取时提供了一份高信噪比的事实来源。</p></div></details>
@@ -315,6 +325,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=21"></script>
+<script src="main.js?v=22"></script>
 </body>
 </html>

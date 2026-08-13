@@ -690,6 +690,31 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 内容页中段转化衔接卡（playbook #70） ------------------------------------ */
+.inline-cta {
+  max-width: 880px; margin: var(--space-md) auto; padding: 22px 26px;
+  border-radius: var(--radius-lg); position: relative; overflow: hidden;
+  background: linear-gradient(rgba(255,255,255,.96), rgba(255,255,255,.96)) padding-box,
+              var(--grad) border-box;
+  border: 1.5px solid transparent; box-shadow: var(--shadow-sm);
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.inline-cta::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(420px 200px at 100% 0%, rgba(43,91,255,.08), transparent 68%);
+}
+.inline-cta-txt { flex: 1 1 340px; position: relative; }
+.inline-cta-txt strong { display: block; font-size: 1.02rem; color: var(--ink); margin-bottom: 6px; }
+.inline-cta-txt p { margin: 0; font-size: .89rem; color: var(--ink-3); line-height: 1.65; }
+.inline-cta .btn-row { position: relative; flex: none; }
+.inline-cta .btn { min-height: 44px; padding: 11px 20px; font-size: .89rem; }
+@media (max-width: 720px) {
+  .inline-cta { padding: 20px; gap: 16px; }
+  .inline-cta .btn-row { width: 100%; }
+  .inline-cta .btn { flex: 1 1 auto; }
+}
+.section--muted + .inline-cta, .inline-cta + .section { margin-top: var(--space-md); }
+
 /* 行业快速跳转 ----------------------------------------------------------- */
 .ind-jump {
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
