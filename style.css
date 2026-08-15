@@ -690,6 +690,28 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 一封开发信的解剖图（深色区块内） ---------------------------------------- */
+.letter-anatomy {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-lg); padding: 24px 26px; overflow-x: auto;
+}
+.letter-anatomy svg { width: 100%; min-width: 720px; height: auto; font-family: var(--font); }
+.letter-facts {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12);
+}
+.letter-facts div { text-align: center; }
+.letter-facts strong {
+  display: block; font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; margin-bottom: 4px;
+}
+.letter-facts span { font-size: .82rem; color: var(--dark-fg-2); line-height: 1.5; }
+@media (max-width: 720px) {
+  .letter-anatomy { padding: 16px; }
+  .letter-facts { grid-template-columns: 1fr; gap: 12px; }
+}
+
 /* 询盘产线：模式全景图 ---------------------------------------------------- */
 .pipe {
   display: grid; grid-template-columns: 1fr auto 1.9fr auto 1fr; gap: 18px; align-items: center;
