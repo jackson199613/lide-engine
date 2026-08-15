@@ -26,13 +26,14 @@ var FIELD_LABELS = {
 
 var SKIP = ['bot-field', 'form-name', 'consent', 'ip', 'user_agent', 'referrer'];
 
-function buildMessage(formName, data, submittedAt) {
-  var title = formName === 'chat' ? '在线咨询留言' : '免费诊断申请';
+function buildMessage(formName, data, submittedAt, subId) {
   var content = [];
+  var filled = 0;
 
   function push(label, value) {
     if (value && String(value).trim()) {
       content.push([{ tag: 'text', text: label + '：' + String(value).trim() }]);
+      filled++;
     }
   }
 
@@ -45,8 +46,27 @@ function buildMessage(formName, data, submittedAt) {
     push(k, data[k]);
   });
 
+  // 有没有留下能联系上的东西——这是判断真假询盘的唯一标准
+  var reachable = (data.contact && String(data.contact).trim()) ||
+                  (data.name && String(data.name).trim());
+
+  var title;
+  if (!reachable) {
+    // 空提交或机器人：说清楚，别让人白高兴一场，也别让人去后台翻半天
+    title = '⚠ 疑似空提交 / 机器人';
+    content.unshift([{ tag: 'text', text: '这条提交没有姓名也没有联系方式，无法回复。' }]);
+    content.unshift([{ tag: 'text', text: 'Netlify Forms 是公开端点，会被爬虫扫到，偶尔出现属正常。' }]);
+    if (filled === 0) {
+      var raw = Object.keys(data).filter(function (k) { return SKIP.indexOf(k) === -1; });
+      content.push([{ tag: 'text', text: '收到的字段：' + (raw.length ? raw.join('、') : '（一个都没有）') }]);
+    }
+  } else {
+    title = formName === 'chat' ? '在线咨询留言' : '免费诊断申请';
+  }
+
   content.push([{ tag: 'text', text: '' }]);
-  content.push([{ tag: 'text', text: '提交时间：' + submittedAt }]);
+  content.push([{ tag: 'text', text: '表单：' + formName + '　提交时间：' + submittedAt }]);
+  if (subId) content.push([{ tag: 'text', text: '记录编号：' + subId }]);
   content.push([
     { tag: 'a', text: '→ 在 Netlify 后台查看全部询盘', href: 'https://app.netlify.com/projects/lide-engine/forms' },
   ]);
@@ -79,13 +99,18 @@ exports.handler = async function (event) {
     ? new Date(sub.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
     : new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
 
-  console.log('收到提交，表单：' + formName + '，字段数：' + Object.keys(data).length);
+  // 把原始字段打进日志，以后再出问题一眼能看到收到了什么
+  console.log('收到提交 form=' + formName + ' id=' + (sub.id || '-') +
+              ' 字段=' + JSON.stringify(Object.keys(data)) +
+              ' 有值字段=' + JSON.stringify(Object.keys(data).filter(function (k) {
+                return data[k] && String(data[k]).trim();
+              })));
 
   try {
     var r = await fetch(hook, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(buildMessage(formName, data, submittedAt)),
+      body: JSON.stringify(buildMessage(formName, data, submittedAt, sub.id)),
     });
     var text = await r.text();
     console.log('飞书返回 ' + r.status + ' ' + text);
