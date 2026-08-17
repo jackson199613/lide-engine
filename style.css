@@ -1308,3 +1308,8 @@ body.splash-on { overflow: hidden; }
 .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text;
   color: transparent; -webkit-text-fill-color: transparent; }
 @media (max-width: 900px) { .duo-wrap { max-width: 520px; margin: 0 auto; } }
+
+/* 首屏右侧图与常驻咨询条（.rail）避让：窗口不够宽时把首屏内容整体左移 */
+@media (min-width: 901px) and (max-width: 1420px) {
+  .hero-grid { padding-right: 66px; }
+}
