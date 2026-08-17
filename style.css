@@ -690,6 +690,16 @@ td strong { color: var(--ink); }
 .stairs svg { width: 100%; min-width: 700px; height: auto; font-family: var(--font); }
 .stairs-note { margin: 14px 0 0; text-align: center; }
 
+/* 首页实测与实绩：左右分栏 ------------------------------------------------ */
+.proof-split {
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: start;
+}
+.proof-split .card { height: 100%; }
+.proof-split .shot { margin: 0; }
+@media (max-width: 900px) {
+  .proof-split { grid-template-columns: 1fr; }
+}
+
 /* 一封开发信的解剖图（深色区块内） ---------------------------------------- */
 .letter-anatomy {
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
