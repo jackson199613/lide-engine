@@ -437,7 +437,7 @@
     +   '</div>'
     +   '<h1 class="sp-name">' + chars + '</h1>'
     +   '<p class="sp-en">Lide Engine · GEO</p>'
-    +   '<p class="sp-slogan">让出海工厂被全球 AI <b>优先推荐</b></p>'
+    +   '<p class="sp-slogan">给出海工厂装一条<b>持续出询盘的产线</b></p>'
     +   '<div class="sp-markets"><i>欧美</i><i>东南亚</i><i>中东</i><i>南美</i></div>'
     +   '<div class="sp-plat"><i>ChatGPT</i><i>Perplexity</i><i>Claude</i><i>Gemini</i><i>Grok</i><i>DeepSeek</i></div>'
     +   '<button class="sp-enter" type="button">进入官网'
