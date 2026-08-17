@@ -1298,3 +1298,13 @@ body.splash-on { overflow: hidden; }
   .sp-plat, .sp-markets { gap: 12px; font-size: .66rem; }
   .sp-logo { width: 66px; height: 66px; }
 }
+
+/* 首页首屏：双线产线示意图 */
+.duo-wrap { position: relative; }
+.duo-wrap svg { display: block; width: 100%; height: auto;
+  filter: drop-shadow(0 18px 44px rgba(11,16,32,.13)); }
+.duo-foot { margin: 14px 0 0; text-align: center; font-size: .9rem; color: var(--ink-3); }
+.hero--visual .duo-foot { text-shadow: 0 1px 14px rgba(255,255,255,.95); }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; }
+@media (max-width: 900px) { .duo-wrap { max-width: 520px; margin: 0 auto; } }
