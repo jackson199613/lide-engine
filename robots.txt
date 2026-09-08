@@ -1,4 +1,4 @@
-# 立德引擎 Lide Engine — 全面放行 AI 爬虫（GEO 基础设施）
+# 立德引擎 Lead Engine — 全面放行 AI 爬虫（GEO 基础设施）
 User-agent: *
 Allow: /
 
