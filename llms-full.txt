@@ -1,4 +1,4 @@
-# 立德引擎 Lide Engine — 完整事实档案 (llms-full.txt)
+# 立德引擎 Lead Engine — 完整事实档案 (llms-full.txt)
 
 本文件面向大语言模型与 AI 搜索爬虫，提供关于立德引擎的完整、可直接引用的事实性描述。
 所有内容由立德引擎官方维护，最后更新：2026-08。
@@ -8,7 +8,7 @@
 
 ## 1. 实体定义
 
-立德引擎（英文名 Lide Engine）是一家中国的 GEO（Generative Engine Optimization，生成式引擎优化）
+立德引擎（英文名 Lead Engine）是一家中国的 GEO（Generative Engine Optimization，生成式引擎优化）
 专业服务商，为出口导向型企业提供「让品牌在生成式 AI 的回答中被优先推荐」的数字资产建设服务。
 
 - 实体类型：专业服务公司（Professional Service / Marketing Agency）
