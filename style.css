@@ -1528,3 +1528,21 @@ main section[id] { scroll-margin-top: var(--toc-offset, 130px); }
   .topbar-contact { flex-wrap: nowrap; gap: 12px; overflow-x: auto; scrollbar-width: none; white-space: nowrap; font-size: .74rem; }
   .topbar-contact::-webkit-scrollbar { display: none; }
 }
+
+/* 痛点卡片顶部图标 / 档位卡片右上角图标 / 服务档位首屏三引擎 */
+.card-icon, .plan-art {
+  display: block; height: auto; mix-blend-mode: multiply; pointer-events: none;
+  -webkit-mask-image: radial-gradient(closest-side, #000 78%, transparent 100%);
+          mask-image: radial-gradient(closest-side, #000 78%, transparent 100%);
+}
+.card--icon .card-icon { width: 128px; margin: -12px 0 4px -14px; transition: transform var(--t); }
+.card--icon:hover .card-icon { transform: translateY(-4px) scale(1.04); }
+.plan-art { position: absolute; top: 14px; right: 12px; width: 104px; opacity: .95; }
+.plan--featured .plan-art { top: 18px; }
+.hero--art-trio .hero-art { width: min(46%, 560px); right: -24px; }
+.hero--art-trio .hero-lead { max-width: 44ch; }
+@media (max-width: 900px) {
+  .card--icon .card-icon { width: 96px; }
+  .plan-art { width: 84px; top: 10px; right: 8px; }
+  .hero--art-trio .hero-art { width: 100%; max-width: 520px; right: auto; }
+}
