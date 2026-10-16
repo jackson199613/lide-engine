@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=36">
+<link rel="stylesheet" href="style.css?v=37">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Service", "@id": "https://ileadengine.com/pipeline.html#pipeline", "name": "出海询盘产线（主动 Email 矩阵 + 被动 GEO 矩阵）", "serviceType": "B2B 出海获客 / Outbound Email + Generative Engine Optimization", "provider": {"@id": "https://ileadengine.com/#org"}, "description": "以独立站站群为底，主动线用定制化 Email 矩阵触达买家，被动线用自动化 GEO 矩阵让 AI 主动引用，产出按 A/B/C 分级的询盘。主动线按月计费，被动线按年运营。", "areaServed": ["EU", "US", "SEA", "ME", "SA"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "询盘产线档位", "itemListElement": [{"@type": "Offer", "name": "主动线 · 入门", "price": "5800", "priceCurrency": "CNY", "description": "1 个场景站 · 5,000 触达/月"}, {"@type": "Offer", "name": "主动线 · 标准", "price": "12800", "priceCurrency": "CNY", "description": "3 个场景站 · 20,000 触达/月"}, {"@type": "Offer", "name": "主动线 · 旗舰", "price": "29800", "priceCurrency": "CNY", "description": "7 站站群 · 50,000 触达/月"}, {"@type": "Offer", "name": "被动线 · 基础版", "price": "23800", "priceCurrency": "CNY", "description": "让 AI 正确认识企业：定位建档、关键词矩阵、技术部署、AI 问答测试"}, {"@type": "Offer", "name": "被动线 · 成长版", "price": "36800", "priceCurrency": "CNY", "description": "持续被 AI 推荐：多国覆盖、定期监控告警、竞品截流、多语助手"}, {"@type": "Offer", "name": "被动线 · 领航版", "price": "56800", "priceCurrency": "CNY", "description": "年度深度管理：季度策略会、多市场证据适配、年度趋势报告、专属陪跑"}]}}
 </script>
@@ -81,7 +81,23 @@
   </div>
 </section>
 
-<section class="section">
+<nav class="page-toc" aria-label="本页目录">
+  <div class="container">
+    <ol class="page-toc-list">
+      <li><a href="#structure">产线结构</a></li>
+      <li><a href="#bionic">主动线</a></li>
+      <li><a href="#data">数据源</a></li>
+      <li><a href="#geo">被动线 GEO</a></li>
+      <li><a href="#cost">成本对比</a></li>
+      <li><a href="#roi" class="page-toc-hot">算一算</a></li>
+      <li><a href="#grading">询盘分级</a></li>
+      <li><a href="#industry-fit">行业档位</a></li>
+      <li><a href="#pricing">价格</a></li>
+    </ol>
+  </div>
+</nav>
+
+<section id="structure" class="section">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">模式全景</span>
@@ -230,7 +246,7 @@
   </div>
 </section>
 
-<section class="section section--muted">
+<section id="data" class="section section--muted">
   <div class="container">
     <div class="head-split">
       <div class="section-head reveal">
@@ -269,7 +285,7 @@
   </div>
 </section>
 
-<section class="section">
+<section id="geo" class="section">
   <div class="container">
     <div class="head-split">
     <div class="section-head reveal">
@@ -303,7 +319,7 @@
   </div>
 </section>
 
-<section class="section section--navy">
+<section id="cost" class="section section--navy">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">人效对照</span>
@@ -352,7 +368,78 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section--muted" id="roi">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">ROI 计算器</span>
+      <h2>按你自己的团队，算一笔账</h2>
+      <p class="lead">填入你现在负责开发客户的人数和成本，看看同样的钱放在产线上，每个月能多拿多少询盘。</p>
+    </div>
+    <div class="roi reveal" data-roi>
+      <form class="roi-inputs" aria-label="你的团队情况" onsubmit="return false">
+        <div class="roi-field">
+          <label for="roi-people">负责开发客户的业务员</label>
+          <div class="roi-range">
+            <input id="roi-people" type="range" min="1" max="10" step="1" value="2">
+            <output for="roi-people" data-out="people">2 人</output>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label for="roi-cost">每人每月综合成本</label>
+          <div class="roi-num"><span>¥</span><input id="roi-cost" type="number" inputmode="numeric" min="1000" max="100000" step="100" value="6200"><span>/ 月</span></div>
+          <p class="roi-hint">底薪 + 提成 + 社保，网站对照表按 ¥6,200 计</p>
+        </div>
+        <div class="roi-field">
+          <label for="roi-daily">每人每天写开发信</label>
+          <div class="roi-range">
+            <input id="roi-daily" type="range" min="5" max="60" step="1" value="12">
+            <output for="roi-daily" data-out="daily">12 封</output>
+          </div>
+        </div>
+        <fieldset class="roi-field roi-tiers">
+          <legend>对比的产线档位</legend>
+          <label><input type="radio" name="roi-tier" value="0"><span>入门<b>¥5,800</b></span></label>
+          <label><input type="radio" name="roi-tier" value="1" checked><span>标准<b>¥12,800</b></span></label>
+          <label><input type="radio" name="roi-tier" value="2"><span>旗舰<b>¥29,800</b></span></label>
+        </fieldset>
+      </form>
+
+      <div class="roi-result" aria-live="polite">
+        <div class="roi-cols">
+          <div class="roi-col">
+            <span class="roi-tag">你的团队</span>
+            <p class="roi-big" data-out="hInq">2</p>
+            <p class="roi-cap">条询盘 / 月</p>
+            <dl>
+              <div><dt>月成本</dt><dd data-out="hCost">¥12,400</dd></div>
+              <div><dt>月发信</dt><dd data-out="hSend">528 封</dd></div>
+              <div><dt>单条询盘成本</dt><dd data-out="hCpi">¥6,200</dd></div>
+            </dl>
+          </div>
+          <div class="roi-col roi-col--win">
+            <span class="roi-tag" data-out="tName">主动线 · 标准档</span>
+            <p class="roi-big" data-out="mInq">20</p>
+            <p class="roi-cap">条有效询盘 / 月</p>
+            <dl>
+              <div><dt>月费用</dt><dd data-out="mCost">¥12,800</dd></div>
+              <div><dt>月触达</dt><dd data-out="mSend">20,000 次</dd></div>
+              <div><dt>单条询盘成本</dt><dd data-out="mCpi">¥640</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="roi-bars" aria-hidden="true">
+          <div class="roi-bar"><span>你的团队</span><i data-bar="h"></i></div>
+          <div class="roi-bar roi-bar--win"><span>产线</span><i data-bar="m"></i></div>
+        </div>
+        <p class="roi-verdict" data-out="verdict">同样约两个人的工资，询盘是现在的 10 倍。</p>
+        <p class="roi-note">测算口径与本页对照表一致：业务员询盘率按熟练业务员经验值 0.36%、每月 22 个工作日计；产线按 0.12% 保守询盘率、约 83% 为有效询盘计。这是估算，不是承诺，实际因品类、市场和既有资料而异。</p>
+        <a class="btn btn--primary" href="contact.html">用我的品类做一次免费诊断</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="channels" class="section">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">渠道对照 · 单条询盘成本</span>
@@ -496,7 +583,7 @@
   </div>
 </section>
 
-<section class="section section--tight">
+<section id="start" class="section section--tight">
   <div class="container">
     <div class="cta-band reveal">
       <h2>先从免费诊断开始，不从签合同开始</h2>
@@ -599,6 +686,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=36"></script>
+<script src="main.js?v=37"></script>
 </body>
 </html>

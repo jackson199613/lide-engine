@@ -716,3 +716,108 @@
   });
   window.addEventListener('wheel', enter, { once: true, passive: true });
 })();
+
+/* 询盘产线页 · 吸顶目录：贴在导航下方，滚动时高亮当前版块 ---------------- */
+(function () {
+  var toc = document.querySelector('.page-toc');
+  if (!toc) return;
+  var header = document.querySelector('.site-header');
+  var root = document.documentElement;
+  function offsets() {
+    var h = header ? header.getBoundingClientRect().height : 0;
+    root.style.setProperty('--header-h', h + 'px');
+    root.style.setProperty('--toc-offset', (h + toc.offsetHeight + 12) + 'px');
+  }
+  offsets();
+  window.addEventListener('resize', offsets);
+  window.addEventListener('load', offsets);
+
+  var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'));
+  var targets = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var list = toc.querySelector('.page-toc-list');
+  var current = null;
+  function setActive(i) {
+    if (current === i) return;
+    current = i;
+    links.forEach(function (a, k) { a.classList.toggle('is-active', k === i); });
+    var a = links[i];
+    if (a && list.scrollWidth > list.clientWidth) {   // 手机上把当前项滚进可视区
+      list.scrollTo({ left: a.offsetLeft - list.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' });
+    }
+  }
+  function onScroll() {
+    var line = (parseFloat(getComputedStyle(root).getPropertyValue('--toc-offset')) || 130) + 20;
+    var idx = -1;
+    targets.forEach(function (el, k) { if (el && el.getBoundingClientRect().top <= line) idx = k; });
+    setActive(idx);
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () { ticking = false; onScroll(); });
+  }, { passive: true });
+  onScroll();
+})();
+
+/* ROI 计算器：口径与询盘产线页「同样的工资预算」对照表一致 -------------------- */
+(function () {
+  var box = document.querySelector('[data-roi]');
+  if (!box) return;
+  var TIERS = [
+    { name: '入门档', fee: 5800, reach: 5000 },
+    { name: '标准档', fee: 12800, reach: 20000 },
+    { name: '旗舰档', fee: 29800, reach: 50000 }
+  ];
+  var HUMAN_RATE = 0.0036;          // 熟练业务员开发信询盘率（客户实证页口径）
+  var LINE_RATE = 0.0012;           // 产线保守询盘率
+  var VALID = 20 / 24;              // 标准档 24 条按约 20 条有效计
+  var WORKDAYS = 22;
+
+  var $ = function (s) { return box.querySelector(s); };
+  var out = function (k) { return box.querySelector('[data-out="' + k + '"]'); };
+  var people = $('#roi-people'), cost = $('#roi-cost'), daily = $('#roi-daily');
+
+  function yuan(n) { return '¥' + Math.round(n).toLocaleString('zh-CN'); }
+  function about(n) { return n >= 10 ? Math.round(n).toLocaleString('zh-CN') : (Math.round(n * 10) / 10).toString(); }
+  function round10(n) { return Math.round(n / 10) * 10; }
+
+  function calc() {
+    var p = +people.value || 1;
+    var c = Math.min(Math.max(+cost.value || 0, 0), 1e6);
+    var d = +daily.value || 1;
+    var tIdx = +(box.querySelector('input[name="roi-tier"]:checked') || { value: 1 }).value;
+    var t = TIERS[tIdx];
+
+    var hCost = p * c, hSend = p * d * WORKDAYS, hInq = hSend * HUMAN_RATE;
+    var mInq = t.reach * LINE_RATE * VALID;
+    var perPerson = d * WORKDAYS * HUMAN_RATE;
+    var need = Math.ceil(mInq / perPerson);
+
+    out('people').textContent = p + ' 人';
+    out('daily').textContent = d + ' 封';
+    out('hInq').textContent = about(hInq);
+    out('hCost').textContent = yuan(hCost);
+    out('hSend').textContent = hSend.toLocaleString('zh-CN') + ' 封';
+    out('hCpi').textContent = hInq > 0 && c > 0 ? '约 ' + yuan(round10(hCost / hInq)) : '—';
+    out('tName').textContent = '主动线 · ' + t.name;
+    out('mInq').textContent = about(mInq);
+    out('mCost').textContent = yuan(t.fee);
+    out('mSend').textContent = t.reach.toLocaleString('zh-CN') + ' 次';
+    out('mCpi').textContent = '约 ' + yuan(round10(t.fee / mInq));
+
+    var max = Math.max(hInq, mInq) || 1;
+    box.querySelector('[data-bar="h"]').style.width = Math.max(2, hInq / max * 100) + '%';
+    box.querySelector('[data-bar="m"]').style.width = Math.max(2, mInq / max * 100) + '%';
+
+    var ratio = hInq > 0 ? mInq / hInq : 0;
+    var money = t.fee <= hCost * 1.05
+      ? '花的钱' + (t.fee < hCost * 0.95 ? '比现在少 ' + yuan(hCost - t.fee) + '/月' : '和现在差不多')
+      : '每月多投 ' + yuan(t.fee - hCost);
+    var v = money + '，询盘约是现在的 <strong>' + (ratio >= 10 ? Math.round(ratio) : Math.round(ratio * 10) / 10) + ' 倍</strong>。';
+    if (need > p) v += '要靠招人做到同样数量，大约需要 <strong>' + need + ' 名业务员</strong>，月成本约 ' + yuan(need * c) + '。';
+    out('verdict').innerHTML = v;
+  }
+  box.addEventListener('input', calc);
+  box.addEventListener('change', calc);
+  calc();
+})();
