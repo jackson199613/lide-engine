@@ -1159,7 +1159,11 @@ td strong { color: var(--ink); }
   display: flex; align-items: center; justify-content: center;
   transition: opacity 1s var(--ease), transform 1s var(--ease), visibility 1s;
 }
-.splash.is-out { opacity: 0; visibility: hidden; transform: scale(1.06); }
+.splash.is-out { opacity: 0; visibility: hidden; transition-duration: .7s; }
+/* 穿越转场：文字与界面先退，球体由 JS 推进放大 */
+.splash.is-warp .sp-inner, .splash.is-warp .sp-skip, .splash.is-warp .sp-dots, .splash.is-warp .sp-hint, .splash.is-warp::before {
+  opacity: 0 !important; transform: translateY(-10px); transition: opacity .35s var(--ease), transform .35s var(--ease); animation: none; }
+.splash.is-warp .sp-veil { opacity: 0; transition: opacity .35s var(--ease); }
 body.splash-on { overflow: hidden; }
 
 /* 细网格底纹 */
@@ -1175,7 +1179,22 @@ body.splash-on { overflow: hidden; }
 }
 @keyframes fadeIn { to { opacity: 1; } }
 
-/* 球体层次：光晕 → 投影 → 后景轨道 → 球体图 → 高光 → 前景粒子与轨道 */
+/* 流动极光：三团柔光缓慢漂移，让底色有呼吸感 */
+.sp-aurora { position: absolute; inset: -20%; pointer-events: none; filter: blur(60px); opacity: .55; }
+.sp-aurora i { position: absolute; border-radius: 50%; display: block; }
+.sp-aurora i:nth-child(1) { width: 46vmax; height: 46vmax; left: calc(var(--ox, 70%) - 10vmax); top: 0;
+  background: radial-gradient(closest-side, rgba(124,92,255,.32), transparent); animation: auroraA 18s ease-in-out infinite alternate; }
+.sp-aurora i:nth-child(2) { width: 40vmax; height: 40vmax; left: calc(var(--ox, 70%) + 6vmax); top: 30%;
+  background: radial-gradient(closest-side, rgba(34,211,238,.26), transparent); animation: auroraB 22s ease-in-out infinite alternate; }
+.sp-aurora i:nth-child(3) { width: 50vmax; height: 50vmax; left: 0; top: 40%;
+  background: radial-gradient(closest-side, rgba(43,91,255,.18), transparent); animation: auroraA 26s ease-in-out infinite alternate-reverse; }
+@keyframes auroraA { to { transform: translate(8vmax, 6vmax) scale(1.15); } }
+@keyframes auroraB { to { transform: translate(-10vmax, -4vmax) scale(.9); } }
+/* 穿越时的白光 */
+.sp-flash { position: absolute; z-index: 6; border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(closest-side, #fff 0%, rgba(255,255,255,.95) 35%, rgba(233,240,255,.6) 60%, transparent 75%); }
+
+/* 球体层次：光晕 → 投影 → 后景扫描环/轨道 → 球体图 → 高光 → 前景光流/轨道 */
 .sp-fx { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
 .sp-halo, .sp-shadow, .sp-orb, .sp-gloss { position: absolute; pointer-events: none; opacity: 0; will-change: transform, opacity; }
 .sp-halo { border-radius: 50%;
@@ -1229,7 +1248,8 @@ body.splash-on { overflow: hidden; }
 .sp-en {
   font-family: var(--mono); font-size: clamp(.7rem, 1.3vw, .9rem);
   letter-spacing: .48em; text-transform: uppercase; margin: 0 0 28px;
-  color: #2B5BFF; opacity: 0; animation: fadeUp .9s var(--ease) 1.35s forwards;
+  color: #2B5BFF; opacity: 0; animation: fadeUp .5s var(--ease) 1.3s forwards;
+  white-space: pre; font-variant-numeric: tabular-nums;
 }
 .sp-slogan {
   font-size: clamp(1rem, 2vw, 1.4rem); color: #2C3756;
@@ -1274,6 +1294,12 @@ body.splash-on { overflow: hidden; }
   transition: transform .3s var(--ease), box-shadow .3s var(--ease), background-position .6s var(--ease);
 }
 .sp-enter:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 22px 56px rgba(43,91,255,.45); background-position: 100% 0; }
+/* 按钮上每 4 秒扫过一道细光 */
+.sp-enter { position: relative; overflow: hidden; }
+.sp-enter::after { content: ''; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-20deg);
+  animation: btnShine 4s ease-in-out 3s infinite; }
+@keyframes btnShine { 0%, 70% { left: -60%; } 100% { left: 130%; } }
 .sp-enter svg { width: 18px; height: 18px; stroke: #fff; }
 
 .sp-hint {
