@@ -1151,69 +1151,74 @@ td strong { color: var(--ink); }
 
 
 /* ==========================================================================
-   开场页 Splash · 两幕 —— 能量环 → 地球光弧，点击进入
+   开场页 Splash · 玻璃地球球体 —— 粒子汇聚 → 球体浮现 → AI 平台轨道，点击进入
    ========================================================================== */
 .splash {
-  position: fixed; inset: 0; z-index: 300; overflow: hidden;
-  background: #04060E; cursor: pointer;
+  position: fixed; inset: 0; z-index: 300; overflow: hidden; cursor: pointer;
+  background: radial-gradient(55% 65% at 72% 48%, #FFFFFF 0%, #F1F4FB 55%, #E7ECF7 100%), #EEF2FA;
   display: flex; align-items: center; justify-content: center;
   transition: opacity 1s var(--ease), transform 1s var(--ease), visibility 1s;
 }
-.splash.is-out { opacity: 0; visibility: hidden; transform: scale(1.1); }
+.splash.is-out { opacity: 0; visibility: hidden; transform: scale(1.06); }
 body.splash-on { overflow: hidden; }
 
-/* 幕布层 */
-.sp-scene { position: absolute; inset: 0; }
-.sp-scene img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; opacity: 0;
+/* 细网格底纹 */
+.splash::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(43,91,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43,91,255,.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(70% 70% at 70% 50%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(70% 70% at 70% 50%, #000 0%, transparent 75%);
+  opacity: 0; animation: fadeIn 1.6s var(--ease) .2s forwards;
 }
+@keyframes fadeIn { to { opacity: 1; } }
 
-/* 第一幕：能量环 */
-.sp-ring img {
-  transform: scale(1.28) rotate(-6deg);
-  animation: ringIn 2.2s var(--ease) .1s forwards, ringSpin 40s linear 2.3s infinite;
-}
-@keyframes ringIn { to { opacity: .95; transform: scale(1.02) rotate(0deg); } }
-@keyframes ringSpin { to { transform: scale(1.02) rotate(360deg); } }
-.splash.act2 .sp-ring img { animation: ringOut 1.4s var(--ease) forwards; }
-@keyframes ringOut { to { opacity: 0; transform: scale(1.7) rotate(14deg); } }
+/* 球体层次：光晕 → 投影 → 后景轨道 → 球体图 → 高光 → 前景粒子与轨道 */
+.sp-fx { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+.sp-halo, .sp-shadow, .sp-orb, .sp-gloss { position: absolute; pointer-events: none; opacity: 0; will-change: transform, opacity; }
+.sp-halo { border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(124,92,255,.20), rgba(43,91,255,.10) 45%, transparent 72%); }
+.sp-shadow { transform-origin: 50% 30%; }
+.sp-shadow::before, .sp-shadow i {
+  content: ''; position: absolute; inset: 0; border-radius: 50%; display: block; }
+.sp-shadow::before { background: radial-gradient(closest-side, rgba(25,35,80,.22), rgba(25,35,80,.06) 60%, transparent); }
+.sp-shadow i { inset: 10% 14%; filter: blur(8px); opacity: .7;
+  background: linear-gradient(90deg, rgba(124,92,255,.0), rgba(124,92,255,.5) 25%, rgba(34,211,238,.55) 50%, rgba(43,91,255,.5) 75%, rgba(43,91,255,0));
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent);
+          mask-image: radial-gradient(closest-side, #000 30%, transparent); }
+/* 图片背景已是纯白：正片叠底后白色完全融进页面 */
+.sp-orb { mix-blend-mode: multiply; }
+.sp-orb img { display: block; width: 100%; height: 100%; }
+/* 球面高光：一块随鼠标游走的柔光 + 定时扫过的光带 */
+.sp-gloss { border-radius: 50%; overflow: hidden; mix-blend-mode: screen; --gx: 35%; --gy: 28%; --sw: -60%; }
+.sp-gloss::before { content: ''; position: absolute; inset: 0;
+  background: radial-gradient(28% 22% at var(--gx) var(--gy), rgba(255,255,255,.55), transparent 70%); }
+.sp-gloss i { position: absolute; top: -20%; bottom: -20%; width: 34%; left: var(--sw);
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45) 50%, transparent);
+  transform: skewX(-18deg); }
 
-/* 第二幕：地球 */
-.sp-earth img {
-  transform: scale(1.35) translateY(6%);
-  transition: opacity 1.6s var(--ease), transform 2.6s var(--ease);
-}
-.splash.act2 .sp-earth img { opacity: .92; transform: scale(1.04) translateY(0); }
-
-/* 光晕与暗角 */
+/* 左侧提亮，保证文字可读 */
 .sp-veil {
   position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(46% 44% at 50% 46%, rgba(4,6,14,.82) 0%, rgba(4,6,14,.5) 42%, transparent 72%),
-    radial-gradient(120% 100% at 50% 50%, transparent 40%, rgba(4,6,14,.85) 100%);
+  background: linear-gradient(90deg, rgba(243,246,252,.92) 0%, rgba(243,246,252,.55) 34%, rgba(243,246,252,0) 56%);
 }
-.splash::after {
-  content: ''; position: absolute; left: -30%; right: -30%; top: 0; height: 100%;
-  pointer-events: none;
-  background: linear-gradient(102deg, transparent 42%, rgba(255,255,255,.06) 50%, transparent 58%);
-  animation: sweep 5s ease-in-out 1.2s infinite;
-}
-@keyframes sweep { 0% { transform: translateX(-42%); } 60%, 100% { transform: translateX(42%); } }
 
-/* 内容 */
-.sp-inner { position: relative; z-index: 4; text-align: center; padding: 0 24px; }
+/* 内容：桌面端左对齐 */
+.sp-inner { position: relative; z-index: 4; width: 100%; max-width: 1200px; padding: 0 48px; text-align: left; }
+.sp-inner > * { max-width: 560px; }
 
 .sp-logo {
-  width: 84px; height: 84px; margin: 0 auto 26px;
+  width: 72px; height: 72px; margin: 0 0 26px;
   opacity: 0; transform: scale(.6); animation: popIn .9s var(--ease) .5s forwards;
 }
 @keyframes popIn { to { opacity: 1; transform: scale(1); } }
 
 .sp-name {
-  font-size: clamp(2.5rem, 7.5vw, 5.2rem); font-weight: 800; letter-spacing: .05em;
-  color: #fff; margin: 0 0 16px; line-height: 1.08;
-  text-shadow: 0 0 60px rgba(91,141,255,.55);
+  font-size: clamp(2.5rem, 6.4vw, 5rem); font-weight: 800; letter-spacing: .05em;
+  color: #0B1530; margin: 0 0 16px; line-height: 1.08;
+  text-shadow: 0 10px 40px rgba(43,91,255,.16);
 }
 .sp-name span {
   display: inline-block; opacity: 0; transform: translateY(42px) rotateX(-60deg);
@@ -1222,82 +1227,98 @@ body.splash-on { overflow: hidden; }
 @keyframes nameIn { to { opacity: 1; transform: none; } }
 
 .sp-en {
-  font-family: var(--mono); font-size: clamp(.7rem, 1.4vw, .92rem);
-  letter-spacing: .52em; text-transform: uppercase; margin: 0 0 30px; padding-left: .52em;
-  color: #7FA8FF; opacity: 0; animation: fadeUp .9s var(--ease) 1.35s forwards;
+  font-family: var(--mono); font-size: clamp(.7rem, 1.3vw, .9rem);
+  letter-spacing: .48em; text-transform: uppercase; margin: 0 0 28px;
+  color: #2B5BFF; opacity: 0; animation: fadeUp .9s var(--ease) 1.35s forwards;
 }
 .sp-slogan {
-  font-size: clamp(1rem, 2.2vw, 1.45rem); color: rgba(255,255,255,.94);
-  margin: 0 0 12px; font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.4rem); color: #2C3756;
+  margin: 0 0 14px; font-weight: 500;
   opacity: 0; animation: fadeUp .9s var(--ease) 1.6s forwards;
 }
 .sp-slogan b {
-  background: linear-gradient(100deg,#5B8DFF,#A78BFA,#22D3EE);
+  background: linear-gradient(100deg,#2B5BFF,#7C5CFF,#0EA5C6);
   -webkit-background-clip: text; background-clip: text;
   color: transparent; -webkit-text-fill-color: transparent; font-weight: 800;
 }
 /* 第二幕才出现的市场行 */
 .sp-markets {
-  display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 22px; justify-content: flex-start; flex-wrap: wrap;
   font-family: var(--mono); font-size: .76rem; letter-spacing: .12em;
-  color: rgba(160,190,255,.75); margin: 0 0 38px; min-height: 20px;
+  color: #3550B0; margin: 0 0 34px; min-height: 20px;
   opacity: 0; transform: translateY(12px); transition: all .9s var(--ease);
 }
 .splash.act2 .sp-markets { opacity: 1; transform: none; }
 .sp-markets i { font-style: normal; position: relative; padding-left: 14px; }
 .sp-markets i::before {
   content: ''; position: absolute; left: 0; top: 50%; width: 6px; height: 6px;
-  border-radius: 50%; background: #22D3EE; transform: translateY(-50%);
-  box-shadow: 0 0 10px #22D3EE;
+  border-radius: 50%; background: #2B5BFF; transform: translateY(-50%);
+  box-shadow: 0 0 8px rgba(43,91,255,.6);
 }
 
 .sp-plat {
-  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 0 0 40px;
-  font-family: var(--mono); font-size: .76rem; letter-spacing: .1em;
-  color: rgba(255,255,255,.4);
+  display: flex; gap: 20px; justify-content: flex-start; flex-wrap: wrap; margin: 0 0 38px;
+  font-family: var(--mono); font-size: .74rem; letter-spacing: .1em;
+  color: rgba(11,21,48,.5);
   opacity: 0; animation: fadeUp .9s var(--ease) 1.85s forwards;
 }
-.splash.act2 .sp-plat { opacity: .55; }
+.splash.act2 .sp-plat { opacity: .75; }
 
 .sp-enter {
   display: inline-flex; align-items: center; gap: 12px;
   padding: 16px 40px; border-radius: 999px; cursor: pointer; border: 0;
   background: linear-gradient(100deg,#2B5BFF,#7C5CFF,#22D3EE); background-size: 180% 180%;
   color: #fff; font-size: 1.02rem; font-weight: 600; font-family: var(--font);
-  box-shadow: 0 16px 50px rgba(43,91,255,.5);
+  box-shadow: 0 14px 40px rgba(43,91,255,.32), inset 0 0 0 1px rgba(255,255,255,.25);
   opacity: 0; animation: fadeUp .9s var(--ease) 2.1s forwards;
   transition: transform .3s var(--ease), box-shadow .3s var(--ease), background-position .6s var(--ease);
 }
-.sp-enter:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 26px 70px rgba(43,91,255,.66); background-position: 100% 0; }
+.sp-enter:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 22px 56px rgba(43,91,255,.45); background-position: 100% 0; }
 .sp-enter svg { width: 18px; height: 18px; stroke: #fff; }
 
 .sp-hint {
-  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 4;
-  font-size: .77rem; color: rgba(255,255,255,.32);
+  position: absolute; bottom: 28px; left: 0; right: 0; text-align: center; z-index: 4; margin: 0;
+  font-size: .77rem; color: rgba(11,21,48,.42); white-space: nowrap;
   opacity: 0; animation: fadeUp .9s var(--ease) 2.6s forwards;
 }
 .sp-skip {
   position: absolute; top: 24px; right: 26px; z-index: 5;
-  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
-  color: rgba(255,255,255,.72); border-radius: 999px; padding: 8px 18px;
+  background: rgba(255,255,255,.72); border: 1px solid rgba(11,21,48,.12);
+  color: #33405E; border-radius: 999px; padding: 8px 18px;
   font-size: .79rem; cursor: pointer; font-family: var(--font);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   opacity: 0; animation: fadeUp .8s var(--ease) 2.3s forwards; transition: all .3s var(--ease);
 }
-.sp-skip:hover { background: rgba(255,255,255,.18); color: #fff; }
+.sp-skip:hover { background: #fff; color: #0B1530; }
 
 /* 幕进度点 */
-.sp-dots { position: absolute; bottom: 62px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 8px;
+.sp-dots { position: absolute; bottom: 62px; left: 0; right: 0; justify-content: center; z-index: 4; display: flex; gap: 8px;
   opacity: 0; animation: fadeUp .8s var(--ease) 2.5s forwards; }
-.sp-dots i { width: 22px; height: 3px; border-radius: 999px; background: rgba(255,255,255,.22); transition: background .5s var(--ease); }
+.sp-dots i { width: 22px; height: 3px; border-radius: 999px; background: rgba(11,21,48,.12); transition: background .5s var(--ease); }
 .sp-dots i.on { background: linear-gradient(90deg,#2B5BFF,#22D3EE); }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) { .splash { display: none !important; } }
-@media (max-width: 640px) {
-  .sp-plat, .sp-markets { gap: 12px; font-size: .66rem; }
-  .sp-logo { width: 66px; height: 66px; }
+
+/* 手机/窄屏：球在上，文字在下居中 */
+@media (max-width: 899px) {
+  .splash { align-items: flex-end; background: radial-gradient(90% 50% at 50% 23%, #FFFFFF 0%, #EEF2FA 75%), #EEF2FA; }
+  .splash::before {
+    -webkit-mask-image: radial-gradient(80% 45% at 50% 23%, #000 0%, transparent 80%);
+            mask-image: radial-gradient(80% 45% at 50% 23%, #000 0%, transparent 80%); }
+  .sp-veil { background: linear-gradient(0deg, rgba(243,246,252,.96) 0%, rgba(243,246,252,.7) 48%, rgba(243,246,252,0) 66%); }
+  .sp-inner { padding: 0 24px 100px; text-align: center; }
+  .sp-inner > * { max-width: none; }
+  .sp-logo { display: none; }
+  .sp-name { font-size: clamp(2.3rem, 11vw, 3.4rem); margin-bottom: 10px; }
+  .sp-en { margin-bottom: 18px; padding-left: .48em; }
+  .sp-markets, .sp-plat { justify-content: center; gap: 12px; font-size: .66rem; }
+  .sp-markets { margin-bottom: 18px; }
+  .sp-plat { margin-bottom: 26px; }
+  .sp-enter { padding: 14px 34px; }
 }
+@media (max-width: 899px) and (max-height: 640px) { .sp-plat { display: none; } }
 
 /* 首页首屏：双线产线示意图 */
 .duo-wrap { position: relative; }

@@ -407,11 +407,21 @@
   }, { threshold: 0 }).observe(hero);
 })();
 
-/* 开场页 Splash · 两幕（能量环 → 地球光弧），点击进入 -------------------- */
+/* 开场页 Splash · 玻璃地球球体，点击进入 ----------------------------------
+   主图：splash-orb.webp（玻璃球 + 发光地球 + 光带）；备用图：splash-orb-alt.webp（玻璃球 + 液体浪）。
+   换图只需改下面 ORB 一行。图片背景已预处理为纯白，用正片叠底融进页面。
+   第一幕：数据粒子从四周汇聚，球体由虚到实浮现，一道光扫过球面；
+   第二幕（3.4s）：AI 平台在轨道上环绕（前后分层，有纵深），市场行亮起。 */
 (function () {
   if (!document.body || document.body.dataset.intro !== 'on') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   try { if (sessionStorage.getItem('le_splash')) return; } catch (e) {}
+
+  var ORBS = {
+    globe: { src: 'splash-orb', cx: 0.4988, cy: 0.4884, r: 0.3525 },
+    wave:  { src: 'splash-orb-alt', cx: 0.4996, cy: 0.4860, r: 0.3373 }
+  };
+  var ORB = ORBS[document.body.dataset.introOrb] || ORBS.globe;
 
   var chars = '立德引擎'.split('').map(function (c, i) {
     return '<span style="animation-delay:' + (0.72 + i * 0.12) + 's">' + c + '</span>';
@@ -422,10 +432,12 @@
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-label', '立德引擎 · 进入官网');
   el.innerHTML =
-      // 第二幕的地球图不在首屏渲染时下载——先留空 src，第一幕开演后再补。
-      // 这样首访少压 90KB，第一幕出现得更快。
-      '<div class="sp-scene sp-earth"><img data-src="splash-earth.webp" alt="" aria-hidden="true"></div>'
-    + '<div class="sp-scene sp-ring"><img src="splash-ring.webp" alt="" aria-hidden="true" fetchpriority="high"></div>'
+      '<div class="sp-halo" aria-hidden="true"></div>'
+    + '<div class="sp-shadow" aria-hidden="true"><i></i></div>'
+    + '<canvas class="sp-fx sp-fx--back" aria-hidden="true"></canvas>'
+    + '<div class="sp-orb" aria-hidden="true"><img alt="" decoding="async" fetchpriority="high"></div>'
+    + '<div class="sp-gloss" aria-hidden="true"><i></i></div>'
+    + '<canvas class="sp-fx sp-fx--front" aria-hidden="true"></canvas>'
     + '<div class="sp-veil"></div>'
     + '<button class="sp-skip" type="button">跳过 →</button>'
     + '<div class="sp-inner">'
@@ -436,7 +448,7 @@
     +     '<path d="M11 27V13h3.4v11.1H23V27H11z" fill="#fff"/><circle cx="27.5" cy="15" r="3.4" fill="#fff" opacity=".9"/></svg>'
     +   '</div>'
     +   '<h1 class="sp-name">' + chars + '</h1>'
-    +   '<p class="sp-en">Lide Engine · GEO</p>'
+    +   '<p class="sp-en">Lead Engine · GEO</p>'
     +   '<p class="sp-slogan">给出海工厂装一条<b>持续出询盘的产线</b></p>'
     +   '<div class="sp-markets"><i>欧美</i><i>东南亚</i><i>中东</i><i>南美</i></div>'
     +   '<div class="sp-plat"><i>ChatGPT</i><i>Perplexity</i><i>Claude</i><i>Gemini</i><i>Grok</i><i>DeepSeek</i></div>'
@@ -450,13 +462,159 @@
   document.body.appendChild(el);
   document.body.classList.add('splash-on');
 
-  // 第一幕已经开演，这时才去取第二幕的地球图——首屏不为它等待
-  var earth = el.querySelector('.sp-earth img');
-  setTimeout(function () {
-    if (earth && earth.dataset.src) earth.src = earth.dataset.src;
-  }, 500);
+  var t0 = performance.now();
+  var orb = el.querySelector('.sp-orb'), img = orb.querySelector('img');
+  var gloss = el.querySelector('.sp-gloss'), halo = el.querySelector('.sp-halo'), shadow = el.querySelector('.sp-shadow');
+  var cvB = el.querySelector('.sp-fx--back'), cvF = el.querySelector('.sp-fx--front');
+  var cB = cvB.getContext('2d'), cF = cvF.getContext('2d');
+  var mono = getComputedStyle(document.body).getPropertyValue('--mono') || 'monospace';
 
-  // 第二幕：3.4 秒后切到地球
+  /* ---------- 布局：球心与半径（CSS 像素） ---------- */
+  var W = 0, H = 0, CX = 0, CY = 0, R = 0, mobile = false;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function place(node, size, cx, cy) {
+    node.style.width = node.style.height = size + 'px';
+    node.style.left = (cx - size / 2) + 'px';
+    node.style.top = (cy - size / 2) + 'px';
+  }
+  function layout() {
+    W = el.clientWidth; H = el.clientHeight; mobile = W < 900;
+    if (mobile) { CX = W / 2; CY = H * 0.23; R = Math.min(W * 0.3, H * 0.15); }
+    else { CX = W / 2 + Math.min(W * 0.2, 330); CY = H * 0.48; R = Math.min(H * 0.3, W * 0.18, 310); }
+    [cvB, cvF].forEach(function (c) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
+    // 图片按球半径缩放，使图中球心落在 (CX, CY)
+    var S = R / ORB.r;
+    orb.style.width = orb.style.height = S + 'px';
+    orb.style.left = (CX - ORB.cx * S) + 'px';
+    orb.style.top = (CY - ORB.cy * S) + 'px';
+    place(gloss, R * 2, CX, CY);
+    place(halo, R * 3.4, CX, CY);
+    shadow.style.width = R * 1.9 + 'px'; shadow.style.height = R * 0.42 + 'px';
+    shadow.style.left = (CX - R * 0.95) + 'px'; shadow.style.top = (CY + R * 0.98) + 'px';
+  }
+  // 图片加载完成后才开始浮现，慢网速下也不会突然蹦出来
+  var orbAt = null;
+  img.onload = function () { orbAt = (performance.now() - t0) / 1000; };
+  img.src = ORB.src + (window.innerWidth < 900 ? '-m' : '') + '.webp';
+  layout();
+  window.addEventListener('resize', layout);
+
+  /* ---------- 粒子：从四周汇聚到球面后被吸收 ---------- */
+  var N = mobile ? 360 : 700, P = [], GA = Math.PI * (3 - Math.sqrt(5));
+  for (var i = 0; i < N; i++) {
+    var y = 1 - (i / (N - 1)) * 2, rr = Math.sqrt(1 - y * y), th = GA * i;
+    var u = Math.random() * 2 - 1, ph = Math.random() * 6.283, s = 2.6 + Math.random() * 3.4, su = Math.sqrt(1 - u * u);
+    P.push({ tx: Math.cos(th) * rr, ty: y, tz: Math.sin(th) * rr,
+      sx: Math.cos(ph) * su * s, sy: u * s, sz: Math.sin(ph) * su * s,
+      dl: Math.random() * 0.8, du: 1.0 + Math.random() * 0.7, px: null, py: null });
+  }
+
+  /* ---------- 轨道：AI 平台 ---------- */
+  var RINGS = [
+    { r: 1.26, tx: 1.18, tz: 0.28, sp: 0.36, names: ['ChatGPT', 'Claude'] },
+    { r: 1.42, tx: 1.3, tz: -0.5, sp: -0.26, names: ['Perplexity', 'Gemini'] },
+    { r: 1.58, tx: 1.06, tz: 0.85, sp: 0.2, names: ['Grok', 'DeepSeek'] }
+  ];
+  function ringPt(rg, ang) {
+    var x = Math.cos(ang) * rg.r, z = Math.sin(ang) * rg.r;
+    var c = Math.cos(rg.tx), s = Math.sin(rg.tx), y1 = -z * s, z1 = z * c;
+    var c2 = Math.cos(rg.tz), s2 = Math.sin(rg.tz);
+    return [x * c2 - y1 * s2, x * s2 + y1 * c2, z1];
+  }
+
+  var spin = 0, tiltX = 0, tiltY = 0, mX = 0, mY = 0, CAM = 6;
+  function proj(v, sc) {
+    var c = Math.cos(spin), s = Math.sin(spin);
+    var x1 = v[0] * c + v[2] * s, z1 = -v[0] * s + v[2] * c;
+    var c2 = Math.cos(tiltY), s2 = Math.sin(tiltY);
+    var y2 = v[1] * c2 - z1 * s2, z2 = v[1] * s2 + z1 * c2;
+    var k = CAM / (CAM - z2) * sc * 0.985;
+    return [CX + x1 * k * R, CY - y2 * k * R, z2];
+  }
+  el.addEventListener('pointermove', function (e) { mX = (e.clientX / W - 0.5) * 2; mY = (e.clientY / H - 0.5) * 2; });
+
+  function ease(x) { return x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 3); }
+  var last = t0, raf = 0, outAt = 0, alive = true, sweepAt = 2.1;
+
+  function frame(now) {
+    if (!alive) return;
+    var t = (now - t0) / 1000, dt = Math.min((now - last) / 1000, 0.05); last = now;
+    var ex = outAt ? ease((now - outAt) / 900) : 0;
+    tiltX += (mX - tiltX) * 0.05; tiltY += (mY * 0.18 + 0.2 - tiltY) * 0.05;
+    spin += dt * 0.25;
+
+    // 球体：由虚到实浮现 → 轻微漂浮 + 随鼠标转动视角
+    var rev = orbAt === null ? 0 : ease((t - Math.max(0.5, orbAt)) / 1.6), bob = Math.sin(t * 1.1) * R * 0.025 * rev;
+    var sc = (0.6 + 0.4 * rev) * (1 + ex * 0.25);
+    var rx = (-mY * 6).toFixed(2), ry = (mX * 8).toFixed(2);
+    var tf = 'translate3d(' + (mX * R * 0.03) + 'px,' + (bob + mY * R * 0.02) + 'px,0) perspective(1200px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(' + sc + ')';
+    orb.style.transform = gloss.style.transform = tf;
+    orb.style.opacity = rev * (1 - ex);
+    orb.style.filter = rev < 1 ? 'blur(' + (22 * (1 - rev)).toFixed(1) + 'px)' : 'none';
+    gloss.style.opacity = rev * (1 - ex);
+    halo.style.opacity = (0.7 + 0.3 * Math.sin(t * 0.9)) * rev * (1 - ex);
+    shadow.style.opacity = rev * (1 - ex);
+    shadow.style.transform = 'scale(' + (1 - bob / R * 1.2) + ')';
+    // 高光随鼠标游走；光带每 6 秒扫过一次球面
+    gloss.style.setProperty('--gx', (35 - mX * 14) + '%');
+    gloss.style.setProperty('--gy', (28 - mY * 12) + '%');
+    var sw = (t - sweepAt) / 1.3;
+    if (sw > 1) { sweepAt += 6; sw = 0; }
+    gloss.style.setProperty('--sw', (sw <= 0 ? -60 : -60 + ease(sw) * 220) + '%');
+
+    [cB, cF].forEach(function (c) { c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, H); });
+
+    // 粒子（前景层）
+    for (var i = 0; i < N; i++) {
+      var p = P[i], k = ease((t - p.dl) / p.du);
+      var land = Math.max(0, t - p.dl - p.du), absorb = Math.max(0, 1 - land * 2.2);
+      var b = 1 + ex * (1.5 + (i % 7) * 0.25);
+      var q = proj([(p.sx + (p.tx - p.sx) * k) * b, (p.sy + (p.ty - p.sy) * k) * b, (p.sz + (p.tz - p.sz) * k) * b], 1);
+      var al = Math.min(1, t / 0.4) * absorb * (q[2] > 0 ? 1 : 0.3) * (1 - ex);
+      if (al < 0.01) { p.px = null; continue; }
+      var fly = 1 - k;
+      if (fly > 0.02 && p.px !== null) {
+        cF.strokeStyle = 'rgba(124,92,255,' + (al * fly * 0.55) + ')'; cF.lineWidth = 1;
+        cF.beginPath(); cF.moveTo(p.px, p.py); cF.lineTo(q[0], q[1]); cF.stroke();
+      }
+      cF.fillStyle = 'rgba(43,91,255,' + al * 0.85 + ')';
+      cF.fillRect(q[0] - 0.9, q[1] - 0.9, 1.8, 1.8);
+      p.px = q[0]; p.py = q[1];
+    }
+
+    // 轨道 + AI 平台节点：背面画在球后，正面画在球前
+    var ra = ease((t - 2.2) / 1.2) * (1 - ex);
+    if (ra > 0) {
+      RINGS.forEach(function (rg, ri) {
+        var prev = null;
+        for (var j = 0; j <= 120; j++) {
+          var q = proj(ringPt(rg, j / 120 * 6.283), 1);
+          if (prev) {
+            var c = (q[2] + prev[2]) > 0 ? cF : cB;
+            c.strokeStyle = 'rgba(43,91,255,' + (0.2 * ra) + ')'; c.lineWidth = 1;
+            c.beginPath(); c.moveTo(prev[0], prev[1]); c.lineTo(q[0], q[1]); c.stroke();
+          }
+          prev = q;
+        }
+        rg.names.forEach(function (nm, ni) {
+          var q = proj(ringPt(rg, t * rg.sp + ni * Math.PI + ri * 2.09), 1);
+          var c = q[2] > 0 ? cF : cB, fa = (q[2] > 0 ? 1 : 0.5) * ra;
+          var g = c.createRadialGradient(q[0], q[1], 0, q[0], q[1], 10);
+          g.addColorStop(0, 'rgba(43,91,255,' + fa + ')'); g.addColorStop(1, 'rgba(124,92,255,0)');
+          c.fillStyle = g; c.beginPath(); c.arc(q[0], q[1], 10, 0, 6.283); c.fill();
+          c.fillStyle = 'rgba(255,255,255,' + fa + ')'; c.beginPath(); c.arc(q[0], q[1], 2, 0, 6.283); c.fill();
+          if (!mobile) {
+            c.font = '500 11px ' + mono; c.fillStyle = 'rgba(30,45,90,' + 0.75 * fa + ')';
+            c.fillText(nm, q[0] + 12, q[1] + 4);
+          }
+        });
+      });
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  raf = requestAnimationFrame(frame);
+
+  // 第二幕：3.4 秒后点亮市场行
   var dots = el.querySelectorAll('.sp-dots i');
   var t2 = setTimeout(function () {
     el.classList.add('act2');
@@ -469,10 +627,15 @@
     if (gone) return;
     gone = true;
     clearTimeout(t2);
+    outAt = performance.now();
     el.classList.add('is-out');
     document.body.classList.remove('splash-on');
     try { sessionStorage.setItem('le_splash', '1'); } catch (e) {}
-    setTimeout(function () { el.remove(); }, 1100);
+    setTimeout(function () {
+      alive = false; cancelAnimationFrame(raf);
+      window.removeEventListener('resize', layout);
+      el.remove();
+    }, 1100);
   }
 
   el.addEventListener('click', enter);
