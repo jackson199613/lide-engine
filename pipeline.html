@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=36">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "Service", "@id": "https://ileadengine.com/pipeline.html#pipeline", "name": "出海询盘产线（主动 Email 矩阵 + 被动 GEO 矩阵）", "serviceType": "B2B 出海获客 / Outbound Email + Generative Engine Optimization", "provider": {"@id": "https://ileadengine.com/#org"}, "description": "以独立站站群为底，主动线用定制化 Email 矩阵触达买家，被动线用自动化 GEO 矩阵让 AI 主动引用，产出按 A/B/C 分级的询盘。主动线按月计费，被动线按年运营。", "areaServed": ["EU", "US", "SEA", "ME", "SA"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "询盘产线档位", "itemListElement": [{"@type": "Offer", "name": "主动线 · 入门", "price": "5800", "priceCurrency": "CNY", "description": "1 个场景站 · 5,000 触达/月"}, {"@type": "Offer", "name": "主动线 · 标准", "price": "12800", "priceCurrency": "CNY", "description": "3 个场景站 · 20,000 触达/月"}, {"@type": "Offer", "name": "主动线 · 旗舰", "price": "29800", "priceCurrency": "CNY", "description": "7 站站群 · 50,000 触达/月"}, {"@type": "Offer", "name": "被动线 · 基础版", "price": "23800", "priceCurrency": "CNY", "description": "让 AI 正确认识企业：定位建档、关键词矩阵、技术部署、AI 问答测试"}, {"@type": "Offer", "name": "被动线 · 成长版", "price": "36800", "priceCurrency": "CNY", "description": "持续被 AI 推荐：多国覆盖、定期监控告警、竞品截流、多语助手"}, {"@type": "Offer", "name": "被动线 · 领航版", "price": "56800", "priceCurrency": "CNY", "description": "年度深度管理：季度策略会、多市场证据适配、年度趋势报告、专属陪跑"}]}}
 </script>
@@ -67,7 +67,7 @@
 </header>
 <main>
 
-<section class="hero hero--deco" style="padding:var(--space-lg) 0 var(--space-xl)">
+<section class="hero hero--deco hero--art hero--art-wide" style="padding:var(--space-lg) 0 var(--space-xl)">
   <div class="container">
     <span class="eyebrow">PIPELINE 询盘产线</span>
     <h1 style="font-size:clamp(1.9rem,3.8vw,2.9rem);max-width:20ch">为出海企业装一条<br>24 小时不停机的询盘产线</h1>
@@ -77,6 +77,7 @@
       <a class="btn btn--primary" href="contact.html">聊聊你的产线怎么配</a>
       <a class="btn btn--ghost" href="#pricing">直接看价格</a>
     </div>
+    <img class="hero-art" src="img/pipeline-hero.webp" srcset="img/pipeline-hero-m.webp 720w, img/pipeline-hero.webp 1400w" sizes="(max-width: 900px) 92vw, 760px" width="1400" height="788" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
   </div>
 </section>
 
@@ -231,10 +232,13 @@
 
 <section class="section section--muted">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">数据底座</span>
-      <h2>六大类 100+ 全球付费数据源，逐层交叉验证</h2>
-      <p class="lead">单一数据源必有盲区。六类数据互相交叉核验后，才允许进入触达清单。</p>
+    <div class="head-split">
+      <div class="section-head reveal">
+        <span class="eyebrow">数据底座</span>
+        <h2>六大类 100+ 全球付费数据源，逐层交叉验证</h2>
+        <p class="lead">单一数据源必有盲区。六类数据互相交叉核验后，才允许进入触达清单。</p>
+      </div>
+      <img class="head-art reveal" src="img/data-sources.webp" srcset="img/data-sources-m.webp 720w, img/data-sources.webp 1024w" sizes="(max-width: 900px) 240px, 320px" width="1024" height="1024" alt="" aria-hidden="true" loading="lazy" decoding="async">
     </div>
     <div class="grid grid-3">
       <div class="card reveal"><span class="card-num">22 个源 · 每周更新</span><h3>企业与联系人数据库</h3>
@@ -267,11 +271,14 @@
 
 <section class="section">
   <div class="container">
+    <div class="head-split">
     <div class="section-head reveal">
       <span class="eyebrow">被动营销 · GEO</span>
       <h2>你的买家，现在直接问 AI</h2>
       <p class="lead">工程师问规格、采购比供应商、分销商查兼容性，第一站已经从 Google 变成 AI 对话框。
       传统 SEO 优化的是点击，GEO 优化的是<strong>成为 AI 引用的那个答案</strong>。</p>
+    </div>
+      <img class="head-art reveal" src="img/buyer-ai.webp" srcset="img/buyer-ai-m.webp 720w, img/buyer-ai.webp 1254w" sizes="(max-width: 900px) 240px, 320px" width="1254" height="1254" alt="" aria-hidden="true" loading="lazy" decoding="async">
     </div>
     <div class="stat-strip reveal">
       <div class="stat"><div class="stat-num">9 亿</div><div class="stat-label">ChatGPT 周活用户</div></div>
@@ -592,6 +599,6 @@
   </div>
 </aside>
 
-<script src="main.js?v=33"></script>
+<script src="main.js?v=36"></script>
 </body>
 </html>
