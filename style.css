@@ -1,7 +1,6 @@
 /* 自托管字体（不依赖 Google Fonts，国内可正常访问） */
 @font-face{font-family:'Lexend';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/lexend-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-display:swap;font-weight:400 500;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* ==========================================================================
    立德引擎 Lide Engine — Design System v3 (Aurora Light)
    亮底蓝紫光晕渐变 + 深色区块穿插
@@ -1413,7 +1412,7 @@ body.splash-on { overflow: hidden; }
   .cta-band::after {
     content: ''; position: absolute; right: var(--space-md); top: 50%; translate: 0 -50%;
     width: min(34%, 400px); aspect-ratio: 4 / 3; border-radius: 18px;
-    background: #fff url(img/diagnosis.webp) center / 100% no-repeat;
+    background: #fff url(img/diagnosis-cta.webp) center / 100% no-repeat;
     box-shadow: 0 24px 60px rgba(9, 20, 80, .28), inset 0 0 0 1px rgba(255, 255, 255, .6);
     animation: ctaFloat 7s ease-in-out infinite;
   }
