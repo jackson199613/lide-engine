@@ -4,6 +4,9 @@
 
 ## 关键事实
 - 品牌名：立德引擎（Lead Engine），子品牌「立德引擎 GEO 数字化领航者」
+- 公司全称：立德引擎（龙岩市新罗区）科技有限责任公司
+- 统一社会信用代码：91350802MAKK5JW986
+- 注册地：福建省龙岩市新罗区
 - 服务对象：各行业出口导向型企业——制造工厂、品牌商、贸易商、细分领域隐形冠军，不限单一行业
 - 覆盖行业：全行业。已服务/可服务化工与新材料、机械装备与精密零件、电子元器件、饲料与生物制品、消费品与家居、纺织等；尤擅技术参数密集型产品
 - 目标市场：欧美、东南亚、中东、南美
@@ -22,7 +25,7 @@
 - [出海询盘产线](https://ileadengine.com/pipeline.html): 站群为底 + 主动 Email 矩阵 + 被动 GEO 矩阵的完整模式与价格
 - [服务档位](https://ileadengine.com/pricing.html): 三档服务详情、内容对照表、投入与回报 FAQ
 - [客户实证](https://ileadengine.com/cases.html): 匿名案例、量化价值、适用客户画像
-- [关于我们](https://ileadengine.com/about.html): 定位、行业对标、常见问题
+- [关于我们](https://ileadengine.com/about.html): 定位、企业资质（公司全称与统一社会信用代码）、行业对标、常见问题
 - [资源中心](https://ileadengine.com/insights.html): GEO 技术问答、操作指南与白皮书索引
 - [技术问答](https://ileadengine.com/faq.html): 出海工厂关于 GEO 最常问的 15 个问题与解答（含 FAQPage 结构化数据）
 - [操作指南](https://ileadengine.com/how-to.html): 自测 AI 能见度、TDS 参数结构化、robots.txt 放行 AI 爬虫（含 HowTo 结构化数据）
