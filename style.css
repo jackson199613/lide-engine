@@ -1556,3 +1556,10 @@ main section[id] { scroll-margin-top: var(--toc-offset, 130px); }
 .site-footer .brand-mark path { fill: #fff; }
 .sp-logo svg { display: block; width: 100%; height: 100%; }
 .sp-logo svg path { fill: #133B9A; }
+
+/* 作者署名（E-E-A-T） */
+.byline { display: flex; align-items: center; gap: 10px; margin: 14px 0 6px; font-size: .86rem; line-height: 1.5; color: inherit; opacity: .88; max-width: none; }
+.byline-avatar { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: .9rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #2B5BFF, #7C5CFF); }
+.byline a { color: inherit; text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+.post-author { margin-left: 10px; font-size: .85rem; opacity: .85; }
+.post-author a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
