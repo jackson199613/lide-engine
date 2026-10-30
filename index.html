@@ -33,24 +33,6 @@
     "value": "91350802MAKK5JW986"
   },
   "foundingDate": "2026-07-22",
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "name": "注册地址",
-      "addressCountry": "CN",
-      "addressRegion": "福建省",
-      "addressLocality": "龙岩市新罗区",
-      "streetAddress": "华莲路53号J幢2106室"
-    },
-    {
-      "@type": "PostalAddress",
-      "name": "办公地址",
-      "addressCountry": "CN",
-      "addressRegion": "福建省",
-      "addressLocality": "龙岩市新罗区",
-      "streetAddress": "西陂街道商务板块青年创业大厦 2106"
-    }
-  ],
   "alternateName": [
     "Lead Engine",
     "立德引擎 GEO 数字化领航者"
@@ -81,7 +63,9 @@
   "slogan": "一条主动线，一条被动线，一条完整的出海询盘产线",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://ileadengine.com/favicon.svg"
+    "url": "https://ileadengine.com/logo.png",
+    "width": 512,
+    "height": 512
   },
   "image": "https://ileadengine.com/og-cover.jpg",
   "brand": {
@@ -104,6 +88,25 @@
         "zh-CN",
         "en"
       ]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "sales@ileadengine.com",
+      "telephone": "+86-189-5017-4503",
+      "areaServed": "CN",
+      "availableLanguage": [
+        "zh-CN"
+      ]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+1-619-609-3350",
+      "areaServed": "US",
+      "availableLanguage": [
+        "en"
+      ]
     }
   ],
   "subjectOf": {
@@ -111,7 +114,38 @@
     "name": "营业执照与企业资质",
     "url": "https://ileadengine.com/about.html#credentials"
   },
-  "@context": "https://schema.org"
+  "@context": "https://schema.org",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CN",
+    "addressRegion": "福建省",
+    "addressLocality": "龙岩市新罗区",
+    "streetAddress": "西陂街道商务板块青年创业大厦 2106"
+  },
+  "location": [
+    {
+      "@type": "Place",
+      "name": "办公地址",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "福建省",
+        "addressLocality": "龙岩市新罗区",
+        "streetAddress": "西陂街道商务板块青年创业大厦 2106"
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "注册地址",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CN",
+        "addressRegion": "福建省",
+        "addressLocality": "龙岩市新罗区",
+        "streetAddress": "华莲路53号J幢2106室"
+      }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -124,7 +158,16 @@
   "publisher": {
     "@id": "https://ileadengine.com/#org"
   },
-  "@context": "https://schema.org"
+  "@context": "https://schema.org",
+  "description": "立德引擎官网：为中国出海工厂搭建出海询盘产线（主动线 Email 矩阵 + 被动线 GEO 生成式引擎优化）。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://ileadengine.com/search.html?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -788,6 +831,7 @@
           <li><a href="news.html">动态与行业观察</a></li>
           <li><a href="quality.html">交付质量控制</a></li>
           <li><a href="privacy.html">隐私政策与合规</a></li>
+          <li><a href="search.html">站内搜索</a></li>
           <li><a href="playbook.html">内容运营手册</a></li>
         </ul>
       </div>
