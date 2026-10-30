@@ -60,6 +60,16 @@ Allow: /
 User-agent: PetalBot
 Allow: /
 
+# 国内 AI 平台（智谱清言 / DeepSeek / Kimi）爬虫：如平台使用以下标识，一律放行
+User-agent: ChatGLM-Spider
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: KimiBot
+Allow: /
+
 Sitemap: https://ileadengine.com/sitemap.xml
 
 # LLM 事实档案
