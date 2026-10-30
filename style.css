@@ -196,6 +196,7 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .hero .container { position: relative; z-index: 2; }
 .hero h1 { color: var(--ink); max-width: 17ch; }
+.h1-brand { display: block; font-size: clamp(.95rem, 1.4vw, 1.1rem); font-weight: 600; letter-spacing: .08em; color: var(--blue); margin-bottom: .55em; line-height: 1.4; }
 .hero-lead { font-size: 1.12rem; color: var(--ink-2); max-width: 60ch; }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: var(--space-sm); }
 .chip {

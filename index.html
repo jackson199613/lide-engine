@@ -22,53 +22,308 @@
 <link rel="stylesheet" href="style.css?v=41">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Organization",
+  "@id": "https://ileadengine.com/#org",
+  "name": "立德引擎",
+  "legalName": "立德引擎（龙岩市新罗区）科技有限责任公司",
+  "taxID": "91350802MAKK5JW986",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "统一社会信用代码",
+    "value": "91350802MAKK5JW986"
+  },
+  "foundingDate": "2026-07-22",
+  "address": [
     {
-      "@type": "Organization",
-      "@id": "https://ileadengine.com/#org",
-      "name": "立德引擎",
-      "legalName": "立德引擎（龙岩市新罗区）科技有限责任公司",
-      "taxID": "91350802MAKK5JW986",
-      "identifier": { "@type": "PropertyValue", "propertyID": "统一社会信用代码", "value": "91350802MAKK5JW986" },
-      "foundingDate": "2026-07-22",
-      "address": [
-        { "@type": "PostalAddress", "name": "注册地址", "addressCountry": "CN", "addressRegion": "福建省", "addressLocality": "龙岩市新罗区", "streetAddress": "华莲路53号J幢2106室" },
-        { "@type": "PostalAddress", "name": "办公地址", "addressCountry": "CN", "addressRegion": "福建省", "addressLocality": "龙岩市新罗区", "streetAddress": "西陂街道商务板块青年创业大厦 2106" }
-      ],
-      "alternateName": ["Lead Engine", "立德引擎 GEO 数字化领航者"],
-      "description": "面向中国出海企业的出海询盘产线服务商——主动线为仿生外贸人 Email 矩阵，被动线为 GEO（生成式引擎优化），覆盖化工、新材料、机械装备、电子元器件、消费品等全行业，帮助中国品牌在 ChatGPT、Perplexity、Claude 等生成式 AI 中被优先推荐。",
-      "url": "https://ileadengine.com/",
-      "telephone": ["+86-189-5017-4503", "+1-619-609-3350"],
-      "email": "sales@ileadengine.com",
-      "areaServed": ["CN", "US", "EU", "SEA", "ME", "SA"],
-      "knowsAbout": ["生成式引擎优化", "Generative Engine Optimization", "Answer Engine Optimization", "Schema 结构化数据", "中国品牌出海营销", "AI 能见度诊断"],
-      "slogan": "一条主动线，一条被动线，一条完整的出海询盘产线"
+      "@type": "PostalAddress",
+      "name": "注册地址",
+      "addressCountry": "CN",
+      "addressRegion": "福建省",
+      "addressLocality": "龙岩市新罗区",
+      "streetAddress": "华莲路53号J幢2106室"
     },
     {
-      "@type": "Service",
-      "@id": "https://ileadengine.com/#service",
-      "name": "GEO 生成式引擎优化服务",
-      "serviceType": "Generative Engine Optimization (GEO)",
-      "provider": { "@id": "https://ileadengine.com/#org" },
-      "audience": { "@type": "BusinessAudience", "audienceType": "各行业出口导向型企业：制造工厂、品牌商、贸易商、细分领域隐形冠军" },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "立德引擎服务档位",
-        "itemListElement": [
-          { "@type": "Offer", "name": "基础版", "price": "23800", "priceCurrency": "CNY", "description": "官网 Schema 结构化改造 + Top 3 产品语义喂养 + AI 基础收录引导" },
-          { "@type": "Offer", "name": "成长版", "price": "36800", "priceCurrency": "CNY", "description": "全线语义建模 + 大牌型号截流 + 场景内容卡位 + 高权重外部语料 + 提及率月报" },
-          { "@type": "Offer", "name": "领航版", "price": "56800", "priceCurrency": "CNY", "description": "多语种全域喂养 + 技术白皮书注入 + 学术媒体背书 + 算法防御壁垒" }
-        ]
+      "@type": "PostalAddress",
+      "name": "办公地址",
+      "addressCountry": "CN",
+      "addressRegion": "福建省",
+      "addressLocality": "龙岩市新罗区",
+      "streetAddress": "西陂街道商务板块青年创业大厦 2106"
+    }
+  ],
+  "alternateName": [
+    "Lead Engine",
+    "立德引擎 GEO 数字化领航者"
+  ],
+  "description": "面向中国出海企业的出海询盘产线服务商——主动线为仿生外贸人 Email 矩阵，被动线为 GEO（生成式引擎优化），覆盖化工、新材料、机械装备、电子元器件、消费品等全行业，帮助中国品牌在 ChatGPT、Perplexity、Claude 等生成式 AI 中被优先推荐。",
+  "url": "https://ileadengine.com/",
+  "telephone": [
+    "+86-189-5017-4503",
+    "+1-619-609-3350"
+  ],
+  "email": "sales@ileadengine.com",
+  "areaServed": [
+    "CN",
+    "US",
+    "EU",
+    "SEA",
+    "ME",
+    "SA"
+  ],
+  "knowsAbout": [
+    "生成式引擎优化",
+    "Generative Engine Optimization",
+    "Answer Engine Optimization",
+    "Schema 结构化数据",
+    "中国品牌出海营销",
+    "AI 能见度诊断"
+  ],
+  "slogan": "一条主动线，一条被动线，一条完整的出海询盘产线",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://ileadengine.com/favicon.svg"
+  },
+  "image": "https://ileadengine.com/og-cover.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "立德引擎 Lead Engine",
+    "url": "https://ileadengine.com/"
+  },
+  "founder": {
+    "@type": "Person",
+    "@id": "https://ileadengine.com/about.html#founder",
+    "name": "蒋军"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "sales@ileadengine.com",
+      "telephone": "+86-189-5017-4503",
+      "availableLanguage": [
+        "zh-CN",
+        "en"
+      ]
+    }
+  ],
+  "subjectOf": {
+    "@type": "WebPage",
+    "name": "营业执照与企业资质",
+    "url": "https://ileadengine.com/about.html#credentials"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "WebSite",
+  "@id": "https://ileadengine.com/#website",
+  "url": "https://ileadengine.com/",
+  "name": "立德引擎",
+  "inLanguage": "zh-CN",
+  "publisher": {
+    "@id": "https://ileadengine.com/#org"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://ileadengine.com/#service-email",
+  "name": "主动线 · 仿生外贸人 Email 矩阵",
+  "serviceType": "B2B Outbound Email 开发",
+  "provider": {
+    "@id": "https://ileadengine.com/#org"
+  },
+  "areaServed": [
+    "EU",
+    "US",
+    "SEA",
+    "ME",
+    "SA"
+  ],
+  "url": "https://ileadengine.com/pipeline.html#bionic",
+  "description": "六类数据源背调买家与决策人，每封信按这一家重写、60 天内不重复，直达采购决策人；询盘附背调事实与 A/B/C 分级。",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "主动线档位（按月）",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "主动线 · 入门",
+        "price": "5800",
+        "priceCurrency": "CNY",
+        "description": "1 个场景站 · 5,000 触达/月"
+      },
+      {
+        "@type": "Offer",
+        "name": "主动线 · 标准",
+        "price": "12800",
+        "priceCurrency": "CNY",
+        "description": "3 个场景站 · 20,000 触达/月"
+      },
+      {
+        "@type": "Offer",
+        "name": "主动线 · 旗舰",
+        "price": "29800",
+        "priceCurrency": "CNY",
+        "description": "7 站站群 · 50,000 触达/月"
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "Service",
+  "@id": "https://ileadengine.com/#service",
+  "name": "被动线 · GEO 生成式引擎优化服务",
+  "serviceType": "Generative Engine Optimization (GEO)",
+  "provider": {
+    "@id": "https://ileadengine.com/#org"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "各行业出口导向型企业：制造工厂、品牌商、贸易商、细分领域隐形冠军"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "立德引擎服务档位",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "基础版",
+        "price": "23800",
+        "priceCurrency": "CNY",
+        "description": "官网 Schema 结构化改造 + Top 3 产品语义喂养 + AI 基础收录引导"
+      },
+      {
+        "@type": "Offer",
+        "name": "成长版",
+        "price": "36800",
+        "priceCurrency": "CNY",
+        "description": "全线语义建模 + 大牌型号截流 + 场景内容卡位 + 高权重外部语料 + 提及率月报"
+      },
+      {
+        "@type": "Offer",
+        "name": "领航版",
+        "price": "56800",
+        "priceCurrency": "CNY",
+        "description": "多语种全域喂养 + 技术白皮书注入 + 学术媒体背书 + 算法防御壁垒"
+      }
+    ]
+  },
+  "@context": "https://schema.org",
+  "areaServed": [
+    "EU",
+    "US",
+    "SEA",
+    "ME",
+    "SA"
+  ],
+  "url": "https://ileadengine.com/method.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://ileadengine.com/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GEO 是什么？和 SEO 有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GEO（Generative Engine Optimization，生成式引擎优化）优化的是 AI 生成答案时会不会点名你。SEO 争的是结果列表里的排名，GEO 争的是答案正文里的引用。竞争单位也不同：SEO 比的是关键词和页面，GEO 比的是事实、参数与实体关系；SEO 的信任来自外链权重，GEO 的信任来自多个独立来源说法一致。"
       }
     },
     {
-      "@type": "WebSite",
-      "@id": "https://ileadengine.com/#website",
-      "url": "https://ileadengine.com/",
-      "name": "立德引擎",
-      "inLanguage": "zh-CN",
-      "publisher": { "@id": "https://ileadengine.com/#org" }
+      "@type": "Question",
+      "name": "海外买家真的在用 AI 找供应商吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "采购旅程的起点正在迁移。买家不再从 Google 输入关键词开始，而是直接问 AI「有哪些替代 X 的供应商」「参数要求是 Y 的话该选什么」。等他第一次联系你时，候选名单已经筛过一轮了——你不在名单上，就完全不知道自己出局过。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AI 为什么总推荐国际大牌？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "因为模型训练语料里关于它们的技术描述最多、最一致。国际大牌有几十年的论文、专利、技术手册、行业媒体报道沉淀，模型对它们的参数和适用场景有高置信度。中国工厂即便参数更优，语料稀薄，模型不敢推荐——不是偏见，是证据不足。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GEO 多久能看到效果？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "结构化改造上线后 2–6 周，可以观察到 AI 复述你产品参数的准确度改善——这是最早的信号。提及率的显著变化通常出现在第 2–4 个月，取决于品类竞争度和你既有的语料基础。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "做了 GEO，还需要投阿里国际站和 Google Ads 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "短期需要，长期结构会变。竞价买的是决策末端的流量，成本逐年上升；GEO 占的是决策起点，一次性构建、长期复用。现实做法是并行：用竞价维持当期询盘，用 GEO 逐步降低对竞价的依赖。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": "https://ileadengine.com/#geo-steps",
+  "name": "被动线 GEO 怎么跑：四步",
+  "inLanguage": "zh-CN",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "可见性审计",
+      "text": "你在哪些查询里被引用、竞品在哪里，给出基线声量份额。",
+      "url": "https://ileadengine.com/#geo-steps"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "内容工程",
+      "text": "规格表、对比页、FAQ 与结构化数据，在站群上自动生成部署。",
+      "url": "https://ileadengine.com/#geo-steps"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "权威信号",
+      "text": "技术文档、行业平台与第三方提及，构建可信度信号。",
+      "url": "https://ileadengine.com/#geo-steps"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "监测与优化",
+      "text": "按月追踪 ChatGPT / Perplexity / Gemini / AI 概览的引用份额。",
+      "url": "https://ileadengine.com/#geo-steps"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "立德引擎首页",
+      "item": "https://ileadengine.com/"
     }
   ]
 }
@@ -132,7 +387,7 @@
         <div class="hero-badges">
           <span class="chip"><span class="dot"></span>主动线 + 被动线 · 双线并跑</span>
         </div>
-        <h1>全天候获客，<br><span class="grad-text">您只管成交</span></h1>
+        <h1><span class="h1-brand">立德引擎 · 出海询盘产线</span>全天候获客，<br><span class="grad-text">您只管成交</span></h1>
         <p class="hero-lead hero-tagline" style="font-weight:600;margin-top:-4px;margin-bottom:16px">为出海工厂装一条持续出询盘的产线。</p>
         <p class="hero-lead">
           <strong>主动线</strong>：Email 逐家背调、逐封重写，直接找到采购决策人。<br>
@@ -317,6 +572,11 @@
       </div>
     </div>
 
+    <div class="card reveal" id="geo-steps" style="margin-top:var(--space-md)">
+      <h3>被动线 GEO 怎么跑：四步</h3>
+      <ol style="margin:0;padding-left:1.3em;line-height:1.8"><li><strong>可见性审计</strong>：你在哪些查询里被引用、竞品在哪里，给出基线声量份额。</li><li><strong>内容工程</strong>：规格表、对比页、FAQ 与结构化数据，在站群上自动生成部署。</li><li><strong>权威信号</strong>：技术文档、行业平台与第三方提及，构建可信度信号。</li><li><strong>监测与优化</strong>：按月追踪 ChatGPT / Perplexity / Gemini / AI 概览的引用份额。</li></ol>
+    </div>
+
     <div class="card reveal" style="margin-top:var(--space-md);border-left:3px solid var(--blue)">
       <h3>两条线汇入同一个询盘池</h3>
       <p style="margin:0">每条询盘附背调事实与 <strong>A / B / C 分级</strong>，销售不用再自己筛。两条线建的都是<strong>你自己的资产</strong>，不按点击续费。<a href="pipeline.html">看完整产线与交付标准 →</a>　<a href="pipeline.html#roi">按你的团队算一笔账 →</a></p>
@@ -455,6 +715,21 @@
   </div>
 </section>
 
+<section class="section section--muted" id="faq">
+  <div class="container" style="max-width:880px">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ 常见问题</span>
+      <h2>出海工厂最常问的几个问题</h2>
+    </div>
+      <details class="faq reveal" open><summary>GEO 是什么？和 SEO 有什么区别？</summary><div class="faq-body"><p>GEO（Generative Engine Optimization，生成式引擎优化）优化的是 AI 生成答案时会不会点名你。SEO 争的是结果列表里的排名，GEO 争的是答案正文里的引用。竞争单位也不同：SEO 比的是关键词和页面，GEO 比的是事实、参数与实体关系；SEO 的信任来自外链权重，GEO 的信任来自多个独立来源说法一致。</p></div></details>
+      <details class="faq reveal"><summary>海外买家真的在用 AI 找供应商吗？</summary><div class="faq-body"><p>采购旅程的起点正在迁移。买家不再从 Google 输入关键词开始，而是直接问 AI「有哪些替代 X 的供应商」「参数要求是 Y 的话该选什么」。等他第一次联系你时，候选名单已经筛过一轮了——你不在名单上，就完全不知道自己出局过。</p></div></details>
+      <details class="faq reveal"><summary>AI 为什么总推荐国际大牌？</summary><div class="faq-body"><p>因为模型训练语料里关于它们的技术描述最多、最一致。国际大牌有几十年的论文、专利、技术手册、行业媒体报道沉淀，模型对它们的参数和适用场景有高置信度。中国工厂即便参数更优，语料稀薄，模型不敢推荐——不是偏见，是证据不足。</p></div></details>
+      <details class="faq reveal"><summary>GEO 多久能看到效果？</summary><div class="faq-body"><p>结构化改造上线后 2–6 周，可以观察到 AI 复述你产品参数的准确度改善——这是最早的信号。提及率的显著变化通常出现在第 2–4 个月，取决于品类竞争度和你既有的语料基础。</p></div></details>
+      <details class="faq reveal"><summary>做了 GEO，还需要投阿里国际站和 Google Ads 吗？</summary><div class="faq-body"><p>短期需要，长期结构会变。竞价买的是决策末端的流量，成本逐年上升；GEO 占的是决策起点，一次性构建、长期复用。现实做法是并行：用竞价维持当期询盘，用 GEO 逐步降低对竞价的依赖。</p></div></details>
+    <p class="note" style="margin-top:16px"><a href="faq.html">看全部 15 个问题 →</a></p>
+  </div>
+</section>
+
 <section class="section section--tight">
   <div class="container">
     <div class="cta-band reveal">
@@ -527,7 +802,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-year></span> 立德引擎（龙岩市新罗区）科技有限责任公司（立德引擎 Lead Engine）· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
       <span><a href="about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
     </div>
   </div>
