@@ -80,6 +80,12 @@
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
 
+[[headers]]
+  for = "/feed.xml"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
 [[redirects]]
   from = "/index"
   to = "/"

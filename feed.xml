@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>立德引擎 · 动态、实测与研究报告</title>
+<link>https://ileadengine.com/news.html</link>
+<atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
+<description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
+<language>zh-CN</language>
+<lastBuildDate>Thu, 29 Oct 2026 09:00:00 +0800</lastBuildDate>
+<item>
+<title>中国出口优势品类 AI 推荐可见度实测报告（2026 年 8 月）（研究报告 LDE-R-2026-01）</title>
+<link>https://ileadengine.com/research-2026-08.html</link>
+<guid isPermaLink="true">https://ileadengine.com/research-2026-08.html</guid>
+<pubDate>Thu, 29 Oct 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>立德引擎研究报告 LDE-R-2026-01：2026-08-12 用海外买家英文问法在 Perplexity 与 Google AI Overview 实测 7 个中国出口优势品类，通用问法下 5 个品类中国供应商全部缺席，对照组光伏、储能中国企业占据全部推荐位。含方法、完整数据、局限性与引用格式。</description>
+</item>
+<item>
+<title>买家已经不从搜索引擎开始了：三组 2026 年的数据</title>
+<link>https://ileadengine.com/news.html#buyers-start-with-ai</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#buyers-start-with-ai</guid>
+<pubDate>Thu, 13 Aug 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>G2 三月调研显示 51% 的 B2B 买家现在更常从 AI 对话框开始调研而非搜索引擎，一年前这个数字是 29%。更关键的是：69% 的买家因为 AI 的建议换掉了原定供应商，其中三分之一买了一家此前从没听说过的公司。</description>
+</item>
+<item>
+<title>AI 找供应商时，匹配的是参数不是品类</title>
+<link>https://ileadengine.com/news.html#ai-matches-parameters</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#ai-matches-parameters</guid>
+<pubDate>Thu, 13 Aug 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>2026 年的智能体化供应商发现工具，按公差、材料、认证、起订量、产能地域来匹配供应商，能找出比关键词搜索多 15 倍的合格候选。但前提是这些参数机器读得到——读不到，那 15 倍里就没有你。</description>
+</item>
+<item>
+<title>llms.txt 现在到底有没有用：三组数据和一个务实结论</title>
+<link>https://ileadengine.com/news.html#llms-txt-reality</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#llms-txt-reality</guid>
+<pubDate>Wed, 12 Aug 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>多方 2026 年数据显示 llms.txt 采用率约一成、AI 爬虫实际抓取占比约 0.1%、主流模型厂商均未公开承诺读取。但它仍然值得写——理由不是大多数人说的那个。</description>
+</item>
+<item>
+<title>ChatGPT 和 Perplexity 的引用来源，重合度只有约 11%</title>
+<link>https://ileadengine.com/news.html#citation-overlap</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#citation-overlap</guid>
+<pubDate>Wed, 12 Aug 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>一项覆盖 6.8 亿条引用的分析显示两大平台的被引用域名重合度约 11%，且社区类平台占据超半数引用份额。这直接决定了外部语料该怎么投。</description>
+</item>
+<item>
+<title>我们把 7 个品类挨个问了一遍 AI，结果比想象的更清楚</title>
+<link>https://ileadengine.com/news.html#ai-audit-0812</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#ai-audit-0812</guid>
+<pubDate>Wed, 12 Aug 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>2026-08-12 在 Perplexity 与 Google AI Overview 实测 7 个中国出口优势品类：连接器、密封件、紧固件、涂料助剂、饲料酶制剂中国供应商全部缺席；光伏与储能则由中国厂霸榜。附全部问题原文与截图。</description>
+</item>
+</channel>
+</rss>

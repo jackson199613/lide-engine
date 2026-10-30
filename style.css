@@ -1563,3 +1563,9 @@ main section[id] { scroll-margin-top: var(--toc-offset, 130px); }
 .byline a { color: inherit; text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
 .post-author { margin-left: 10px; font-size: .85rem; opacity: .85; }
 .post-author a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* 研究报告数据表 */
+.data-table th, .data-table td { border-bottom: 1px solid var(--border); padding: 10px 8px; text-align: left; vertical-align: top; }
+.data-table th { font-weight: 600; white-space: nowrap; }
+.data-table code { white-space: normal; font-size: .85em; }
+.data-table td:nth-child(-n+2) { white-space: nowrap; }
