@@ -41,6 +41,25 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+# 国内搜索引擎与 AI 平台爬虫（豆包/字节、文心/百度、通义/神马、搜狗、360、华为小艺）
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
 Sitemap: https://ileadengine.com/sitemap.xml
 
 # LLM 事实档案
