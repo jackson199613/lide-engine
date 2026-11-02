@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Thu, 29 Oct 2026 09:00:00 +0800</lastBuildDate>
+<lastBuildDate>Mon, 02 Nov 2026 09:00:00 +0800</lastBuildDate>
+<item>
+<title>国内 AI 引用监测看板（2026 年 11 月，第 1 期）</title>
+<link>https://ileadengine.com/ai-monitor.html</link>
+<guid isPermaLink="true">https://ileadengine.com/ai-monitor.html</guid>
+<pubDate>Mon, 02 Nov 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>用 3 个固定问题在豆包、Kimi、千问、文心、智谱清言、DeepSeek 实测立德引擎的 AI 引用情况：品牌问题 3/5 平台准确识别，品类推荐问题 0/12 提及。含提问原文、日期与截图，按月更新。</description>
+</item>
 <item>
 <title>中国出口优势品类 AI 推荐可见度实测报告（2026 年 8 月）（研究报告 LDE-R-2026-01）</title>
 <link>https://ileadengine.com/research-2026-08.html</link>

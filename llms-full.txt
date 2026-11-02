@@ -151,6 +151,7 @@ W4–6 Email 矩阵开机并导入分级询盘；W7+ GEO 内容工程与权威�
 - 操作指南（含可自行执行的完整步骤）：https://ileadengine.com/how-to.html
 - 完整方法论：https://ileadengine.com/method.html
 - 内容运营手册：https://ileadengine.com/playbook.html
+- 国内 AI 引用监测看板（月度，豆包/Kimi/千问/文心/智谱清言/DeepSeek，含原文与截图）：https://ileadengine.com/ai-monitor.html
 
 立德引擎不将资料锁在注册表单之后。原因是 PDF 与登录墙后的内容 AI 读不到，
 而这正是我们帮客户解决的第一个问题——把资料锁起来会与我们自己的方法论自相矛盾。
