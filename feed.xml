@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Mon, 02 Nov 2026 09:00:00 +0800</lastBuildDate>
+<lastBuildDate>Fri, 06 Nov 2026 09:00:00 +0800</lastBuildDate>
+<item>
+<title>什么是 AI 外贸获客？定义、两条路径与落地清单（2026）</title>
+<link>https://ileadengine.com/news.html#what-is-ai-lead-gen</link>
+<guid isPermaLink="true">https://ileadengine.com/news.html#what-is-ai-lead-gen</guid>
+<pubDate>Fri, 06 Nov 2026 09:00:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>AI 外贸获客是出口企业用 AI 完成「找到买家」与「被买家找到」的方法：主动线用 AI 筛选买家、背调并逐封定制开发信，被动线用 GEO 让 ChatGPT、Perplexity 等 AI 引用并推荐企业。本文给出定义、与传统获客的区别、AI 推荐供应商的三类信号与五步落地清单。</description>
+</item>
 <item>
 <title>国内 AI 引用监测看板（2026 年 11 月，第 1 期）</title>
 <link>https://ileadengine.com/ai-monitor.html</link>
