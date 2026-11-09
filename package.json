@@ -1,0 +1,8 @@
+{
+  "name": "lide-engine",
+  "private": true,
+  "description": "立德引擎官网（纯静态，无构建步骤）。依赖仅供 Netlify 构建插件使用。",
+  "devDependencies": {
+    "@netlify/plugin-lighthouse": "^6.0.4"
+  }
+}

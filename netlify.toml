@@ -90,3 +90,8 @@
   from = "/index"
   to = "/"
   status = 301
+
+# SEO 插件：每次部署后用 Lighthouse 给首页打分（SEO / 性能 / 无障碍 / 最佳实践）
+# 结果在 Netlify 后台该次部署的 "Deploy summary" 里查看；未设阈值，只报告不拦截部署
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
