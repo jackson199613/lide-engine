@@ -86,6 +86,13 @@
     Content-Type = "application/rss+xml; charset=utf-8"
     Cache-Control = "public, max-age=3600"
 
+# 内部发布工具与关键词表，不对外公开
+[[redirects]]
+  from = "/tools/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/index"
   to = "/"

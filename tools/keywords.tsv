@@ -1,0 +1,101 @@
+n	keyword	category	intent	title	slug
+1	GEO 生成式引擎优化	GEO 概念	了解	GEO 生成式引擎优化是什么？出海工厂必须看懂的 5 个要点	geo-generative-engine-optimization
+2	化工新材料出口获客	行业方案	方案	化工新材料工厂怎么让海外买家在 AI 里找到你？	chemical-new-materials-export-leads
+3	GEO 和 SEO 的区别	GEO 概念	对比	GEO 和 SEO 有什么区别？一张表看懂外贸企业该怎么分配精力	geo-vs-seo
+4	ChatGPT 推荐供应商	AI 平台	了解	ChatGPT 是怎么推荐供应商的？外贸工厂需要知道的信号	how-chatgpt-recommends-suppliers
+5	Product 产品结构化数据	技术实操	实操	Product 结构化数据怎么写？工业品参数页的 JSON-LD 示例	product-schema-industrial
+6	外贸询盘质量提升	外贸获客	痛点	询盘多但不成交？用 AI 提升外贸询盘质量的 6 个做法	improve-inquiry-quality
+7	机械装备出口获客	行业方案	方案	机械装备出口：AI 时代海外买家怎么选设备供应商	machinery-export-leads
+8	大牌型号替代 Equivalent 策略	GEO 策略	实操	什么是 Equivalent 策略？用「大牌型号替代」被 AI 推荐	equivalent-model-strategy
+9	Perplexity 引用来源	AI 平台	了解	Perplexity 引用了哪些网站？B2B 企业如何进入它的来源列表	perplexity-citation-sources
+10	GEO 优化多少钱	商业决策	价格	GEO 优化多少钱？费用构成与预算怎么定（2026）	geo-cost
+11	电子元器件出口	行业方案	方案	电子元器件厂商如何让 AI 在选型问题里提到你的型号	electronic-components-export
+12	AI 写开发信	外贸获客	实操	用 AI 写外贸开发信：不像群发的 5 步方法与提示词	ai-cold-email-writing
+13	Google AI 概览优化	AI 平台	实操	Google AI 概览（AI Overviews）对外贸网站意味着什么？	google-ai-overviews-b2b
+14	技术数据表 TDS 在线化	技术实操	实操	把 TDS 从 PDF 搬进 HTML：让 AI 读懂你的产品参数	tds-to-html
+15	AI 提及率	效果衡量	了解	AI 提及率是什么？怎么测、怎么提升	ai-mention-rate
+16	紧固件出口	行业方案	方案	紧固件工厂出海：标准号与规格如何写才能被 AI 引用	fasteners-export
+17	竞品型号截流	GEO 策略	实操	竞品型号截流怎么做才合规？对照表、替代说明与边界	competitor-model-cross-reference
+18	海外买家背调	外贸获客	实操	用 AI 做海外买家背调：从官网到海关数据的检查清单	buyer-background-check-ai
+19	FAQPage 结构化数据	技术实操	实操	FAQPage 结构化数据怎么写？用买家真实问法做 FAQ	faqpage-schema
+20	光伏组件出口	行业方案	方案	光伏组件供应商在 AI 推荐里拼的是什么？	solar-pv-export
+21	GEO 优化服务商怎么选	商业决策	选择	GEO 优化服务商怎么选？8 个必问问题	choose-geo-agency
+22	DeepSeek 品牌曝光	AI 平台	了解	DeepSeek 会推荐你的品牌吗？国产大模型的引用逻辑观察	deepseek-brand-visibility
+23	外贸独立站 AI 优化	技术实操	实操	外贸独立站 AI 优化清单：上线前必须检查的 12 项	b2b-website-ai-optimization
+24	锂电池储能出口	行业方案	方案	锂电池与储能出口：认证、参数与 AI 推荐的关系	lithium-battery-export
+25	权威语料喂养	GEO 策略	了解	什么是权威语料喂养？让 AI 有「可引用」的第三方证据	authoritative-corpus
+26	外贸邮件送达率	外贸获客	实操	外贸邮件进垃圾箱？SPF、DKIM、DMARC 一次讲清	email-deliverability-spf-dkim-dmarc
+27	robots.txt 放行 AI 爬虫	技术实操	实操	robots.txt 怎么放行 GPTBot、ClaudeBot 等 AI 爬虫	robots-txt-ai-crawlers
+28	饲料添加剂出口	行业方案	方案	饲料添加剂出口：注册资质如何成为 AI 推荐的信任信号	feed-additives-export
+29	AI 能见度诊断	效果衡量	实操	AI 能见度诊断怎么做？用 10 个买家问题自测你的品牌	ai-visibility-audit
+30	B2B 买家采购旅程	市场洞察	了解	2026 年 B2B 买家采购旅程：AI 出现在哪几个环节	b2b-buyer-journey-ai
+31	密封件 O 型圈供应商	行业方案	方案	密封件供应商如何用材料与标准参数赢得 AI 推荐	seals-o-rings-export
+32	Gemini 搜索优化	AI 平台	了解	Gemini 如何回答采购类问题？外贸网站的应对要点	gemini-search-b2b
+33	Organization 结构化数据	技术实操	实操	Organization 结构化数据：让 AI 认对你的公司实体	organization-schema-entity
+34	外贸获客成本	商业决策	痛点	外贸获客成本越来越高？算清展会、平台、广告与 GEO 的账	export-customer-acquisition-cost
+35	涂料助剂出口	行业方案	方案	涂料助剂出口：用对标牌号与 TDS 被海外配方师找到	coating-additives-export
+36	外部交叉验证	GEO 策略	了解	为什么 AI 更相信第三方？外部交叉验证的 6 类信源	third-party-validation
+37	中国工厂出海	市场洞察	了解	中国工厂出海的新获客逻辑：从被搜索到被推荐	chinese-factories-going-global
+38	交叉引用对照表	技术实操	实操	交叉引用对照表怎么做？工业品替代型号页面写法	cross-reference-table
+39	连接器制造商	行业方案	方案	连接器制造商如何在 AI 选型问答里被点名	connector-manufacturers
+40	AI 搜索优化	GEO 概念	了解	AI 搜索优化和传统搜索优化有何不同？	ai-search-optimization
+41	阿里巴巴国际站 vs 独立站	商业决策	对比	阿里国际站还是独立站？AI 推荐时代的渠道组合	alibaba-vs-own-website
+42	精密零件 CNC 加工供应商	行业方案	方案	CNC 加工厂如何用公差与材料能力页吸引海外买家	cnc-machining-supplier
+43	AI 采购助手	市场洞察	了解	海外采购员在用哪些 AI 采购助手？供应商的应对	ai-procurement-assistants
+44	JSON-LD 外贸网站	技术实操	实操	外贸网站 JSON-LD 入门：5 种最该加的结构化数据	json-ld-for-b2b
+45	欧洲市场 REACH 合规	目标市场	方案	卖到欧洲：REACH、CE 等合规信息怎么展示才被 AI 采信	europe-reach-ce-compliance
+46	纺织面料出口	行业方案	方案	纺织面料出口：克重、成分与认证的结构化展示	textile-fabric-export
+47	AI 幻觉品牌信息纠错	GEO 策略	痛点	AI 把你的公司说错了怎么办？品牌信息纠错步骤	fix-ai-hallucination-brand
+48	外贸客户开发工具	外贸获客	选择	2026 外贸客户开发工具怎么选：找人、背调、发信、跟进	b2b-prospecting-tools
+49	Claude 联网搜索引用	AI 平台	了解	Claude 联网搜索时怎么选来源？对 B2B 网站的启示	claude-web-search-citations
+50	汽车零部件出口	行业方案	方案	汽车零部件出口：OE 号对照与 IATF 认证的展示方法	auto-parts-export
+51	GEO 效果衡量	效果衡量	实操	GEO 效果怎么衡量？4 个指标与月度复测方法	measure-geo-results
+52	技术白皮书	GEO 策略	实操	工业品技术白皮书怎么写才能被 AI 引用	technical-whitepaper
+53	美国市场 B2B 采购	目标市场	方案	美国 B2B 买家如何找供应商？AI 时代的入场方式	us-b2b-sourcing
+54	塑料改性工程塑料	行业方案	方案	改性塑料供应商：用牌号对标让 AI 把你列入候选	engineering-plastics-export
+55	多语种外贸网站 GEO	技术实操	实操	多语种网站怎么做 GEO？hreflang 与本地化要点	multilingual-geo
+56	展会获客 vs AI 获客	商业决策	对比	展会还要不要去？展会获客与 AI 获客如何配合	trade-show-vs-ai-leads
+57	豆包 AI 推荐	AI 平台	了解	豆包会推荐哪些供应商？国内 AI 平台引用观察	doubao-ai-recommendation
+58	医疗器械出口	行业方案	方案	医疗器械出口内容营销：合规边界与 AI 可见度	medical-device-export
+59	B2B 行业目录收录	GEO 策略	实操	Thomasnet 等 B2B 目录收录，对 AI 推荐有多大帮助	b2b-directory-listings
+60	外贸开发信	外贸获客	实操	外贸开发信首句怎么写？10 个可直接套用的结构	cold-email-first-line
+61	ISO 认证展示	技术实操	实操	ISO 认证放在网站哪里、怎么写，AI 才读得到	iso-certification-display
+62	生物制品酶制剂出口	行业方案	方案	酶制剂与生物制品出口：用应用数据赢得 AI 信任	enzymes-biotech-export
+63	AI 推荐可见度	GEO 概念	了解	什么是 AI 推荐可见度？为什么它比排名更关键	ai-recommendation-visibility
+64	中东市场采购	目标市场	方案	中东买家怎么找中国供应商？渠道与内容建议	middle-east-sourcing
+65	包装材料出口	行业方案	方案	包装材料出口：食品接触认证与规格表怎么写	packaging-materials-export
+66	Kimi 搜索引用	AI 平台	了解	Kimi 联网搜索更偏好哪些来源？实测观察方法	kimi-search-citations
+67	外贸站群	外贸获客	了解	外贸站群还有用吗？站群与 GEO 的正确关系	b2b-site-network
+68	COA 检测报告在线展示	技术实操	实操	COA 怎么在线展示？兼顾保密与 AI 可读的做法	coa-online-display
+69	五金工具出口	行业方案	方案	五金工具出口：规格、材质与场景内容的组织方式	hardware-tools-export
+70	谷歌 SEO 外贸	GEO 概念	对比	做了谷歌 SEO 还需要 GEO 吗？两者如何互补	google-seo-and-geo
+71	东南亚市场	目标市场	方案	东南亚 B2B 市场获客：语言、渠道与 AI 使用习惯	southeast-asia-b2b
+72	RoHS 认证展示	技术实操	实操	RoHS、REACH 声明页面怎么写，买家和 AI 都看得懂	rohs-reach-declaration-page
+73	阀门泵类出口	行业方案	方案	阀门与泵类出口：工况参数表是被 AI 推荐的关键	valves-pumps-export
+74	AI 生成内容合规	内容运营	风险	AI 写的外贸内容会被降权吗？质量与合规的边界	ai-content-quality
+75	Bing Copilot B2B 采购	AI 平台	了解	Microsoft Copilot 在 B2B 采购中的角色与优化要点	copilot-b2b-sourcing
+76	LED 照明出口	行业方案	方案	LED 照明出口：光效、认证与应用场景页的写法	led-lighting-export
+77	外贸内容营销	内容运营	实操	外贸内容营销怎么做？以买家问题为中心的内容规划	b2b-content-marketing
+78	南美市场	目标市场	方案	南美市场开发：西语/葡语内容与 AI 可见度	latin-america-b2b
+79	AI 爬虫抓取	技术实操	了解	AI 爬虫怎么抓取你的网站？日志里看出什么	ai-crawlers-logs
+80	消费品家居出口	行业方案	方案	家居消费品出口：AI 购物推荐与 B2B 采购的两条线	home-goods-export
+81	案例研究写法	内容运营	实操	B2B 客户案例怎么写才可信？匿名案例的写法	b2b-case-study-writing
+82	UL 认证	技术实操	实操	UL 认证信息怎么展示，帮助北美买家与 AI 核验	ul-certification-display
+83	Wikidata 企业实体	GEO 策略	实操	企业实体信息：Wikidata、地图与工商信息的一致性	entity-consistency-wikidata
+84	AI 搜索流量统计	效果衡量	实操	GA4 里怎么识别来自 ChatGPT、Perplexity 的流量	ga4-ai-referral-traffic
+85	品牌词搜索	效果衡量	了解	为什么品牌词搜索量是 GEO 的领先指标	branded-search-geo
+86	外贸博客写作	内容运营	实操	外贸博客怎么写？一篇能被 AI 引用的文章结构	b2b-blog-writing
+87	特种化学品 AI 推荐	行业方案	方案	特种化学品：CAS 号、牌号与应用数据的组织方法	specialty-chemicals-ai
+88	AI 引用监测工具	效果衡量	选择	AI 引用监测怎么做？手动复测与工具的取舍	ai-citation-monitoring
+89	Reddit Quora 论坛语料	GEO 策略	了解	论坛内容对 AI 推荐有影响吗？工业品企业的参与边界	forums-reddit-quora
+90	出海工厂品牌建设	市场洞察	方案	从代工到品牌：出海工厂在 AI 时代的品牌建设路径	factory-brand-building
+91	GEO 工具	效果衡量	选择	GEO 需要哪些工具？结构化数据检测到提及率记录	geo-tools
+92	竞争对手出现在 AI 回答中	GEO 策略	痛点	AI 推荐了竞争对手却没有你？原因排查与补位	competitor-in-ai-answers
+93	YouTube 视频语料	GEO 策略	实操	工厂视频对 AI 推荐有帮助吗？视频标题与字幕的写法	video-content-geo
+94	外贸询盘	外贸获客	痛点	外贸询盘越来越少？AI 改变了买家的哪一步	fewer-export-inquiries
+95	场景内容卡位	GEO 策略	实操	场景内容卡位：用应用场景页接住 AI 的长尾问题	scenario-content
+96	B2B 网站 E-E-A-T	内容运营	了解	E-E-A-T 对外贸网站意味着什么？作者、资质与证据	eeat-for-b2b
+97	GEO 优化周期	商业决策	了解	GEO 多久见效？各阶段时间与预期	geo-timeline
+98	产品参数页优化	技术实操	实操	产品详情页改造：参数、应用、认证、FAQ 的标准结构	product-page-structure
+99	询盘产线	外贸获客	方案	主动开发 + 被动 GEO：搭一条稳定的出海询盘产线	inquiry-pipeline
+100	2027 GEO 趋势	市场洞察	了解	2027 年 GEO 趋势：外贸企业需要提前准备的 5 件事	geo-trends-2027
