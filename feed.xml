@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Fri, 13 Nov 2026 06:08:22 +0800</lastBuildDate>
+<lastBuildDate>Fri, 13 Nov 2026 07:11:00 +0800</lastBuildDate>
+<item>
+<title>化工新材料出口获客：怎么让海外买家在 AI 里找到你？</title>
+<link>https://ileadengine.com/news/chemical-new-materials-export-leads.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/chemical-new-materials-export-leads.html</guid>
+<pubDate>Fri, 13 Nov 2026 07:11:00 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>化工新材料出口获客的关键，是让海外买家问 AI 时能读到并复述你的牌号、参数与合规信息。核心是三件事：把 TDS 参数从 PDF 变成网页表格，如实写清 REACH、TSCA 与 SDS 等合规状态，再用与国际大牌型号的参数对标承接替代品问法。本文给出买家问法、选型字段表、五步落地做法与常见误区。</description>
+</item>
 <item>
 <title>GEO 生成式引擎优化是什么？出海工厂必须看懂的 5 个要点</title>
 <link>https://ileadengine.com/news/geo-generative-engine-optimization.html</link>
