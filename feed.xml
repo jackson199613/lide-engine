@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sat, 14 Nov 2026 06:12:34 +0800</lastBuildDate>
+<lastBuildDate>Sat, 14 Nov 2026 07:09:22 +0800</lastBuildDate>
+<item>
+<title>ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号</title>
+<link>https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html</guid>
+<pubDate>Sat, 14 Nov 2026 07:09:22 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>ChatGPT 推荐供应商没有付费名单：它结合模型原有知识与实时搜索结果，挑出能说出依据的公司写进答案。本文按 OpenAI 官方文档拆解 OAI-SearchBot、GPTBot 等爬虫该怎么设置，购物推荐与工业品推荐的区别，以及参数、资质、生产商身份、外部一致性、问法匹配 5 个关键信号和按月自测方法。</description>
+</item>
 <item>
 <title>GEO 和 SEO 有什么区别？一张表看懂外贸企业该怎么分配精力</title>
 <link>https://ileadengine.com/news/geo-vs-seo.html</link>

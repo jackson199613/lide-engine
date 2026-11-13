@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号 | 立德引擎</title>
+<meta name="description" content="ChatGPT 推荐供应商没有付费名单：它结合模型原有知识与实时搜索结果，挑出能说出依据的公司写进答案。本文按 OpenAI 官方文档拆解 OAI-SearchBot、GPTBot 等爬虫该怎么设置，购物推荐与工业品推荐的区别，以及参数、资质、生产商身份、外部一致性、问法匹配 5 个关键信号和按月自测方法。">
+<meta name="keywords" content="ChatGPT 推荐供应商,ChatGPT 搜索,OAI-SearchBot,GPTBot,外贸工厂 AI 获客,GEO,AI 能见度">
+<link rel="canonical" href="https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号">
+<meta property="og:description" content="ChatGPT 推荐供应商没有付费名单：它结合模型原有知识与实时搜索结果，挑出能说出依据的公司写进答案。本文按 OpenAI 官方文档拆解 OAI-SearchBot、GPTBot 等爬虫该怎么设置，购物推荐与工业品推荐的区别，以及参数、资质、生产商身份、外部一致性、问法匹配 5 个关键信号和按月自测方法。">
+<meta property="og:url" content="https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-14T07:09:22+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号">
+<meta name="twitter:description" content="ChatGPT 推荐供应商没有付费名单：它结合模型原有知识与实时搜索结果，挑出能说出依据的公司写进答案。本文按 OpenAI 官方文档拆解 OAI-SearchBot、GPTBot 等爬虫该怎么设置，购物推荐与工业品推荐的区别，以及参数、资质、生产商身份、外部一致性、问法匹配 5 个关键信号和按月自测方法。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html",
+      "headline": "ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号",
+      "description": "ChatGPT 推荐供应商没有付费名单：它结合模型原有知识与实时搜索结果，挑出能说出依据的公司写进答案。本文按 OpenAI 官方文档拆解 OAI-SearchBot、GPTBot 等爬虫该怎么设置，购物推荐与工业品推荐的区别，以及参数、资质、生产商身份、外部一致性、问法匹配 5 个关键信号和按月自测方法。",
+      "keywords": [
+        "ChatGPT 推荐供应商",
+        "ChatGPT 搜索",
+        "OAI-SearchBot",
+        "GPTBot",
+        "外贸工厂 AI 获客",
+        "GEO",
+        "AI 能见度"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-14T07:09:22+08:00",
+      "dateModified": "2026-11-14T07:09:22+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号",
+          "item": "https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ChatGPT 推荐供应商可以花钱买吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能直接买自然推荐。OpenAI 说明购物类商品结果由 ChatGPT 独立挑选、不是广告；ChatGPT 中的广告与这些结果是分开的。想进入答案，只能靠让信息可读、可核实。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "屏蔽 GPTBot 会影响 ChatGPT 推荐我吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会影响搜索答案，但可能影响模型原有知识。OpenAI 文档写明 GPTBot 与 OAI-SearchBot 设置相互独立，决定能否出现在 ChatGPT 搜索答案中的是 OAI-SearchBot。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "只有中文网站，ChatGPT 能推荐我给海外买家吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可能性很低。海外买家用英文等外语提问，AI 更容易匹配同语种、参数写全的页面，建议至少把核心产品页和参数表做成英文 HTML。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "改完网站多久能在 ChatGPT 里看到变化？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "没有固定周期。OpenAI 文档提到 robots.txt 调整约 24 小时后在搜索中生效，但能否被推荐还取决于内容与外部语料，需按月复测观察趋势。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="how-chatgpt-recommends-suppliers" data-kw="4">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">概念解读</span><time datetime="2026-11-14">2026-11-14</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号</h1>
+<p>ChatGPT 推荐供应商，靠的不是广告位，也没有一个可以付费购买的「推荐名单」：它把模型训练时学到的知识和开启搜索时实时抓取的网页拼在一起，挑出它能「说得出依据」的公司写进答案。对外贸工厂来说，能否被 ChatGPT 推荐，取决于三件事：它的爬虫能不能读到你的网站，你的产品参数和资质能不能被准确复述，以及网上有没有多个独立来源说着同样的话。</p>
+
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>ChatGPT 的答案有两个来源：模型原有的知识，以及 ChatGPT 搜索实时检索到的网页。两条路都要铺。</li>
+<li>OpenAI 官方文档写明：在 robots.txt 里屏蔽 OAI-SearchBot 的网站，不会出现在 ChatGPT 的搜索答案中（导航链接除外）。</li>
+<li>OpenAI 帮助中心说明，购物类商品结果由 ChatGPT 独立挑选，不是广告；而工业品采购问题通常落在文字答案里，靠的是网页正文中的参数与事实。</li>
+<li>ChatGPT 倾向推荐能被具体复述的供应商：型号、公差、认证编号、起订量、产能，越具体越容易进入答案。</li>
+<li>没有人能保证「被 ChatGPT 推荐」；能做的是让信号齐全，再用固定问题按月复测。</li>
+</ul></div>
+
+<h2>ChatGPT 推荐供应商时，信息从哪里来？</h2>
+<p>海外买家在 ChatGPT 里问「哪些中国工厂能做 IP67 防水连接器」时，答案背后有两个信息来源。</p>
+<p>第一是模型本身的知识。模型训练时读过大量公开网页，如果你的公司名、产品和参数在训练数据里反复以一致的形式出现，模型在不联网时也可能「记得」你。OpenAI 用 GPTBot 抓取可能用于训练的内容，网站可以在 robots.txt 里选择是否放行。</p>
+<p>第二是实时搜索。ChatGPT 搜索功能于 2024 年 10 月上线，遇到需要最新信息或具体供应商的问题时，会先检索网页，再基于检索结果组织答案并附上来源链接。负责为搜索功能发现网站的是 OAI-SearchBot。根据 OpenAI 爬虫文档，这两个设置相互独立：你可以放行 OAI-SearchBot 以出现在搜索答案中，同时禁止 GPTBot 用于训练。</p>
+<p>此外还有一个 ChatGPT-User，它是用户在对话中让 ChatGPT 打开某个网页时使用的代理，文档说明它不用于决定内容能否出现在搜索中。规模上，据 TechCrunch 2026 年 2 月报道，OpenAI 公布 ChatGPT 的周活跃用户达到 9 亿，这已经是很多买家做初步调研的入口之一。</p>
+
+<h2>OpenAI 的三类爬虫，外贸网站该怎么设置？</h2>
+<p>很多工厂官网是建站公司套模板做的，robots.txt 和防火墙规则从没人看过。下面这张表按 OpenAI 官方文档整理了各爬虫的用途和建议设置：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>用户代理</th><th>官方说明的用途</th><th>对「被推荐」的影响</th><th>外贸官网建议</th></tr></thead>
+<tbody>
+<tr><td>OAI-SearchBot</td><td>为 ChatGPT 搜索功能发现、展示网站</td><td>屏蔽后不会出现在搜索答案中</td><td>放行，并确认 CDN／防火墙未拦截其官方 IP 段</td></tr>
+<tr><td>GPTBot</td><td>抓取可能用于训练基础模型的内容</td><td>影响模型「原有知识」里有没有你</td><td>按公司数据政策决定；希望长期被记住通常放行</td></tr>
+<tr><td>ChatGPT-User</td><td>用户在对话中触发的网页访问</td><td>不决定搜索收录，但用户贴你的链接时要能打开</td><td>不要用验证码或地域限制挡住</td></tr>
+<tr><td>OAI-AdsBot</td><td>校验在 ChatGPT 投放广告的落地页</td><td>只访问投放为广告的页面，与自然推荐无关</td><td>未投广告可忽略</td></tr>
+</tbody></table></div>
+<p>文档还提到，修改 robots.txt 后，搜索结果大约需要 24 小时才会生效。具体的放行写法和自查步骤，可以参考立德引擎的<a href="/how-to.html">操作指南</a>。</p>
+
+<h2>购物推荐和工业品推荐，是一回事吗？</h2>
+<p>不完全是。OpenAI 帮助中心介绍购物功能时说明：当问题带有购物意图时，ChatGPT 会展示商品结果，这些结果由 ChatGPT 独立选择，不是广告，也不受 OpenAI 合作关系影响。挑选时会参考第一方和第三方提供的结构化元数据（例如价格、产品描述）及其他第三方内容；商家排序会考虑供货情况、价格、质量，以及是否为生产商或主要卖家。</p>
+<p>这套机制主要服务于零售消费品。出口工厂面对的 B2B 采购问题——「哪家能做 ±0.01mm 的不锈钢车削件」「有没有 REACH 合规的替代型号」——通常不会触发商品卡片，而是出现在普通的文字答案里。这时 ChatGPT 依赖的是网页正文里能被读取的事实。但购物文档透露的思路同样适用：结构化数据、第三方内容、是否为生产商，都是它判断时会看的东西。</p>
+
+<h2>ChatGPT 更愿意推荐哪种供应商？</h2>
+<p>从 OpenAI 公开的说明和生成式答案的工作方式来看，ChatGPT 推荐供应商时，实际在做的是：在检索到的材料里找出能回应买家条件的公司，再把它能确认的事实组织成一段话。所以下面这些信号最关键：</p>
+<ul>
+<li><strong>参数能被读出来。</strong>型号、材质、公差、纯度、耐温范围写在 HTML 表格里，单位齐全；锁在 PDF 扫描件或图片里的参数，AI 往往读不到或读错。</li>
+<li><strong>资质能被核对。</strong>ISO 9001、CE、UL、RoHS、REACH 等认证写明类型、编号和覆盖产品，而不是只放一张证书照片。</li>
+<li><strong>身份是生产商。</strong>工厂地址、产能、设备、成立年份写清楚，与贸易商区分开——购物文档也把「是否为生产商」列为排序因素之一。</li>
+<li><strong>外部说法一致。</strong>官网、B2B 平台、行业目录、LinkedIn 公司页上的英文公司名、型号命名和参数口径统一。单一来源的自述，说服力有限。</li>
+<li><strong>内容对得上问法。</strong>买家问的是「X 型号的替代品」「某工况选什么材料」，型号对标表、选型表和 FAQ 比一段公司简介更容易被引用。</li>
+</ul>
+<p>这些信号的系统化做法，立德引擎在<a href="/method.html">方法论</a>页面拆成了语义重塑、权威语料喂养、大牌型号截流三项能力。</p>
+
+<h2>为什么我的工厂在 ChatGPT 里「查无此人」？</h2>
+<p>常见原因可以按顺序排查：</p>
+<ul>
+<li>网站对境外访问慢或打不开，或者防火墙把海外爬虫当攻击拦截了；</li>
+<li>robots.txt 误挡 OAI-SearchBot，或整站只有中文、英文页面极少；</li>
+<li>产品页只有大图和「Contact us」，没有任何文本参数；</li>
+<li>公司在不同平台用了好几个英文名，AI 无法确认是同一家；</li>
+<li>网上除了自家官网，几乎没有第三方提到你的公司或型号。</li>
+</ul>
+<p>前两条是技术问题，一两天就能修好；后三条是内容和语料问题，需要持续投入。想快速给自己打个分，可以用 18 项的 <a href="/checklist.html">GEO 自查工具</a>。</p>
+
+<h2>怎么自测 ChatGPT 会不会推荐你？</h2>
+<p>不要只搜自己的公司名——买家不会这样问。建议准备 5–10 个买家真实问法，覆盖三类：品类问法（「推荐几家中国的某某供应商」）、参数问法（「哪家能做某规格、某认证的某产品」）、替代问法（「某大牌型号有什么替代品」）。每个问题在开启搜索的状态下提问，记录日期、是否提到你、排第几、引用了哪些来源、复述的参数对不对。</p>
+<p>ChatGPT 的答案会受账户记忆、对话上下文影响，同一问题不同时间问结果也可能不同，所以要固定问法、固定频率（例如每月一次）复测，看趋势而不是看单次截图。和传统搜索排名思路的差别，可以对照阅读《<a href="/news/geo-vs-seo.html">GEO 和 SEO 有什么区别？</a>》。</p>
+
+<h2>结语：先确认 ChatGPT 现在怎么回答你的品类</h2>
+<p>ChatGPT 推荐供应商的逻辑并不神秘：读得到、核得上、多处说法一致的工厂，更容易被写进答案。与其猜测，不如先拿买家的真实问法实测一次，看清楚卡在爬虫、参数还是外部语料。立德引擎提供免费的《AI 能见度诊断报告》，在 ChatGPT 等主流模型中实测你的品牌与主要竞对，附截图交付。</p>
+<h2>常见问题</h2>
+<p><strong>问：ChatGPT 推荐供应商可以花钱买吗？</strong><br>
+答：不能直接买自然推荐。OpenAI 说明购物类商品结果由 ChatGPT 独立挑选、不是广告；ChatGPT 中的广告与这些结果是分开的。想进入答案，只能靠让信息可读、可核实。</p>
+<p><strong>问：屏蔽 GPTBot 会影响 ChatGPT 推荐我吗？</strong><br>
+答：不会影响搜索答案，但可能影响模型原有知识。OpenAI 文档写明 GPTBot 与 OAI-SearchBot 设置相互独立，决定能否出现在 ChatGPT 搜索答案中的是 OAI-SearchBot。</p>
+<p><strong>问：只有中文网站，ChatGPT 能推荐我给海外买家吗？</strong><br>
+答：可能性很低。海外买家用英文等外语提问，AI 更容易匹配同语种、参数写全的页面，建议至少把核心产品页和参数表做成英文 HTML。</p>
+<p><strong>问：改完网站多久能在 ChatGPT 里看到变化？</strong><br>
+答：没有固定周期。OpenAI 文档提到 robots.txt 调整约 24 小时后在搜索中生效，但能否被推荐还取决于内容与外部语料，需按月复测观察趋势。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI：Overview of OpenAI Crawlers</a></li><li><a href="https://help.openai.com/en/articles/11128490" target="_blank" rel="noopener">OpenAI 帮助中心：Shopping with ChatGPT Search</a></li><li><a href="https://openai.com/index/introducing-chatgpt-search/" target="_blank" rel="noopener">OpenAI：Introducing ChatGPT search（2024-10-31）</a></li><li><a href="https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users" target="_blank" rel="noopener">TechCrunch：ChatGPT reaches 900M weekly active users（2026-02-27）</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>
