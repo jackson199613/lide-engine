@@ -120,9 +120,6 @@ def build_page(a, kw, pub):
 {ld}
 </script>
 <link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="{SITE}/feed.xml">
-<!-- 51.la 网站统计 -->
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-<script>LA.init({{id:"3Rny2Cd67ETry13O",ck:"3Rny2Cd67ETry13O"}})</script>
 </head>
 {absolutize(header)}
 

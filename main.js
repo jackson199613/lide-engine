@@ -86,6 +86,7 @@
 (function () {
   var KEY = 'le_consent';
   var BAIDU_ID = '8c37eedbf705c47be64579f96c8256ad';
+  var LA_ID = '3Rny2Cd67ETry13O';
 
   function get(n) {
     var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
@@ -106,6 +107,17 @@
     hm.async = true;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(hm, s);
+
+    // 51.la 统计：同样只在「全部接受」后加载
+    var la = document.createElement('script');
+    la.id = 'LA_COLLECT';
+    la.charset = 'UTF-8';
+    la.src = 'https://sdk.51.la/js-sdk-pro.min.js';
+    la.async = true;
+    la.onload = function () {
+      if (window.LA) window.LA.init({ id: LA_ID, ck: LA_ID });
+    };
+    s.parentNode.insertBefore(la, s);
   }
 
   if (get(KEY) === 'all') { loadAnalytics(); return; }
