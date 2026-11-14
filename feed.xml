@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sat, 14 Nov 2026 07:09:22 +0800</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 06:12:52 +0800</lastBuildDate>
+<item>
+<title>Product 结构化数据怎么写？工业品参数页 JSON-LD 示例（2026）</title>
+<link>https://ileadengine.com/news/product-schema-industrial.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/product-schema-industrial.html</guid>
+<pubDate>Sun, 15 Nov 2026 06:12:52 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>工业品的 Product 结构化数据，重点是用 additionalProperty 把 TDS 关键参数、范围与单位写成机器可读字段，并与页面参数表保持一致。本文给出消光粉参数页的 JSON-LD 示例、字段对照表、单位代码写法、常见错误与检查步骤。</description>
+</item>
 <item>
 <title>ChatGPT 是怎么推荐供应商的？外贸工厂要备齐的 5 个信号</title>
 <link>https://ileadengine.com/news/how-chatgpt-recommends-suppliers.html</link>
