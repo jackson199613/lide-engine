@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sun, 15 Nov 2026 06:12:52 +0800</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 07:09:42 +0800</lastBuildDate>
+<item>
+<title>询盘多但不成交？用 AI 提升外贸询盘质量的 6 个做法</title>
+<link>https://ileadengine.com/news/improve-inquiry-quality.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/improve-inquiry-quality.html</guid>
+<pubDate>Sun, 15 Nov 2026 07:09:42 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>外贸询盘质量提升的关键是：用产品页和结构化表单提前过滤不合适的买家，收到询盘后用 AI 做背调与 A/B/C 分级，再按渠道复盘成交结果。本文给出分级表、背调清单与 6 个可落地做法。</description>
+</item>
 <item>
 <title>Product 结构化数据怎么写？工业品参数页 JSON-LD 示例（2026）</title>
 <link>https://ileadengine.com/news/product-schema-industrial.html</link>
