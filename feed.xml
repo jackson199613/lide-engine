@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Mon, 16 Nov 2026 06:07:18 +0800</lastBuildDate>
+<lastBuildDate>Mon, 16 Nov 2026 07:04:01 +0800</lastBuildDate>
+<item>
+<title>什么是 Equivalent 策略？用「大牌型号替代」被 AI 推荐</title>
+<link>https://ileadengine.com/news/equivalent-model-strategy.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/equivalent-model-strategy.html</guid>
+<pubDate>Mon, 16 Nov 2026 07:04:01 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>Equivalent 策略是把你的牌号与国际大牌主流型号建立可核实的参数对标，并写成 AI 读得懂的网页，让买家问「X 型号有没有替代品」时，AI 有依据把你列为候选。本文讲清对标页写法、比较广告的合规边界与五步落地方法。</description>
+</item>
 <item>
 <title>机械装备出口获客：海外买家用 AI 怎么选设备供应商？</title>
 <link>https://ileadengine.com/news/machinery-export-leads.html</link>
