@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Mon, 16 Nov 2026 07:04:01 +0800</lastBuildDate>
+<lastBuildDate>Tue, 17 Nov 2026 06:11:53 +0800</lastBuildDate>
+<item>
+<title>Perplexity 引用了哪些网站？B2B 企业如何进入它的来源列表</title>
+<link>https://ileadengine.com/news/perplexity-citation-sources.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/perplexity-citation-sources.html</guid>
+<pubDate>Tue, 17 Nov 2026 06:11:53 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>Perplexity 引用的是它实时检索到、能摘出具体事实的网页。B2B 企业要进入它的来源列表，需放行 PerplexityBot、把参数与资质写成可读的英文 HTML 页面，并让多个外部来源说法一致。本文梳理 Perplexity 两个爬虫的官方用途、更易被引用的页面类型与按月自测方法。</description>
+</item>
 <item>
 <title>什么是 Equivalent 策略？用「大牌型号替代」被 AI 推荐</title>
 <link>https://ileadengine.com/news/equivalent-model-strategy.html</link>
