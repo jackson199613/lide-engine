@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Wed, 18 Nov 2026 06:06:45 +0800</lastBuildDate>
+<lastBuildDate>Wed, 18 Nov 2026 07:04:16 +0800</lastBuildDate>
+<item>
+<title>用 AI 写外贸开发信：不像群发的 5 步方法与提示词（2026）</title>
+<link>https://ileadengine.com/news/ai-cold-email-writing.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/ai-cold-email-writing.html</guid>
+<pubDate>Wed, 18 Nov 2026 07:04:16 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>用 AI 写外贸开发信要想不像群发，关键是给 AI 设边界：先建只含真实信息的事实库，每个买家只取一个可核实的背调事实作开头，用带字数和禁用词约束的提示词出初稿，再人工过稿、分角度跟进，并在发信前完成 SPF、DKIM、DMARC 认证与退订合规。本文给出 5 步方法和可直接复制的英文提示词。</description>
+</item>
 <item>
 <title>电子元器件出口：怎么让 AI 在选型问题里提到你的型号</title>
 <link>https://ileadengine.com/news/electronic-components-export.html</link>
