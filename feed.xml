@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Tue, 17 Nov 2026 07:09:03 +0800</lastBuildDate>
+<lastBuildDate>Wed, 18 Nov 2026 06:06:45 +0800</lastBuildDate>
+<item>
+<title>电子元器件出口：怎么让 AI 在选型问题里提到你的型号</title>
+<link>https://ileadengine.com/news/electronic-components-export.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/electronic-components-export.html</guid>
+<pubDate>Wed, 18 Nov 2026 06:06:45 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>电子元器件出口要被 AI 推荐，关键是让料号、规格参数、交叉替代关系和合规信息变成 AI 能读取、能核对的网页事实。本文梳理元器件买家向 AI 提问的方式、必须写清的参数与认证（RoHS、REACH、AEC-Q、UL 等），以及工厂可以按步执行的做法。</description>
+</item>
 <item>
 <title>GEO 优化多少钱？费用构成与预算怎么定（2026）</title>
 <link>https://ileadengine.com/news/geo-cost.html</link>
