@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Thu, 19 Nov 2026 06:12:04 +0800</lastBuildDate>
+<lastBuildDate>Thu, 19 Nov 2026 07:09:33 +0800</lastBuildDate>
+<item>
+<title>TDS 在线化：把 PDF 搬进 HTML，让 AI 读懂参数</title>
+<link>https://ileadengine.com/news/tds-to-html.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/tds-to-html.html</guid>
+<pubDate>Thu, 19 Nov 2026 07:09:33 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>技术数据表 TDS 在线化，就是把参数从 PDF 搬进 HTML，为每个牌号建一张独立网页，用带表头的 HTML 表格写清参数、数值、单位和测试方法，PDF 保留为下载附件。本文讲清 PDF 被 AI 读错的原因、HTML 版 TDS 页的必备模块、参数表写法与迁移步骤。</description>
+</item>
 <item>
 <title>Google AI 概览对外贸网站意味着什么？（2026）</title>
 <link>https://ileadengine.com/news/google-ai-overviews-b2b.html</link>
