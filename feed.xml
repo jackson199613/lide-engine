@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Wed, 18 Nov 2026 07:04:16 +0800</lastBuildDate>
+<lastBuildDate>Thu, 19 Nov 2026 06:12:04 +0800</lastBuildDate>
+<item>
+<title>Google AI 概览对外贸网站意味着什么？（2026）</title>
+<link>https://ileadengine.com/news/google-ai-overviews-b2b.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/google-ai-overviews-b2b.html</guid>
+<pubDate>Thu, 19 Nov 2026 06:12:04 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>Google AI 概览对外贸网站意味着：买家在 Google 搜索时，常先读到一段 AI 生成的答案，再决定点不点链接。想被它引用，没有额外技术门槛，但页面必须被收录、可带摘要展示，且参数和事实要能被直接摘出。本文讲清机制、影响与外贸官网的应对清单。</description>
+</item>
 <item>
 <title>用 AI 写外贸开发信：不像群发的 5 步方法与提示词（2026）</title>
 <link>https://ileadengine.com/news/ai-cold-email-writing.html</link>
