@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Thu, 19 Nov 2026 07:09:33 +0800</lastBuildDate>
+<lastBuildDate>Fri, 20 Nov 2026 06:07:06 +0800</lastBuildDate>
+<item>
+<title>AI 提及率是什么？怎么测、怎么提升（2026）</title>
+<link>https://ileadengine.com/news/ai-mention-rate.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/ai-mention-rate.html</guid>
+<pubDate>Fri, 20 Nov 2026 06:07:06 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>AI 提及率是指在一组固定买家问题中，AI 回答点名你品牌的比例，衡量的是你在不在候选名单上而非排第几。本文讲清提及率与声量占比、位次的区别，给出工厂可自行操作的五步测量法、常见卡点与三项提升方法。</description>
+</item>
 <item>
 <title>TDS 在线化：把 PDF 搬进 HTML，让 AI 读懂参数</title>
 <link>https://ileadengine.com/news/tds-to-html.html</link>
