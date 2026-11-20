@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sat, 21 Nov 2026 06:07:21 +0800</lastBuildDate>
+<lastBuildDate>Sat, 21 Nov 2026 07:03:39 +0800</lastBuildDate>
+<item>
+<title>用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）</title>
+<link>https://ileadengine.com/news/buyer-background-check-ai.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/buyer-background-check-ai.html</guid>
+<pubDate>Sat, 21 Nov 2026 07:03:39 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>用 AI 做海外买家背调，核心是让 AI 负责收集与整理、人负责核验与判断：按官网、公司注册、海关提单、制裁名单、付款与邮件安全五层逐项检查，每条结论都要能回到原始来源。本文给出检查清单、提示词写法和风险分级表。</description>
+</item>
 <item>
 <title>竞品型号截流怎么做才合规？对照表、替代说明与边界</title>
 <link>https://ileadengine.com/news/competitor-model-cross-reference.html</link>

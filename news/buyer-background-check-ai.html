@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 AI 做海外买家背调：从官网到海关数据的检查清单（2026） | 立德引擎</title>
+<meta name="description" content="用 AI 做海外买家背调，核心是让 AI 负责收集与整理、人负责核验与判断：按官网、公司注册、海关提单、制裁名单、付款与邮件安全五层逐项检查，每条结论都要能回到原始来源。本文给出检查清单、提示词写法和风险分级表。">
+<meta name="keywords" content="海外买家背调,AI 买家背调,外贸客户背调,海关数据查买家,制裁名单筛查,询盘真实性核验,外贸防骗">
+<link rel="canonical" href="https://ileadengine.com/news/buyer-background-check-ai.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）">
+<meta property="og:description" content="用 AI 做海外买家背调，核心是让 AI 负责收集与整理、人负责核验与判断：按官网、公司注册、海关提单、制裁名单、付款与邮件安全五层逐项检查，每条结论都要能回到原始来源。本文给出检查清单、提示词写法和风险分级表。">
+<meta property="og:url" content="https://ileadengine.com/news/buyer-background-check-ai.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-21T07:03:39+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）">
+<meta name="twitter:description" content="用 AI 做海外买家背调，核心是让 AI 负责收集与整理、人负责核验与判断：按官网、公司注册、海关提单、制裁名单、付款与邮件安全五层逐项检查，每条结论都要能回到原始来源。本文给出检查清单、提示词写法和风险分级表。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/buyer-background-check-ai.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/buyer-background-check-ai.html",
+      "headline": "用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）",
+      "description": "用 AI 做海外买家背调，核心是让 AI 负责收集与整理、人负责核验与判断：按官网、公司注册、海关提单、制裁名单、付款与邮件安全五层逐项检查，每条结论都要能回到原始来源。本文给出检查清单、提示词写法和风险分级表。",
+      "keywords": [
+        "海外买家背调",
+        "AI 买家背调",
+        "外贸客户背调",
+        "海关数据查买家",
+        "制裁名单筛查",
+        "询盘真实性核验",
+        "外贸防骗"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-21T07:03:39+08:00",
+      "dateModified": "2026-11-21T07:03:39+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）",
+          "item": "https://ileadengine.com/news/buyer-background-check-ai.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AI 能直接告诉我一个海外买家是不是骗子吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。AI 可以帮你收集和整理公开信息、指出矛盾点，但它可能混淆同名公司或编造来源，最终判断必须基于官方登记、海关记录等原始来源，由人来做。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "海关数据里查不到这个买家，是不是说明它是假的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。以美国为例，进口商可以依据 19 CFR 103.31 申请舱单信息保密，买家也可能通过贸易商、货代或空运进口，查不到只能说明需要进一步沟通确认。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "每个询盘都要做五层背调吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。前两层（官网域名、公司注册）几分钟就能完成，适合所有询盘；海关数据和制裁筛查用于准备报价、寄样或首单的客户；付款与邮件安全检查则应该是每笔交易的固定动作。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "用 AI 做背调时，提示词最重要的是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "要求它注明每条信息的来源网址，并且查不到就写「未找到」，不许推测。这两条能明显减少 AI 编造信息的情况，也方便你逐条核验。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="buyer-background-check-ai" data-kw="18">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">实操技巧</span><time datetime="2026-11-21">2026-11-21</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）</h1>
+<p>用 AI 做海外买家背调，正确的分工是：AI 负责把公开信息快速收集、归类、对比，人负责逐条回到原始来源核验并做判断。具体按五层检查——官网与域名、公司注册信息、海关提单记录、制裁与出口管制名单、付款与邮件安全——每一层都留下来源链接和截图。这样做的目的不是把每个询盘都查个底朝天，而是在报价、寄样、放账之前，用一两个小时排除明显的风险，并找到能写进回复首句的真实信息。</p>
+
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>AI 适合做「整理员」，不适合做「裁判」：它可能把同名公司混在一起，也可能编出不存在的网址，所有结论都要能点开原始来源。</li>
+<li>背调按五层做：官网与域名 → 公司注册 → 海关提单 → 制裁名单 → 付款与邮件安全，前两层几分钟就能出结果。</li>
+<li>美国海运进口的提单信息原则上可被公开获取，但进口商可以依法申请保密，所以「查不到记录」不等于「没有进口」。</li>
+<li>FBI 互联网犯罪投诉中心统计，2024 年商业邮件诈骗（BEC）造成的报告损失约 27.7 亿美元，改收款账户是外贸最需要防的一环。</li>
+<li>背调结果按 A/B/C 分级，决定报价速度、样品政策和付款条件，而不是简单的「真/假」二选一。</li>
+</ul></div>
+
+<h2>为什么现在要用 AI 做买家背调？</h2>
+<p>传统做法是业务员在搜索引擎、领英、黄页之间来回切换，一个客户查下来要半天，结果还散落在聊天记录里。询盘一多，背调就被省掉了，结果要么在虚假询盘上浪费样品和时间，要么对真正的大客户回复得千篇一律。</p>
+<p>AI 在这里的价值是速度和结构：你把询盘邮件、签名、公司名和域名交给它，它可以在几分钟内列出要查的项目、整理出公开可见的信息，并标出前后矛盾的地方。但大模型会出现「幻觉」，把名字相近的两家公司合并，或者给出一个看起来合理但并不存在的链接。所以本文所有步骤都遵循一个原则：<strong>AI 给线索，原始来源给结论</strong>。</p>
+
+<h2>第一层：官网和域名能说明什么？</h2>
+<p>先从买家自己留下的痕迹查起，这一层最快，也最能发现明显问题。</p>
+<ul>
+<li><strong>邮箱域名与官网是否一致。</strong>声称是上百人规模的进口商却用免费邮箱，或者邮箱域名和官网域名差一个字母，都值得追问。</li>
+<li><strong>域名注册时间。</strong>可以用 ICANN 的公开查询工具查看域名创建日期。一个自称经营二十年的公司，域名却是上个月注册的，需要解释。</li>
+<li><strong>官网内容是否「有人味」。</strong>有没有具体的地址、电话、团队、产品线、展会记录；地址在地图上是不是仓库或办公楼，而不是住宅或虚拟办公室。</li>
+<li><strong>采购方向是否吻合。</strong>官网主营和询盘产品是否相关。卖五金的公司来问医用耗材，不一定是假，但要问清楚用途。</li>
+</ul>
+<p>给 AI 的提示词可以这样写：「以下是一封询盘的原文和签名。请列出其中的公司名、人名、职位、域名、地址、电话，并指出它们之间可能不一致的地方。不要推测，查不到的项目写‘未找到’，每条信息注明来源网址。」要求它写「未找到」，能明显减少编造。</p>
+
+<h2>第二层：怎么查公司注册信息？</h2>
+<p>多数国家和地区都有官方或半官方的企业登记查询。英国 Companies House 可以免费查公司状态、注册地址、董事和历年申报；美国各州州务卿（Secretary of State）网站可以查公司登记；欧盟多数成员国有各自的商业登记系统。OpenCorporates 这类聚合平台可以作为入口，但最终以官方登记页为准。</p>
+<p>这一层重点看四件事：公司是否存续（不是已注销或被强制除名）、成立时间、注册地址和官网地址是否对得上、联系人是否在公开资料里与该公司有关联（例如董事名单或领英履历）。让 AI 帮你做的，是把登记页上的信息和询盘信息并排对比，列出差异，而不是让它直接告诉你「这家公司是否正规」。</p>
+
+<h2>第三层：海关数据能查到什么、查不到什么？</h2>
+<p>海关提单数据最大的价值，是看这家买家<strong>实际进口过什么、从哪些国家进口、频率大概如何</strong>。对出口工厂来说，这比任何自我介绍都可靠：一个声称年采购量很大的买家，如果提单记录里完全没有相关品类，就要多问一句。</p>
+<p>以美国为例，海运进口的舱单信息原则上可以被公开获取，商业数据平台正是基于这类数据做的整理。但根据美国联邦法规 19 CFR 103.31，进口商可以申请对自己的名称和地址保密。这意味着两点：查到记录，可以作为采购真实性的有力佐证；查不到记录，不能直接判定对方是假买家——它可能申请了保密、通过贸易商或货代进口，或者走空运、陆运。其他国家的海关数据公开程度差异很大，使用商业数据平台时要了解它的数据覆盖国家和更新周期。</p>
+<p>AI 在这一层适合做汇总：把导出的提单记录交给它，让它按供应商国家、品类、月份统计，并标出与你的产品相关的记录。但不要让 AI「凭记忆」回答某公司的进口情况，那样得到的很可能是编出来的。</p>
+
+<h2>第四层：制裁名单和出口管制要怎么筛？</h2>
+<p>这一层不是看买家真不真，而是看能不能做。美国商务部国际贸易管理局提供的 Consolidated Screening List 把多个美国政府部门的限制名单合并在一起，可以按公司名和人名检索；美国财政部 OFAC 也有制裁名单查询工具；欧盟、英国、联合国各有自己的制裁名单。</p>
+<p>需要提醒的是：名单筛查要用对方的<strong>完整法定名称、常用名、关键人员姓名和收货地址</strong>分别查，并留存查询日期和截图。名字相似的命中需要人工判断，是否构成合规风险、能否交易，应咨询专业的合规或法律顾问，AI 和业务员都不应自行下结论。</p>
+
+<h2>第五层：付款和邮件安全怎么守住？</h2>
+<p>很多外贸损失并不是发生在「假买家」身上，而是发生在真实交易中途：邮件往来被冒充，对方突然通知「更换收款账户」，或者你方的收款信息被篡改后发给买家。FBI 互联网犯罪投诉中心（IC3）的 2024 年报告显示，商业邮件诈骗当年的报告损失约 27.7 亿美元。</p>
+<p>这一层的检查动作很简单，但必须固定成制度：任何更改银行账户的通知，都通过已知的电话或视频再确认一次，不用邮件里给的新号码；比对每封邮件的发件域名是否与历史往来完全一致；首次合作优先采用风险可控的付款方式。对于金额较大的放账，可以考虑购买出口信用保险机构提供的买家资信调查服务，作为 AI 和公开信息之外的第三方核验。</p>
+
+<h2>一张表：五层背调检查清单</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>层级</th><th>查什么</th><th>到哪里查</th><th>AI 能做什么</th><th>必须人工确认的</th></tr></thead>
+<tbody>
+<tr><td>官网与域名</td><td>邮箱域名、域名注册时间、地址、主营方向</td><td>买家官网、ICANN 域名查询、地图</td><td>提取信息、列出矛盾点</td><td>地址实景、主营与询盘是否相关</td></tr>
+<tr><td>公司注册</td><td>存续状态、成立时间、董事、注册地址</td><td>Companies House、美国各州 SOS、各国商业登记</td><td>并排对比登记信息与询盘信息</td><td>是否同一家公司（防同名）</td></tr>
+<tr><td>海关提单</td><td>进口品类、来源国、频率、主要供应商</td><td>海关数据平台（了解覆盖范围）</td><td>汇总统计、标出相关记录</td><td>查不到时的原因判断</td></tr>
+<tr><td>制裁与管制</td><td>公司名、人员、收货地址是否命中</td><td>Consolidated Screening List、OFAC、欧盟/英国/联合国名单</td><td>生成需检索的名称变体</td><td>疑似命中的判断，必要时咨询专业顾问</td></tr>
+<tr><td>付款与邮件</td><td>发件域名、账户变更、付款方式</td><td>邮件头、历史往来、电话/视频确认</td><td>比对邮件域名与历史记录</td><td>任何账户变更都要线下再确认</td></tr>
+</tbody></table></div>
+
+<h2>背调结果怎么用？按 A/B/C 分级决定动作</h2>
+<p>背调不是为了给客户贴「真」或「假」的标签，而是决定接下来投入多少资源：</p>
+<ul>
+<li><strong>A 级</strong>：五层信息一致，有相关品类的进口记录。当天回复，报价写具体，可以主动提供样品，并用查到的一个事实（例如对方的主营产品线）写回复首句。</li>
+<li><strong>B 级</strong>：公司真实，但采购记录不明或需求模糊。正常报价，样品收费或抵扣，用两三个问题确认用量、用途和时间。</li>
+<li><strong>C 级</strong>：多处信息矛盾，或在付款环节出现异常。暂缓寄样和放账，要求视频沟通或换用更安全的付款方式。</li>
+</ul>
+<p>分级标准和后续跟进方法，可以参考我们之前写的<a href="/news/improve-inquiry-quality.html">用 AI 提升外贸询盘质量的 6 个做法</a>；如果要把背调查到的事实写进开发信或回复，可以看<a href="/news/ai-cold-email-writing.html">用 AI 写外贸开发信的 5 步方法</a>。</p>
+
+<h2>背调做到位之后，还差什么？</h2>
+<p>背调解决的是「来的买家靠不靠谱」，但前提是买家先找到你。越来越多的海外采购人员会先问 AI「哪些供应商能做某某规格」，再去官网核实——这和你背调买家的方式几乎一样。如果你的官网参数不清楚、公司信息在不同平台上说法不一，买家用 AI 查你时，结论也会打折扣。立德引擎的<a href="/pipeline.html">出海询盘产线</a>把主动开发和让 AI 读懂你的工厂放在一起做；想先知道 AI 现在怎么描述你，可以申请一份免费的 <a href="/contact.html">AI 能见度诊断报告</a>。</p>
+<h2>常见问题</h2>
+<p><strong>问：AI 能直接告诉我一个海外买家是不是骗子吗？</strong><br>
+答：不能。AI 可以帮你收集和整理公开信息、指出矛盾点，但它可能混淆同名公司或编造来源，最终判断必须基于官方登记、海关记录等原始来源，由人来做。</p>
+<p><strong>问：海关数据里查不到这个买家，是不是说明它是假的？</strong><br>
+答：不一定。以美国为例，进口商可以依据 19 CFR 103.31 申请舱单信息保密，买家也可能通过贸易商、货代或空运进口，查不到只能说明需要进一步沟通确认。</p>
+<p><strong>问：每个询盘都要做五层背调吗？</strong><br>
+答：不需要。前两层（官网域名、公司注册）几分钟就能完成，适合所有询盘；海关数据和制裁筛查用于准备报价、寄样或首单的客户；付款与邮件安全检查则应该是每笔交易的固定动作。</p>
+<p><strong>问：用 AI 做背调时，提示词最重要的是什么？</strong><br>
+答：要求它注明每条信息的来源网址，并且查不到就写「未找到」，不许推测。这两条能明显减少 AI 编造信息的情况，也方便你逐条核验。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://www.nacha.org/news/fbis-ic3-finds-almost-85-billion-lost-business-email-compromise-last-three-years" target="_blank" rel="noopener">FBI IC3 2024 年报数据解读（Nacha）</a></li><li><a href="https://www.ecfr.gov/current/title-19/chapter-I/part-103/subpart-C/section-103.31" target="_blank" rel="noopener">19 CFR 103.31 舱单信息保密条款（eCFR）</a></li><li><a href="https://www.trade.gov/consolidated-screening-list" target="_blank" rel="noopener">Consolidated Screening List（美国国际贸易管理局）</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>
