@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Fri, 20 Nov 2026 07:04:13 +0800</lastBuildDate>
+<lastBuildDate>Sat, 21 Nov 2026 06:07:21 +0800</lastBuildDate>
+<item>
+<title>竞品型号截流怎么做才合规？对照表、替代说明与边界</title>
+<link>https://ileadengine.com/news/competitor-model-cross-reference.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/competitor-model-cross-reference.html</guid>
+<pubDate>Sat, 21 Nov 2026 06:07:21 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>竞品型号截流要合规，核心是三点：只为说明对应关系而点名对方型号，比较内容真实可验证，不暗示与对方有授权或合作。本文给出替代说明写法、型号对照表模板、关键词使用边界和上线前自查清单。</description>
+</item>
 <item>
 <title>紧固件出口：标准号与规格怎么写，AI 才会引用你（2026）</title>
 <link>https://ileadengine.com/news/fasteners-export.html</link>
