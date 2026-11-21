@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sat, 21 Nov 2026 07:03:39 +0800</lastBuildDate>
+<lastBuildDate>Sun, 22 Nov 2026 06:07:03 +0800</lastBuildDate>
+<item>
+<title>FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）</title>
+<link>https://ileadengine.com/news/faqpage-schema.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/faqpage-schema.html</guid>
+<pubDate>Sun, 22 Nov 2026 06:07:03 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>FAQPage 结构化数据是用 JSON-LD 把问答写成机器可读字段。Google 自 2026 年 5 月不再展示 FAQ 富媒体结果，但它仍能让 AI 与抓取程序准确识别你回答了买家哪些问题。本文给出 JSON-LD 示例、买家真实问法的收集方法、五类必备问题与常见错误。</description>
+</item>
 <item>
 <title>用 AI 做海外买家背调：从官网到海关数据的检查清单（2026）</title>
 <link>https://ileadengine.com/news/buyer-background-check-ai.html</link>

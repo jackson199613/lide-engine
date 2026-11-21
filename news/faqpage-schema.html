@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026） | 立德引擎</title>
+<meta name="description" content="FAQPage 结构化数据是用 JSON-LD 把问答写成机器可读字段。Google 自 2026 年 5 月不再展示 FAQ 富媒体结果，但它仍能让 AI 与抓取程序准确识别你回答了买家哪些问题。本文给出 JSON-LD 示例、买家真实问法的收集方法、五类必备问题与常见错误。">
+<meta name="keywords" content="FAQPage 结构化数据,FAQ schema,JSON-LD,FAQ 富媒体结果,GEO,买家真实问法,外贸网站 FAQ">
+<link rel="canonical" href="https://ileadengine.com/news/faqpage-schema.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）">
+<meta property="og:description" content="FAQPage 结构化数据是用 JSON-LD 把问答写成机器可读字段。Google 自 2026 年 5 月不再展示 FAQ 富媒体结果，但它仍能让 AI 与抓取程序准确识别你回答了买家哪些问题。本文给出 JSON-LD 示例、买家真实问法的收集方法、五类必备问题与常见错误。">
+<meta property="og:url" content="https://ileadengine.com/news/faqpage-schema.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-22T06:07:03+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）">
+<meta name="twitter:description" content="FAQPage 结构化数据是用 JSON-LD 把问答写成机器可读字段。Google 自 2026 年 5 月不再展示 FAQ 富媒体结果，但它仍能让 AI 与抓取程序准确识别你回答了买家哪些问题。本文给出 JSON-LD 示例、买家真实问法的收集方法、五类必备问题与常见错误。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/faqpage-schema.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/faqpage-schema.html",
+      "headline": "FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）",
+      "description": "FAQPage 结构化数据是用 JSON-LD 把问答写成机器可读字段。Google 自 2026 年 5 月不再展示 FAQ 富媒体结果，但它仍能让 AI 与抓取程序准确识别你回答了买家哪些问题。本文给出 JSON-LD 示例、买家真实问法的收集方法、五类必备问题与常见错误。",
+      "keywords": [
+        "FAQPage 结构化数据",
+        "FAQ schema",
+        "JSON-LD",
+        "FAQ 富媒体结果",
+        "GEO",
+        "买家真实问法",
+        "外贸网站 FAQ"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-22T06:07:03+08:00",
+      "dateModified": "2026-11-22T06:07:03+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）",
+          "item": "https://ileadengine.com/news/faqpage-schema.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Google 不显示 FAQ 富媒体结果了，已经加的 FAQPage 要删掉吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要删。Google 方面公开表示已有标记无需改动，也不会因此受罚；如果当初只是为了搜索结果展示而加，删除也可以。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "FAQPage 能让 ChatGPT 或 Perplexity 引用我的网站吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能保证。FAQPage 让问答结构更清晰、更易被准确读取，但是否被引用还取决于内容与问题的匹配度、外部来源的交叉印证等多种因素。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "FAQ 用中文写还是英文写？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "面向哪个市场就用哪种语言写。主要客户在欧美就以英文为主，并保留买家常用的专业术语原词；多语种页面各自配对应语言的 FAQPage。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "产品页和公司 FAQ 页都要加 FAQPage 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以都加，但内容要分工。产品页只放与该型号相关的 3–6 条问答，公司 FAQ 页放资质、交易、售后等通用问题，不要整组重复。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "FAQPage 和 QAPage 有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FAQPage 用于网站自己给出唯一答案的常见问题；QAPage 用于一个问题下有多人回答的问答社区或论坛页面。工厂官网的 FAQ 一般用 FAQPage。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="faqpage-schema" data-kw="19">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">实操技巧</span><time datetime="2026-11-22">2026-11-22</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）</h1>
+<p>FAQPage 结构化数据，就是在常见问题页面里用 JSON-LD 把「问题—答案」逐条写成机器可读的字段。2026 年 5 月起 Google 搜索已不再展示 FAQ 富媒体结果，所以今天写 FAQPage 的目的不再是搜索结果里多几行折叠问答，而是让搜索引擎和 AI 抓取程序准确识别：这家工厂回答了买家的哪些问题、答案是什么。写法的关键只有两条：问题用海外买家的真实问法，答案首句直接给结论，并且与页面上可见的文字完全一致。</p>
+
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>Google 自 2026 年 5 月 7 日起不再在搜索结果中显示 FAQ 富媒体结果，Search Console 相关报告也随之下线。</li>
+<li>Google 方面表示已有的 FAQPage 标记无需改动，想删也可以；标记本身不会带来惩罚。</li>
+<li>FAQPage 的价值转向「可读性」：把问答写成清晰的实体结构，方便各类程序准确取用。</li>
+<li>问题从询盘邮件、展会记录、业务员聊天里收集，用买家原话，而不是自问自答的营销句。</li>
+<li>每一条结构化问答都必须在页面上可见，数值与 TDS、产品页保持一致。</li>
+</ul></div>
+
+<h2>Google 不再展示 FAQ 富媒体结果了，还值得写 FAQPage 吗？</h2>
+<p>先把事实说清楚。FAQ 富媒体结果在 2023 年 8 月已被 Google 收窄，只对知名权威的政府和健康类网站展示；2026 年 5 月，Google 在 FAQ 结构化数据文档中说明，这类结果已从搜索中完全消失，Search Console 的相关报告和测试支持也在随后几个月逐步移除。对绝大多数外贸工厂来说，这意味着：靠 FAQPage 在 Google 里「多占几行」的想法，几年前就已经不成立了。</p>
+<p>那为什么我们仍建议写？原因在于 GEO 关心的是另一件事。AI 回答买家问题时，需要从网页里找到「谁说的、说了什么、能不能直接引用」。一段用 FAQPage 标好的问答，问题和答案边界清楚、归属明确，比散落在长段落里的信息更容易被准确截取。它不保证被引用，也不保证被推荐，但能减少程序「猜」的成分。这和我们在<a href="/method.html">GEO 方法论</a>里讲的「语义重塑」是同一个逻辑：先让机器读得准，再谈被选中。</p>
+<p>另外，Google 的 John Mueller 在公开回应中表示，已经加了标记的网站不需要做任何改动。所以如果你的站点早已部署 FAQPage，保留即可；还没有部署的，按下面的方法写一次，成本很低。</p>
+
+<h2>FAQPage 的 JSON-LD 应该怎么写？</h2>
+<p>FAQPage 的结构很简单：一个 <code>FAQPage</code> 下面挂若干个 <code>Question</code>，每个问题有一个 <code>acceptedAnswer</code>，类型为 <code>Answer</code>。下面以一家涂料助剂工厂的产品 FAQ 为例，品牌和型号均为演示虚构：</p>
+<pre style="overflow-x:auto;background:rgba(43,91,255,.06);border:1px solid rgba(43,91,255,.15);padding:16px;border-radius:8px;font-size:.82rem;line-height:1.55;white-space:pre"><code>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the MOQ for MX-200 matting agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The MOQ for MX-200 is 500 kg, packed in 10 kg bags. Samples of 1 kg are free for qualified buyers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MX-200 suitable for waterborne wood coatings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MX-200 is surface-treated for waterborne wood and industrial coatings. See the TDS for recommended dosage."
+      }
+    }
+  ]
+}</code></pre>
+<p>几个写法要点：</p>
+<ul>
+<li><strong>name 写问题原文</strong>：就写买家会怎么问，包含型号或品类词，不要写成「关于我们的优势」这类标题。</li>
+<li><strong>text 首句给结论</strong>：「Yes」「500 kg」「Within 15 days」先说，再补条件和依据。AI 截取答案时往往只取开头。</li>
+<li><strong>答案里可以带简单 HTML</strong>：Google 的 FAQ 文档列出了答案中可用的基础标签，如段落、列表、链接、加粗，但别塞入整段页面代码。</li>
+<li><strong>一页一个 FAQPage</strong>：同一页面只声明一个 FAQPage；同一组问答在全站出现多次时，Google 建议只标记其中一处。</li>
+<li><strong>直接写进初始 HTML</strong>：放在 <code>&lt;script type="application/ld+json"&gt;</code> 里，不依赖前端脚本动态生成，降低抓取不到的风险。</li>
+</ul>
+
+<h2>买家的「真实问法」从哪里来？</h2>
+<p>FAQPage 写得好不好，八成取决于问题选得对不对。很多工厂的 FAQ 是市场部坐在办公室里想出来的，问的是「为什么选择我们」，答的是「品质优良、服务周到」。这种问答对买家没用，对 AI 也没有信息量。</p>
+<p>更可靠的做法是从已经发生过的对话里挖问题。下面这张表列出了常见来源和整理方法：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>来源</th><th>能挖到的问题类型</th><th>整理方法</th></tr></thead>
+<tbody>
+<tr><td>近 12 个月询盘邮件</td><td>起订量、样品、交期、付款方式</td><td>把首封询盘里的问句原样摘出，按出现频次排序</td></tr>
+<tr><td>业务员 WhatsApp / 微信记录</td><td>参数追问、替代型号、包装</td><td>请业务员每人列出被问最多的 10 个问题</td></tr>
+<tr><td>展会洽谈记录</td><td>认证、产能、应用场景</td><td>按买家国家分组，留意不同市场的问法差异</td></tr>
+<tr><td>技术支持与投诉记录</td><td>用量、兼容性、储存条件</td><td>只保留有明确答案的问题，未定论的不写</td></tr>
+<tr><td>向 AI 提问的自测</td><td>买家视角的品类问题</td><td>用英文模拟买家提问，记录 AI 追问或答不上的点</td></tr>
+</tbody></table></div>
+<p>整理时保留英文原句，尤其是专业术语的写法。买家写「anti-settling agent」，你的 FAQ 却只写「防沉剂」的直译，匹配度就会打折扣。问题数量不必多，一个产品页 3–6 条、一个公司级 FAQ 页 10–20 条通常就够，宁精勿滥。</p>
+
+<h2>工业品 FAQ 应该覆盖哪几类问题？</h2>
+<p>按买家决策顺序，我们一般建议覆盖五类，每类至少一条：</p>
+<ul>
+<li><strong>资质类</strong>：有没有 ISO 9001、REACH 注册、RoHS 合规声明，证书编号和有效期在哪里可查。</li>
+<li><strong>参数类</strong>：关键指标是多少、用什么方法测、和某个通用标准的对应关系。</li>
+<li><strong>适用类</strong>：适合什么体系、工况或应用，不适合什么场景。</li>
+<li><strong>交易类</strong>：起订量、样品政策、交期、付款与贸易条款。</li>
+<li><strong>替代类</strong>：能否替代某类常见规格，依据是哪些参数对比。</li>
+</ul>
+<p>替代类问题要格外谨慎：只写有参数依据的对照，不暗示与其他品牌存在合作或授权关系。具体边界可以参考<a href="/news/competitor-model-cross-reference.html">竞品型号截流怎么做才合规</a>。参数类问答则应与产品页的结构化数据一致，写法见<a href="/news/product-schema-industrial.html">Product 结构化数据怎么写</a>。</p>
+
+<h2>最常见的 5 个错误是什么？</h2>
+<ol>
+<li><strong>标记了页面上看不到的问答</strong>：Google 的结构化数据通用准则要求标记内容对用户可见。藏起来的问答会被视为不可信内容。</li>
+<li><strong>答案绕圈子</strong>：「请联系我们获取详情」不是答案。确实因订单而异的，也要先给区间或决定因素。</li>
+<li><strong>把用户提问区当 FAQPage</strong>：多人回答、允许讨论的问答区更适合 QAPage，FAQPage 用于网站自己给出唯一答案的问题。</li>
+<li><strong>数字前后不一致</strong>：FAQ 里写交期 15 天，产品页写 20 天，AI 遇到矛盾往往干脆不引用。</li>
+<li><strong>每页复制同一组问答</strong>：全站页面挂相同的 FAQ，问答和页面主题脱节，反而稀释了信息；Google 也建议重复的问答只标记一处。</li>
+</ol>
+
+<h2>写完之后怎么检查？</h2>
+<p>Google 已宣布 Search Console 的 FAQ 报告和富媒体结果测试中的 FAQ 支持将陆续下线，所以检查方式要调整：先用 Schema Markup Validator 校验语法和类型；再逐条对照页面可见文字，确认问题与答案一字不差；最后抽查答案里的数字，与 TDS、产品页、报价单核对。上线后每季度复查一次，产品改版、政策调整时同步更新。本站的<a href="/faq.html">技术问答</a>页就是按这套方法写的，可以直接查看源码作参考。</p>
+<p>如果你想知道海外买家现在问 AI 时，你的品牌出现在哪些问题里、缺席在哪些问题里，可以先用 <a href="/checklist.html">GEO 自查工具</a>给官网打个分，或者申请一份免费的 AI 能见度诊断，把「买家真实问法」这一步交给实测数据来定。</p>
+<h2>常见问题</h2>
+<p><strong>问：Google 不显示 FAQ 富媒体结果了，已经加的 FAQPage 要删掉吗？</strong><br>
+答：不需要删。Google 方面公开表示已有标记无需改动，也不会因此受罚；如果当初只是为了搜索结果展示而加，删除也可以。</p>
+<p><strong>问：FAQPage 能让 ChatGPT 或 Perplexity 引用我的网站吗？</strong><br>
+答：不能保证。FAQPage 让问答结构更清晰、更易被准确读取，但是否被引用还取决于内容与问题的匹配度、外部来源的交叉印证等多种因素。</p>
+<p><strong>问：FAQ 用中文写还是英文写？</strong><br>
+答：面向哪个市场就用哪种语言写。主要客户在欧美就以英文为主，并保留买家常用的专业术语原词；多语种页面各自配对应语言的 FAQPage。</p>
+<p><strong>问：产品页和公司 FAQ 页都要加 FAQPage 吗？</strong><br>
+答：可以都加，但内容要分工。产品页只放与该型号相关的 3–6 条问答，公司 FAQ 页放资质、交易、售后等通用问题，不要整组重复。</p>
+<p><strong>问：FAQPage 和 QAPage 有什么区别？</strong><br>
+答：FAQPage 用于网站自己给出唯一答案的常见问题；QAPage 用于一个问题下有多人回答的问答社区或论坛页面。工厂官网的 FAQ 一般用 FAQPage。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://developers.google.com/search/docs/appearance/structured-data/faqpage" target="_blank" rel="noopener">Google 搜索中心：FAQ（FAQPage、Question、Answer）结构化数据</a></li><li><a href="https://developers.google.com/search/blog/2023/08/howto-faq-changes" target="_blank" rel="noopener">Google 搜索中心博客：HowTo 与 FAQ 富媒体结果的变更（2023-08）</a></li><li><a href="https://www.seroundtable.com/google-drops-faq-rich-results-41298.html" target="_blank" rel="noopener">Search Engine Roundtable：Google Search Drops FAQ Rich Results（2026-05-11）</a></li><li><a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies" target="_blank" rel="noopener">Google 搜索中心：结构化数据通用准则</a></li><li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener">schema.org：FAQPage</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>
