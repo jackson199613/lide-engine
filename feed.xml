@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sun, 22 Nov 2026 06:07:03 +0800</lastBuildDate>
+<lastBuildDate>Sun, 22 Nov 2026 07:03:58 +0800</lastBuildDate>
+<item>
+<title>光伏组件出口：中小厂怎样进入 AI 推荐名单（2026）</title>
+<link>https://ileadengine.com/news/solar-pv-export.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/solar-pv-export.html</guid>
+<pubDate>Sun, 22 Nov 2026 07:03:58 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>光伏组件出口要进入 AI 推荐名单，中小厂拼的不是产能排名，而是让 AI 能核实的参数、认证与第三方测试记录。本文拆解买家向 AI 提问的方式、AI 判断组件供应商的四类信号，以及从数据表到外部背书的落地清单。</description>
+</item>
 <item>
 <title>FAQPage 结构化数据怎么写？用买家真实问法做 FAQ（2026）</title>
 <link>https://ileadengine.com/news/faqpage-schema.html</link>
