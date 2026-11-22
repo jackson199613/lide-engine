@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Sun, 22 Nov 2026 07:03:58 +0800</lastBuildDate>
+<lastBuildDate>Mon, 23 Nov 2026 06:07:16 +0800</lastBuildDate>
+<item>
+<title>GEO 优化服务商怎么选？签约前必问的 8 个问题（2026）</title>
+<link>https://ileadengine.com/news/choose-geo-agency.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/choose-geo-agency.html</guid>
+<pubDate>Mon, 23 Nov 2026 06:07:16 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>GEO 优化服务商怎么选：先看对方能否拿出可复现的 AI 能见度基线、说清每月交付物和衡量指标，再看懂不懂你的行业参数；凡是承诺「保证被 AI 推荐」或把 llms.txt 当神奇开关来卖的，都应谨慎。本文给出签约前必问的 8 个问题、靠谱回答与危险信号对照表。</description>
+</item>
 <item>
 <title>光伏组件出口：中小厂怎样进入 AI 推荐名单（2026）</title>
 <link>https://ileadengine.com/news/solar-pv-export.html</link>
