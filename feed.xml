@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Mon, 23 Nov 2026 06:07:16 +0800</lastBuildDate>
+<lastBuildDate>Mon, 23 Nov 2026 07:04:15 +0800</lastBuildDate>
+<item>
+<title>DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察</title>
+<link>https://ileadengine.com/news/deepseek-brand-visibility.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/deepseek-brand-visibility.html</guid>
+<pubDate>Mon, 23 Nov 2026 07:04:15 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>DeepSeek 会推荐品牌，但前提是它在联网搜索时检索到了提到你的网页，或训练语料里本来就有你；它没有付费推荐位。本文结合 DeepSeek 官方文档与立德引擎 2026 年 11 月实测，拆解它的两种回答方式、品牌问题与品类问题的差别，以及出口企业该先补哪些公开信息。</description>
+</item>
 <item>
 <title>GEO 优化服务商怎么选？签约前必问的 8 个问题（2026）</title>
 <link>https://ileadengine.com/news/choose-geo-agency.html</link>

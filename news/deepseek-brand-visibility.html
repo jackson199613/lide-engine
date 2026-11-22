@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察 | 立德引擎</title>
+<meta name="description" content="DeepSeek 会推荐品牌，但前提是它在联网搜索时检索到了提到你的网页，或训练语料里本来就有你；它没有付费推荐位。本文结合 DeepSeek 官方文档与立德引擎 2026 年 11 月实测，拆解它的两种回答方式、品牌问题与品类问题的差别，以及出口企业该先补哪些公开信息。">
+<meta name="keywords" content="DeepSeek 品牌曝光,DeepSeek 推荐,DeepSeek 联网搜索,国产大模型 引用,GEO,AI 品牌能见度,生成式引擎优化">
+<link rel="canonical" href="https://ileadengine.com/news/deepseek-brand-visibility.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察">
+<meta property="og:description" content="DeepSeek 会推荐品牌，但前提是它在联网搜索时检索到了提到你的网页，或训练语料里本来就有你；它没有付费推荐位。本文结合 DeepSeek 官方文档与立德引擎 2026 年 11 月实测，拆解它的两种回答方式、品牌问题与品类问题的差别，以及出口企业该先补哪些公开信息。">
+<meta property="og:url" content="https://ileadengine.com/news/deepseek-brand-visibility.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-23T07:04:15+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察">
+<meta name="twitter:description" content="DeepSeek 会推荐品牌，但前提是它在联网搜索时检索到了提到你的网页，或训练语料里本来就有你；它没有付费推荐位。本文结合 DeepSeek 官方文档与立德引擎 2026 年 11 月实测，拆解它的两种回答方式、品牌问题与品类问题的差别，以及出口企业该先补哪些公开信息。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/deepseek-brand-visibility.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/deepseek-brand-visibility.html",
+      "headline": "DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察",
+      "description": "DeepSeek 会推荐品牌，但前提是它在联网搜索时检索到了提到你的网页，或训练语料里本来就有你；它没有付费推荐位。本文结合 DeepSeek 官方文档与立德引擎 2026 年 11 月实测，拆解它的两种回答方式、品牌问题与品类问题的差别，以及出口企业该先补哪些公开信息。",
+      "keywords": [
+        "DeepSeek 品牌曝光",
+        "DeepSeek 推荐",
+        "DeepSeek 联网搜索",
+        "国产大模型 引用",
+        "GEO",
+        "AI 品牌能见度",
+        "生成式引擎优化"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-23T07:04:15+08:00",
+      "dateModified": "2026-11-23T07:04:15+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察",
+          "item": "https://ileadengine.com/news/deepseek-brand-visibility.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "DeepSeek 能花钱买推荐位吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "目前没有公开的付费推荐渠道。DeepSeek 的回答来自训练语料和联网检索结果，想被提及只能靠公开网络中关于你的准确、一致的信息。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "DeepSeek 联网搜索用的是哪个搜索引擎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "官方没有公开。DeepSeek API 文档只说明联网搜索会返回带网址和标题的引用，是否联网由模型自行判断，未说明数据来自哪家搜索服务。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么 DeepSeek 说查不到我们公司？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最常见的原因是这次回答没有联网，或联网时没检索到能对上公司名称的网页。先检查官网是否可访问、中文公司信息是否以文字写明，并在其他独立平台补充一致的公司介绍。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "做外贸主要面向欧美买家，还需要优化 DeepSeek 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "优先级可以放低，但不建议忽略。欧美买家主要用 ChatGPT、Perplexity 等平台，而国内采购、贸易商和合作方核实你的身份时常用 DeepSeek，两边可以共用同一套事实内容。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "多久能看到 DeepSeek 回答的变化？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "联网场景下，新内容被检索到后就可能出现在回答里，但没有固定周期；不联网场景要等模型更新训练数据。建议用固定问题每月复测并记录来源。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="deepseek-brand-visibility" data-kw="22">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">行业观察</span><time datetime="2026-11-23">2026-11-23</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察</h1>
+<p>DeepSeek 会推荐品牌，但它推荐谁，取决于它这一次能读到什么：开启联网（智能）搜索时，它会实时检索网页，把检索结果里反复出现、说法一致的品牌写进答案并标注来源；不联网时，它只能依靠训练语料里的旧知识。DeepSeek 没有公开的付费推荐位，所以想获得 DeepSeek 品牌曝光，核心是让关于你的准确信息出现在它检索得到、也愿意采信的公开网页上。</p>
+
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>DeepSeek 有两种回答方式：联网搜索时按检索结果作答并附来源，不联网时依赖训练语料，后者对新品牌几乎无能为力。</li>
+<li>DeepSeek 官方 API 文档说明，联网搜索返回的答案带引用（网址与标题），且是否联网由模型自行判断。</li>
+<li>「立德引擎是什么公司」这类品牌问题，比「国内有哪些服务商」这类品类问题容易得多；后者要靠大量第三方内容。</li>
+<li>立德引擎 2026 年 11 月的单期实测里，DeepSeek 能识别本站品牌，但两个品类问题都没有提到我们。</li>
+<li>对出口企业来说，DeepSeek 更像国内采购、贸易商和合作方核实你身份的入口，海外买家的主战场仍在 ChatGPT、Perplexity 等平台。</li>
+</ul></div>
+
+<h2>DeepSeek 的答案是从哪里来的？</h2>
+<p>先把两种情况分开看。第一种是不联网：模型直接用训练时学到的知识回答。训练数据有截止时间，2026 年 7 月 IT之家报道 DeepSeek 联网搜索短暂故障时，当时测试中模型自述的内部知识截止在 2025 年 5 月。也就是说，一家 2025 年下半年以后才建站、改名或推出新产品线的企业，在不联网的回答里基本不可能被准确提及。</p>
+<p>第二种是联网搜索。按 DeepSeek 官方 API 文档对联网工具的说明，开启搜索后，模型会检索网页，深度思考模式下还可以多轮搜索、打开页面、在页面内查找；输出的文字段落附带引用信息，包含来源网址和标题。文档还写明「是否联网由模型判断」，并未公开搜索结果来自哪个搜索引擎或数据商，也没有说明它偏好哪类网站。</p>
+<p>这两点合起来，就是 DeepSeek 引用逻辑最实用的结论：你能影响的主要是联网场景。能被检索到、能被摘出准确事实、在多个独立网页上说法一致，这三件事决定了它在联网时会不会写到你。这和我们在《<a href="/news/how-chatgpt-recommends-suppliers.html">ChatGPT 是怎么推荐供应商的</a>》里总结的信号基本相通，只是检索的网页生态以中文内容为主。</p>
+
+<h2>两种回答方式，企业分别能做什么？</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>回答方式</th><th>信息来源</th><th>对新品牌的友好度</th><th>企业能做的事</th></tr></thead>
+<tbody>
+<tr><td>不联网（模型自身知识）</td><td>训练语料，有截止时间</td><td>低：截止日之后的信息完全缺失</td><td>长期积累公开、稳定、可被收录的内容，等待后续模型更新时被纳入</td></tr>
+<tr><td>联网搜索 / 智能搜索</td><td>当次检索到的网页，答案附来源</td><td>较高：新内容只要能被检索到就有机会</td><td>保证官网可访问、可抓取；在多个独立平台发布一致的公司与产品信息</td></tr>
+<tr><td>深度思考 + 搜索</td><td>多轮检索、打开具体页面查找细节</td><td>较高，且更看重页面里的具体事实</td><td>把参数、资质、地址等写成网页文字和表格，而不是图片或 PDF 扫描件</td></tr>
+</tbody></table></div>
+<p>需要说明的是，DeepSeek 并没有像 Perplexity 那样公开说明其搜索爬虫的名称和放行方式。部分第三方爬虫目录列出了名为 DeepSeekBot 的抓取程序，但我们没有找到 DeepSeek 官方对此的完整说明，因此不建议把某个具体的爬虫规则当成「做了就会被推荐」的开关。更稳妥的做法是：robots.txt 和防火墙不要误挡常见搜索引擎与 AI 爬虫，具体写法可参考<a href="/how-to.html">操作指南</a>。</p>
+
+<h2>为什么问品牌能答出来，问品类却不提你？</h2>
+<p>这是我们自己实测时最直观的发现。2026 年 11 月 1 日至 2 日，立德引擎用 3 个固定问题在 6 个国内 AI 平台实测本站品牌，DeepSeek 使用的是网页版智能搜索：</p>
+<ul>
+<li><strong>品牌问题</strong>（「立德引擎是一家什么公司」）：DeepSeek 识别出了 GEO 出海服务、工商登记等信息，同时指出公开客户案例较少——这个评价是准确的。</li>
+<li><strong>品类问题</strong>（「国内有哪些做 GEO 的服务商」「出海工厂找哪家」）：DeepSeek 没有提到立德引擎，点名的是其他公司。</li>
+</ul>
+<p>原因不难理解。品牌问题里，用户已经给出了名字，模型只需要检索这个名字，读到官网和工商信息就能作答；品类问题里，模型要自己决定写谁，它倾向于写那些在多篇第三方盘点、报道、技术文章里被反复提到的公司。那期实测中，六个平台在品类问题下推荐的，大多是在科技媒体和内容平台上有较多第三方文章的服务商。</p>
+<p>这只是一期、少量问题的观察，AI 回答本身也有随机性，不能据此推出普遍规律。但它对企业的提示很明确：官网把自己讲清楚，解决的是「问到你时答得对」；要进入「没点名时也被想到」的名单，必须有足够多的独立来源在讨论你。</p>
+
+<h2>出口企业需要在意 DeepSeek 吗？</h2>
+<p>DeepSeek 在国内用户量很大。据 QuestMobile 2026 年一季度 AI 应用洞察报告（经 DoNews 报道），DeepSeek 月活约 1.3 亿，与豆包、千问同处第一梯队。但对出口企业来说，要分清它影响的是哪类人：</p>
+<ul>
+<li><strong>国内采购与贸易商：</strong>外贸公司、采购代理、跨境平台卖家在找工厂、核实工厂资质时，越来越多会先问国产 AI。</li>
+<li><strong>合作方与投资方背调：</strong>银行、渠道伙伴、潜在员工会问「这家公司靠不靠谱」，DeepSeek 的回答直接影响第一印象。</li>
+<li><strong>海外华人买家与中文市场：</strong>用中文提问的海外采购同样可能用到它。</li>
+</ul>
+<p>而母语非中文的欧美买家，主要还是在 ChatGPT、Perplexity、Google AI 概览、Gemini 里做调研。所以合理的优先级是：海外获客以英文平台为主战场，DeepSeek 作为「中文口碑与身份核实」的补充阵地，两边共用同一套事实，避免口径打架。</p>
+
+<h2>想让 DeepSeek 正确认识你，先补哪些信息？</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>优先级</th><th>要补的内容</th><th>为什么重要</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>官网中文「关于我们」：公司全称、统一社会信用代码、成立时间、地址、主营产品</td><td>让品牌问题能被准确回答，并和工商信息对得上</td></tr>
+<tr><td>2</td><td>产品与参数页用 HTML 文字和表格呈现，型号、标准、认证写全</td><td>联网检索时能被摘出具体事实，而不是只看到图片</td></tr>
+<tr><td>3</td><td>Organization、Product、FAQPage 等结构化数据</td><td>帮助各类搜索与 AI 系统识别实体和关系</td></tr>
+<tr><td>4</td><td>在行业媒体、知乎、技术社区等独立平台发布技术解读与应用文章</td><td>形成多源一致的第三方信息，这是品类问题里被提及的前提</td></tr>
+<tr><td>5</td><td>固定问题按月复测，记录被引用的来源</td><td>判断哪些页面真正被采信，再决定下一步投什么</td></tr>
+</tbody></table></div>
+<p>这几步并不是 DeepSeek 专属的技巧，而是 GEO 的通用底层工作：先让模型读得到、读得懂，再通过外部交叉验证让它敢引用。立德引擎在<a href="/method.html">方法论</a>中把它拆成语义重塑、权威语料喂养和大牌型号截流三项能力，国产大模型和海外大模型用的是同一套事实底座。</p>
+<p>需要提醒的是，没有任何服务商能保证 DeepSeek 一定推荐你：模型版本、联网策略和检索来源都会变化，回答本身也带随机性。能做的是持续增加「关于你的准确、可核实信息」在公开网络中的覆盖，并用实测数据跟踪变化。</p>
+
+<p>如果你想知道自己的品牌在 DeepSeek 和海外主流 AI 里分别是什么样子，可以申请一份<a href="/contact.html">免费 AI 能见度诊断</a>：我们用买家的真实问法实测，附截图说明你卡在「读不到」「读不懂」还是「没人提」，再决定从哪里补起。</p>
+<h2>常见问题</h2>
+<p><strong>问：DeepSeek 能花钱买推荐位吗？</strong><br>
+答：目前没有公开的付费推荐渠道。DeepSeek 的回答来自训练语料和联网检索结果，想被提及只能靠公开网络中关于你的准确、一致的信息。</p>
+<p><strong>问：DeepSeek 联网搜索用的是哪个搜索引擎？</strong><br>
+答：官方没有公开。DeepSeek API 文档只说明联网搜索会返回带网址和标题的引用，是否联网由模型自行判断，未说明数据来自哪家搜索服务。</p>
+<p><strong>问：为什么 DeepSeek 说查不到我们公司？</strong><br>
+答：最常见的原因是这次回答没有联网，或联网时没检索到能对上公司名称的网页。先检查官网是否可访问、中文公司信息是否以文字写明，并在其他独立平台补充一致的公司介绍。</p>
+<p><strong>问：做外贸主要面向欧美买家，还需要优化 DeepSeek 吗？</strong><br>
+答：优先级可以放低，但不建议忽略。欧美买家主要用 ChatGPT、Perplexity 等平台，而国内采购、贸易商和合作方核实你的身份时常用 DeepSeek，两边可以共用同一套事实内容。</p>
+<p><strong>问：多久能看到 DeepSeek 回答的变化？</strong><br>
+答：联网场景下，新内容被检索到后就可能出现在回答里，但没有固定周期；不联网场景要等模型更新训练数据。建议用固定问题每月复测并记录来源。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://api-docs.deepseek.com/zh-cn/guides/web_tools" target="_blank" rel="noopener">DeepSeek API 文档：联网工具（web tools）</a></li><li><a href="https://www.ithome.com/0/980/005.htm" target="_blank" rel="noopener">IT之家：由于技术原因，DeepSeek 联网搜索暂不可用（2026-07-22）</a></li><li><a href="https://www.donews.com/news/detail/1/6521095.html" target="_blank" rel="noopener">DoNews：QuestMobile 2026Q1 AI 应用洞察，豆包、千问、DeepSeek 月活分别达 3.4 亿、1.7 亿、1.3 亿</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>
