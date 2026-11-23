@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>外贸独立站 AI 优化清单：上线前必须检查的 12 项 | 立德引擎</title>
+<meta name="description" content="外贸独立站 AI 优化要过三关：AI 爬虫读得到、模型读得懂、外部信息对得上。本文把它拆成上线前可自查的 12 项，涵盖 robots.txt、CDN 拦截、服务端渲染、参数表格、结构化数据、认证信息与基线实测，并附官方文档来源。">
+<meta name="keywords" content="外贸独立站 AI 优化,独立站 GEO,AI 爬虫,robots.txt,服务端渲染,结构化数据,外贸建站,AI 能见度">
+<link rel="canonical" href="https://ileadengine.com/news/b2b-website-ai-optimization.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="外贸独立站 AI 优化清单：上线前必须检查的 12 项">
+<meta property="og:description" content="外贸独立站 AI 优化要过三关：AI 爬虫读得到、模型读得懂、外部信息对得上。本文把它拆成上线前可自查的 12 项，涵盖 robots.txt、CDN 拦截、服务端渲染、参数表格、结构化数据、认证信息与基线实测，并附官方文档来源。">
+<meta property="og:url" content="https://ileadengine.com/news/b2b-website-ai-optimization.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-24T06:07:51+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="外贸独立站 AI 优化清单：上线前必须检查的 12 项">
+<meta name="twitter:description" content="外贸独立站 AI 优化要过三关：AI 爬虫读得到、模型读得懂、外部信息对得上。本文把它拆成上线前可自查的 12 项，涵盖 robots.txt、CDN 拦截、服务端渲染、参数表格、结构化数据、认证信息与基线实测，并附官方文档来源。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/b2b-website-ai-optimization.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/b2b-website-ai-optimization.html",
+      "headline": "外贸独立站 AI 优化清单：上线前必须检查的 12 项",
+      "description": "外贸独立站 AI 优化要过三关：AI 爬虫读得到、模型读得懂、外部信息对得上。本文把它拆成上线前可自查的 12 项，涵盖 robots.txt、CDN 拦截、服务端渲染、参数表格、结构化数据、认证信息与基线实测，并附官方文档来源。",
+      "keywords": [
+        "外贸独立站 AI 优化",
+        "独立站 GEO",
+        "AI 爬虫",
+        "robots.txt",
+        "服务端渲染",
+        "结构化数据",
+        "外贸建站",
+        "AI 能见度"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-24T06:07:51+08:00",
+      "dateModified": "2026-11-24T06:07:51+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "外贸独立站 AI 优化清单：上线前必须检查的 12 项",
+          "item": "https://ileadengine.com/news/b2b-website-ai-optimization.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "外贸独立站做了 SEO，还需要单独做 AI 优化吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "需要补，但不是推倒重来。SEO 的收录、索引、结构化数据是 AI 优化的基础；额外要检查的是 AI 爬虫是否被放行、关键内容是否不依赖 JavaScript，以及参数、认证是否写成可摘录的文字。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "屏蔽 GPTBot 会影响网站出现在 ChatGPT 搜索里吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按 OpenAI 的爬虫说明，不会。GPTBot 对应模型训练，ChatGPT 搜索使用的是 OAI-SearchBot；只要不屏蔽 OAI-SearchBot，网站仍可作为搜索答案的来源出现。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "独立站一定要写 llms.txt 吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是必需项。Google 官方文档说明出现在其 AI 功能中不需要新建 AI 文本文件；llms.txt 可以作为补充，但优先级低于爬虫放行、服务端渲染和参数表格。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "用 Shopify、WordPress 建的站会有渲染问题吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "大多数主题会输出服务端 HTML，问题不大；风险主要在用前端脚本加载的产品筛选、参数选项卡和弹窗。上线前用「查看网页源代码」搜索关键参数，能搜到即可。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "做完这 12 项多久能被 AI 推荐？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "没有固定周期，也没有人能保证。这 12 项让网站具备被读取和引用的条件；是否在品类问题里被点名，还取决于第三方来源的积累，建议用固定问题每月复测观察变化。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="b2b-website-ai-optimization" data-kw="23">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">实操技巧</span><time datetime="2026-11-24">2026-11-24</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">外贸独立站 AI 优化清单：上线前必须检查的 12 项</h1>
+<p>外贸独立站 AI 优化，上线前要过的是三关：AI 爬虫读得到、模型读得懂、外部信息对得上。具体落到 12 项检查——从 robots.txt、CDN 拦截、服务端渲染，到参数表格、结构化数据、公司与认证信息——每一项都能在上线前花几小时自查完成。漏掉前几项，后面写得再好，ChatGPT、Perplexity、Google AI 概览也看不到你的页面。</p>
+
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>先保「读得到」：robots.txt 放行搜索类 AI 爬虫，CDN 和防火墙不误拦，关键内容不依赖 JavaScript 渲染。</li>
+<li>Vercel 2024 年的抓取数据显示，主流 AI 爬虫（GPTBot、ClaudeBot、PerplexityBot 等）都不执行 JavaScript。</li>
+<li>Google 官方说明：进入 AI 概览不需要额外的 AI 文本文件或专用 Schema，前提是页面已被索引、可显示摘要。</li>
+<li>再做「读得懂」：一个型号一个页面，参数写成 HTML 表格，结构化数据与页面可见文字保持一致。</li>
+<li>最后是「信得过」：公司全称、地址、认证编号写成文字，并和外部平台口径一致；上线当天用固定问题做一次基线实测。</li>
+</ul></div>
+
+<h2>为什么独立站上线前就要做 AI 优化？</h2>
+<p>很多工厂的独立站是「先上线、再优化」，但 AI 优化里最基础的几项，恰恰是上线后最难发现的：页面在浏览器里看着一切正常，AI 爬虫拿到的却可能是一个空壳，或者直接被防火墙拒之门外。买家在 AI 里问「谁能供应某规格的产品」，模型只会在它读得到、读得懂的页面里挑供应商，你的网站不在它的视野里，就不存在被推荐的可能。</p>
+<p>另一个原因是成本。建站阶段改模板、改渲染方式、定 URL 结构，几乎是零成本；上线半年后再改，往往要动整站架构，还要处理旧链接跳转。下面这份清单按「读得到 → 读得懂 → 信得过」的顺序排列，建议建站公司交付前逐项过一遍。</p>
+
+<h2>外贸独立站 AI 优化 12 项检查清单</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>检查项</th><th>合格标准</th><th>怎么自查</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>robots.txt</td><td>未禁止 Googlebot、Bingbot、OAI-SearchBot、PerplexityBot 等搜索类爬虫</td><td>打开 域名/robots.txt 逐行看 Disallow</td></tr>
+<tr><td>2</td><td>CDN / 防火墙</td><td>AI 爬虫未被「机器人拦截」规则误挡</td><td>查看 CDN 后台的 AI 爬虫与 Bot 管理设置</td></tr>
+<tr><td>3</td><td>渲染方式</td><td>产品名、参数、公司信息在网页源代码里直接可见</td><td>浏览器「查看网页源代码」搜索关键参数</td></tr>
+<tr><td>4</td><td>收录与索引</td><td>无误加 noindex，未用 nosnippet 屏蔽摘要</td><td>检查页面 meta robots；在搜索引擎站长工具查收录</td></tr>
+<tr><td>5</td><td>站点地图与死链</td><td>sitemap.xml 已提交，内链无 404</td><td>Google Search Console 与 Bing Webmaster Tools 各提交一次</td></tr>
+<tr><td>6</td><td>页面结构</td><td>一个型号 / 牌号一个独立 URL，标题含完整型号</td><td>看产品列表是否只是一张大图或一个弹窗</td></tr>
+<tr><td>7</td><td>参数呈现</td><td>关键参数是 HTML 表格文字，不是图片或仅有 PDF</td><td>尝试在页面上选中复制参数</td></tr>
+<tr><td>8</td><td>结构化数据</td><td>有 Organization、Product 标记，且与可见文字一致</td><td>用 Google 富媒体搜索结果测试工具检查</td></tr>
+<tr><td>9</td><td>FAQ</td><td>按买家真实问法写，答案首句给结论</td><td>对照销售收到最多的 10 个询价问题</td></tr>
+<tr><td>10</td><td>公司实体信息</td><td>英文公司全称、地址、成立年份、主营品类写成文字</td><td>About 页与页脚、联系页口径是否一致</td></tr>
+<tr><td>11</td><td>认证与检测</td><td>证书名称、编号、发证机构、有效期写成文字</td><td>证书是否只放了一张扫描图</td></tr>
+<tr><td>12</td><td>基线实测</td><td>上线当天用固定问题在主流 AI 里测一次并存档</td><td>记录是否被提及、引用了哪些来源</td></tr>
+</tbody></table></div>
+
+<h2>第 1–5 项：AI 爬虫读得到你的网站吗？</h2>
+<p><strong>robots.txt 要分清「训练」和「搜索」。</strong>以 OpenAI 为例，其官方爬虫说明把用途分开：OAI-SearchBot 用于在 ChatGPT 搜索中展示网站，GPTBot 用于收集可能用于模型训练的内容。屏蔽 GPTBot 是对训练的选择，不会因此进不了 ChatGPT 搜索；但如果把 OAI-SearchBot 也挡了，网站就不会作为 ChatGPT 搜索答案的来源出现。很多建站模板默认的 robots.txt 写着「Disallow: /」给测试环境用，上线时忘了改，这是最常见的事故。具体写法可参考我们的操作指南。</p>
+<p><strong>CDN 和防火墙是第二道门。</strong>Cloudflare 在 2025 年 7 月 1 日宣布，新接入的域名会在注册时被询问是否允许 AI 爬虫，默认走「受控」路线。这对内容出版商是保护，但对希望被 AI 推荐的外贸工厂来说，需要主动确认没有一并拦掉搜索类爬虫。其他 CDN 和主机商的「机器人防护」也可能有类似效果，上线前在后台看一眼即可。</p>
+<p><strong>关键内容不要只靠 JavaScript 渲染。</strong>Vercel 在 2024 年 12 月发布的抓取数据分析中指出，主流 AI 爬虫目前都不渲染 JavaScript：ChatGPT 和 Claude 的爬虫会下载 JS 文件，但并不执行。例外是 Gemini 借用 Googlebot 的基础设施，可以完整渲染。所以如果你的产品参数、型号列表是前端脚本加载出来的，对多数 AI 来说页面就是空的。自查方法很简单：在浏览器里「查看网页源代码」（不是开发者工具里的元素面板），搜索一个关键参数，搜不到就要改成服务端渲染或静态生成。</p>
+<p><strong>别误伤收录和摘要。</strong>Google 的官方文档写明，页面要出现在 AI 概览和 AI 模式里作为参考链接，只需要已被索引、且有资格在搜索中显示摘要，没有额外的技术要求。反过来说，nosnippet、noindex 这类标签一旦误加，就直接失去资格。</p>
+<p><strong>sitemap 和死链。</strong>同一份 Vercel 数据里，ChatGPT 和 Claude 爬虫的请求中约三分之一落在 404 页面上，远高于 Googlebot。爬虫的抓取额度浪费在死链上，真正的产品页就被抓得更少。上线前用工具跑一遍全站内链，并把 sitemap.xml 同时提交给 Google 和 Bing 的站长平台。</p>
+
+<h2>第 6–9 项：模型读得懂你的产品吗？</h2>
+<p>海外买家问 AI 的方式通常很具体：带着型号、标准号、公差、认证、起订量去问。模型能不能把你匹配上，取决于这些信息在页面上是不是「可摘录的事实」。</p>
+<ul>
+<li><strong>一个型号一个页面。</strong>把几十个牌号塞进一张长图或一个下拉框，AI 无法把「某型号 + 某参数」对应到一个确定的 URL。每个型号独立成页，标题写全型号与品类，比如「型号 + 材质 + 产品名」。</li>
+<li><strong>参数写成 HTML 表格。</strong>只挂 PDF 规格书或参数截图，AI 要么读不到，要么读错。把真正决定选型的几项参数搬到网页表格里，单位、测试标准一并写明，方法见《<a href="/news/tds-to-html.html">TDS 在线化：把 PDF 搬进 HTML</a>》。</li>
+<li><strong>结构化数据与可见文字一致。</strong>Organization 与 Product 标记能帮搜索系统识别你是谁、卖什么。Google 明确表示 AI 功能并不需要专门的 Schema，但它把「结构化数据与页面可见文字一致」列为基本要求——标记里写的参数，页面上必须看得到。工业品的写法可参考《<a href="/news/product-schema-industrial.html">Product 结构化数据怎么写</a>》。</li>
+<li><strong>FAQ 用买家的问法。</strong>把销售邮箱里最常见的询价问题整理出来，比如「是否有 REACH 声明」「最小起订量多少」「能否按图纸定制」，答案第一句直接给结论，后面再补条件。</li>
+</ul>
+<p>至于 llms.txt，可以写，但不必当成上线必需项：Google 的文档说明出现在其 AI 功能中不需要创建新的 AI 文本文件。把精力优先放在上面四项，收益更确定。</p>
+
+<h2>第 10–11 项：外部信息对得上吗？</h2>
+<p>AI 在推荐供应商时，倾向于采信能被多个来源印证的事实。如果官网写「成立于 2008 年」，B2B 平台写 2010 年，展会名录又是另一个公司英文名，模型就很难把它们认定为同一家企业，更不敢替你背书。</p>
+<p>上线前至少统一三样东西：英文公司全称与简称、工厂地址、成立年份与主营品类。About 页、页脚、联系页、结构化数据里的写法要完全一致，后续在 LinkedIn、行业平台、展会名录上也沿用同一套口径。</p>
+<p>认证同理。ISO 9001、CE、UL、REACH 等证书，不要只放一张扫描图，而要用文字写出证书名称、编号、发证机构和有效期，买家和 AI 都可以据此核实。拿不出编号的认证不要写，写了核实不到，反而降低整站可信度。</p>
+
+<h2>第 12 项：上线当天怎么做基线实测？</h2>
+<p>最后一项最容易被跳过，却决定了后面所有优化能不能衡量。上线当天，准备 5 个买家视角的英文问题，例如「Who manufactures [产品] to [标准号] in China?」，分别在 ChatGPT、Perplexity、Gemini 等平台开新对话提问，记录三件事：有没有提到你、排在第几、引用了哪些网站。截图存档，之后每月用完全相同的问题复测。</p>
+<p>需要说清楚的是，这 12 项解决的是「具备被推荐的资格」，不等于一定会被推荐。在品类问题里被 AI 点名，还需要行业媒体、技术社区等第三方来源持续讨论你，这是独立站之外的工作。任何人承诺「上线即被 AI 推荐」都不可信。</p>
+
+<p>如果想先快速判断自己的独立站卡在哪一关，可以用 18 项的<a href="/checklist.html">GEO 在线自查工具</a>打个分；需要带截图的完整结论，可以申请一份<a href="/contact.html">免费 AI 能见度诊断</a>，我们用海外买家的真实问法实测你的品牌与品类，指出该先补哪几项。</p>
+<h2>常见问题</h2>
+<p><strong>问：外贸独立站做了 SEO，还需要单独做 AI 优化吗？</strong><br>
+答：需要补，但不是推倒重来。SEO 的收录、索引、结构化数据是 AI 优化的基础；额外要检查的是 AI 爬虫是否被放行、关键内容是否不依赖 JavaScript，以及参数、认证是否写成可摘录的文字。</p>
+<p><strong>问：屏蔽 GPTBot 会影响网站出现在 ChatGPT 搜索里吗？</strong><br>
+答：按 OpenAI 的爬虫说明，不会。GPTBot 对应模型训练，ChatGPT 搜索使用的是 OAI-SearchBot；只要不屏蔽 OAI-SearchBot，网站仍可作为搜索答案的来源出现。</p>
+<p><strong>问：独立站一定要写 llms.txt 吗？</strong><br>
+答：不是必需项。Google 官方文档说明出现在其 AI 功能中不需要新建 AI 文本文件；llms.txt 可以作为补充，但优先级低于爬虫放行、服务端渲染和参数表格。</p>
+<p><strong>问：用 Shopify、WordPress 建的站会有渲染问题吗？</strong><br>
+答：大多数主题会输出服务端 HTML，问题不大；风险主要在用前端脚本加载的产品筛选、参数选项卡和弹窗。上线前用「查看网页源代码」搜索关键参数，能搜到即可。</p>
+<p><strong>问：做完这 12 项多久能被 AI 推荐？</strong><br>
+答：没有固定周期，也没有人能保证。这 12 项让网站具备被读取和引用的条件；是否在品类问题里被点名，还取决于第三方来源的积累，建议用固定问题每月复测观察变化。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI：Overview of OpenAI Crawlers（爬虫说明）</a></li><li><a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">Google 搜索中心：AI features and your website</a></li><li><a href="https://vercel.com/blog/the-rise-of-the-ai-crawler" target="_blank" rel="noopener">Vercel：The rise of the AI crawler（2024-12）</a></li><li><a href="https://cloudflare.com/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large" target="_blank" rel="noopener">Cloudflare 新闻稿：默认管控 AI 爬虫（2025-07-01）</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>

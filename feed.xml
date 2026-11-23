@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Mon, 23 Nov 2026 07:04:15 +0800</lastBuildDate>
+<lastBuildDate>Tue, 24 Nov 2026 06:07:51 +0800</lastBuildDate>
+<item>
+<title>外贸独立站 AI 优化清单：上线前必须检查的 12 项</title>
+<link>https://ileadengine.com/news/b2b-website-ai-optimization.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/b2b-website-ai-optimization.html</guid>
+<pubDate>Tue, 24 Nov 2026 06:07:51 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>外贸独立站 AI 优化要过三关：AI 爬虫读得到、模型读得懂、外部信息对得上。本文把它拆成上线前可自查的 12 项，涵盖 robots.txt、CDN 拦截、服务端渲染、参数表格、结构化数据、认证信息与基线实测，并附官方文档来源。</description>
+</item>
 <item>
 <title>DeepSeek 会推荐你的品牌吗？国产大模型引用逻辑观察</title>
 <link>https://ileadengine.com/news/deepseek-brand-visibility.html</link>
