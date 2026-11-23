@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Tue, 24 Nov 2026 06:07:51 +0800</lastBuildDate>
+<lastBuildDate>Tue, 24 Nov 2026 07:04:36 +0800</lastBuildDate>
+<item>
+<title>锂电池储能出口：认证、参数与 AI 推荐的关系（2026）</title>
+<link>https://ileadengine.com/news/lithium-battery-export.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/lithium-battery-export.html</guid>
+<pubDate>Tue, 24 Nov 2026 07:04:36 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>锂电池储能出口企业要被 AI 推荐，关键是让认证、参数和合规文件可被读取与交叉核实。本文梳理 UN 38.3、IEC 62619、UL 1973、UL 9540/9540A 与欧盟电池法规的要点，给出参数页字段清单与落地顺序。</description>
+</item>
 <item>
 <title>外贸独立站 AI 优化清单：上线前必须检查的 12 项</title>
 <link>https://ileadengine.com/news/b2b-website-ai-optimization.html</link>
