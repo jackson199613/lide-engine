@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Tue, 24 Nov 2026 07:04:36 +0800</lastBuildDate>
+<lastBuildDate>Wed, 25 Nov 2026 06:07:33 +0800</lastBuildDate>
+<item>
+<title>什么是权威语料喂养？让 AI 有「可引用」的第三方证据</title>
+<link>https://ileadengine.com/news/authoritative-corpus.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/authoritative-corpus.html</guid>
+<pubDate>Wed, 25 Nov 2026 06:07:33 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>权威语料喂养，是把企业可核实的技术事实，通过行业媒体、专业社区、数据库和文档平台等独立第三方渠道持续发布，让 AI 在回答采购问题时能找到多个来源一致的证据，从而敢于点名你的品牌。本文讲清它的原理、渠道、写法与红线。</description>
+</item>
 <item>
 <title>锂电池储能出口：认证、参数与 AI 推荐的关系（2026）</title>
 <link>https://ileadengine.com/news/lithium-battery-export.html</link>
