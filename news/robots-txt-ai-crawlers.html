@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>robots.txt 放行 AI 爬虫：写法与生效检查 | 立德引擎</title>
+<meta name="description" content="robots.txt 放行 AI 爬虫，关键是为 OAI-SearchBot、Claude-SearchBot、PerplexityBot 等搜索类爬虫写 Allow，并确认 CDN 和防火墙没有拦截。本文按公司拆解训练、搜索、用户抓取三类爬虫，附可复制配置与生效检查清单。">
+<meta name="keywords" content="robots.txt 放行 AI 爬虫,GPTBot,ClaudeBot,OAI-SearchBot,PerplexityBot,Google-Extended,AI 爬虫,GEO 技术实操">
+<link rel="canonical" href="https://ileadengine.com/news/robots-txt-ai-crawlers.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="robots.txt 放行 AI 爬虫：写法与生效检查">
+<meta property="og:description" content="robots.txt 放行 AI 爬虫，关键是为 OAI-SearchBot、Claude-SearchBot、PerplexityBot 等搜索类爬虫写 Allow，并确认 CDN 和防火墙没有拦截。本文按公司拆解训练、搜索、用户抓取三类爬虫，附可复制配置与生效检查清单。">
+<meta property="og:url" content="https://ileadengine.com/news/robots-txt-ai-crawlers.html">
+<meta property="og:site_name" content="立德引擎 Lead Engine">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ileadengine.com/og-cover.jpg">
+<meta property="article:published_time" content="2026-11-26T06:12:48+08:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="robots.txt 放行 AI 爬虫：写法与生效检查">
+<meta name="twitter:description" content="robots.txt 放行 AI 爬虫，关键是为 OAI-SearchBot、Claude-SearchBot、PerplexityBot 等搜索类爬虫写 Allow，并确认 CDN 和防火墙没有拦截。本文按公司拆解训练、搜索、用户抓取三类爬虫，附可复制配置与生效检查清单。">
+<meta name="twitter:image" content="https://ileadengine.com/og-cover.jpg">
+<meta name="theme-color" content="#2B5BFF">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/lexend-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=41">
+<style>
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-family:var(--mono);font-size:.76rem;color:var(--ink-3)}
+.post-tag{background:var(--grad-soft);color:var(--blue);padding:4px 11px;border-radius:999px;font-weight:500;letter-spacing:.06em}
+.post-src{margin-top:28px;padding:18px 20px;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--blue)}
+.post-src strong{font-size:.82rem;font-family:var(--mono);letter-spacing:.08em;color:var(--ink-2);text-transform:uppercase}
+.post-src ul{margin:8px 0 0;padding-left:1.1em}
+.post-src li{font-size:.88rem;margin-bottom:4px}
+.log{list-style:none;margin:0;padding:0;position:relative}
+.log::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(180deg,var(--blue),var(--violet),transparent)}
+.log li{display:flex;gap:22px;padding:0 0 26px 26px;position:relative;margin:0}
+.log li::before{content:'';position:absolute;left:0;top:8px;width:13px;height:13px;border-radius:50%;background:var(--grad);border:3px solid var(--bg-soft)}
+.log time{flex:none;width:88px;font-family:var(--mono);font-size:.78rem;color:var(--ink-3);padding-top:5px}
+.log h3{font-size:1rem;margin:0 0 4px}
+.log p{font-size:.9rem;color:var(--ink-3);margin:0}
+@media (max-width:640px){.log li{flex-direction:column;gap:4px}.log time{width:auto}}
+article.section p code,article.section li code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);color:var(--ink-2);padding:2px 6px;border-radius:6px;overflow-wrap:anywhere}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://ileadengine.com/news/robots-txt-ai-crawlers.html",
+      "mainEntityOfPage": "https://ileadengine.com/news/robots-txt-ai-crawlers.html",
+      "headline": "robots.txt 放行 AI 爬虫：写法与生效检查",
+      "description": "robots.txt 放行 AI 爬虫，关键是为 OAI-SearchBot、Claude-SearchBot、PerplexityBot 等搜索类爬虫写 Allow，并确认 CDN 和防火墙没有拦截。本文按公司拆解训练、搜索、用户抓取三类爬虫，附可复制配置与生效检查清单。",
+      "keywords": [
+        "robots.txt 放行 AI 爬虫",
+        "GPTBot",
+        "ClaudeBot",
+        "OAI-SearchBot",
+        "PerplexityBot",
+        "Google-Extended",
+        "AI 爬虫",
+        "GEO 技术实操"
+      ],
+      "inLanguage": "zh-CN",
+      "datePublished": "2026-11-26T06:12:48+08:00",
+      "dateModified": "2026-11-26T06:12:48+08:00",
+      "image": "https://ileadengine.com/og-cover.jpg",
+      "author": {
+        "@type": "Person",
+        "@id": "https://ileadengine.com/about.html#founder",
+        "name": "蒋军",
+        "url": "https://ileadengine.com/about.html#founder"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "立德引擎",
+        "url": "https://ileadengine.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ileadengine.com/logo.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://ileadengine.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "动态与行业观察",
+          "item": "https://ileadengine.com/news.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "robots.txt 放行 AI 爬虫：写法与生效检查",
+          "item": "https://ileadengine.com/news/robots-txt-ai-crawlers.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "robots.txt 屏蔽 GPTBot 会让网站从 ChatGPT 里消失吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。GPTBot 主要用于抓取可能用于训练的内容，ChatGPT 搜索收录由 OAI-SearchBot 负责；只屏蔽 GPTBot、保留 OAI-SearchBot，网站仍可能出现在 ChatGPT 搜索答案里。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "屏蔽 Google-Extended 会影响谷歌排名吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不会。Google 说明 Google-Extended 只控制内容是否用于改进 Gemini 应用和 Vertex AI，不影响网站在 Google 搜索中的收录和排名。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "robots.txt 能阻止所有 AI 抓取吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。robots.txt 只对遵守规则的爬虫有效，Perplexity 官方也说明用户触发的 Perplexity-User 一般不遵循 robots.txt；真正需要拦截的内容应放在登录后或通过服务器、WAF 规则限制。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "改了 robots.txt 多久生效？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "通常要等一天左右。OpenAI 与 Perplexity 都提到搜索侧变更大约需要 24 小时反映，之后重新收录和被 AI 引用还需要更长时间，建议按月复测。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "外贸网站是不是应该放行所有 AI 爬虫？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "公开的产品、参数和认证页面建议放行，后台、购物车、客户专区等路径单独屏蔽。如果对训练用途有顾虑，可只屏蔽训练类爬虫，保留搜索类爬虫。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="立德引擎 动态与研究报告" href="https://ileadengine.com/feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <span>立德引擎 · 出海询盘产线：主动线 Email 开发 + 被动线 GEO 获客</span>
+      <div class="topbar-contact">
+        <a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a>
+        <a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="/index.html">
+        <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+        <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">首页</a></li>
+        <li><a href="/solutions.html">行业方案</a></li>
+        <li><a href="/method.html">方法论</a></li>
+        <li><a href="/pipeline.html">询盘产线</a></li>
+        <li><a href="/pricing.html">服务档位</a></li>
+        <li><a href="/insights.html">资源中心</a></li>
+        <li><a href="/cases.html">客户实证</a></li>
+        <li><a href="/about.html">关于我们</a></li>
+        <li><a href="/contact.html">免费诊断</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn--primary" href="/contact.html">免费 AI 能见度诊断</a>
+        <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-links">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+
+<article class="section" id="robots-txt-ai-crawlers" data-kw="27">
+  <div class="container" style="max-width:820px">
+    <div class="reveal">
+      <p class="post-meta" style="margin-bottom:8px"><a href="/news.html">← 返回动态</a></p>
+      <div class="post-meta"><span class="post-tag">实操技巧</span><time datetime="2026-11-26">2026-11-26</time><span class="post-author">作者 <a href="/about.html#founder" rel="author">蒋军</a></span></div>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem)">robots.txt 放行 AI 爬虫：写法与生效检查</h1>
+<p>robots.txt 放行 AI 爬虫的做法很简单：在网站根目录的 robots.txt 里，为 OAI-SearchBot、ChatGPT-User、Claude-SearchBot、Claude-User、PerplexityBot 等 AI 搜索与用户抓取爬虫写上 <code>Allow: /</code>，并确认服务器和 CDN 没有在更底层把它们拦掉。对外贸工厂来说，这是 AI 能读到你产品参数的前提——爬虫进不来，内容写得再好，ChatGPT、Claude、Perplexity 回答采购问题时也引用不到你。</p>
+<p>但「全部放行」之前，值得先弄清楚一件事：同一家 AI 公司往往有好几个爬虫，分别负责模型训练、搜索索引和用户实时抓取，屏蔽哪一个，后果完全不同。本文按公司拆开讲，再给出一份可直接复制的配置和上线后的检查清单。</p>
+<div class="post-src"><strong>要点速览</strong><ul>
+<li>AI 爬虫分三类：训练用（如 GPTBot、ClaudeBot）、搜索索引用（如 OAI-SearchBot、Claude-SearchBot、PerplexityBot）、用户实时抓取用（如 ChatGPT-User、Claude-User、Perplexity-User）。</li>
+<li>想被 AI 搜索引用，最关键的是放行搜索索引类爬虫；屏蔽它们会直接降低你在 AI 搜索答案里的能见度。</li>
+<li>Google-Extended 只控制内容是否用于 Gemini 等模型，不影响 Google 搜索收录和排名。</li>
+<li>robots.txt 只是「请求」，真正的拦截常发生在 CDN、WAF 和主机安全规则；Cloudflare 自 2025 年 7 月起对新接入域名默认询问并可拦截 AI 爬虫。</li>
+<li>改完之后要复查：直接访问 /robots.txt、看服务器日志里的爬虫 UA，再隔一段时间用 AI 实测品牌问题。</li>
+</ul></div>
+
+<h2>AI 爬虫有哪几种？屏蔽哪个影响最大？</h2>
+<p>很多工厂官网的 robots.txt 是建站公司模板自带的，有的为了「防采集」把陌生爬虫一律屏蔽，结果把 AI 搜索也挡在门外。要做对，先认清各家爬虫的分工。下表根据 OpenAI、Anthropic、Perplexity、Google 公开的爬虫说明整理：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>公司</th><th>爬虫标识（User-agent）</th><th>用途</th><th>屏蔽后的影响</th><th>外贸工厂建议</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">OpenAI</td><td>OAI-SearchBot</td><td>为 ChatGPT 搜索功能收录网页</td><td>网站不会出现在 ChatGPT 搜索答案中</td><td>必须放行</td></tr>
+<tr><td>ChatGPT-User</td><td>用户提问或使用 GPT 时实时访问网页</td><td>用户让 ChatGPT 打开你的页面时可能读不到</td><td>放行</td></tr>
+<tr><td>GPTBot</td><td>抓取可能用于训练基础模型的内容</td><td>未来模型训练数据中不含你的页面</td><td>公开产品页建议放行</td></tr>
+<tr><td rowspan="3">Anthropic</td><td>Claude-SearchBot</td><td>提升 Claude 搜索结果质量</td><td>可能降低在 Claude 搜索结果中的能见度</td><td>必须放行</td></tr>
+<tr><td>Claude-User</td><td>用户向 Claude 提问时访问网页</td><td>用户发起的检索读不到你的内容</td><td>放行</td></tr>
+<tr><td>ClaudeBot</td><td>收集可能用于模型训练的内容</td><td>未来训练数据排除你的页面</td><td>公开产品页建议放行</td></tr>
+<tr><td rowspan="2">Perplexity</td><td>PerplexityBot</td><td>为 Perplexity 搜索结果收录并链接网站，官方称不用于训练基础模型</td><td>不出现在 Perplexity 的来源列表</td><td>必须放行</td></tr>
+<tr><td>Perplexity-User</td><td>用户提问时实时访问网页</td><td>官方说明其一般不遵循 robots.txt</td><td>无需单独设置</td></tr>
+<tr><td>Google</td><td>Google-Extended（控制标识，非独立爬虫）</td><td>控制内容是否用于改进 Gemini 应用与 Vertex AI</td><td>不影响 Google 搜索收录与排名</td><td>建议放行</td></tr>
+</tbody></table></div>
+<p>一个容易被忽略的结论：<strong>屏蔽训练爬虫和屏蔽搜索爬虫是两回事。</strong>如果你担心内容被拿去训练，可以只屏蔽 GPTBot、ClaudeBot，同时保留 OAI-SearchBot、Claude-SearchBot、PerplexityBot，这样仍能出现在 AI 搜索的引用来源里。OpenAI 的文档也说明，各爬虫的 robots.txt 设置相互独立。</p>
+
+<h2>一份可直接用的 robots.txt 怎么写？</h2>
+<p>对于以获客为目的的外贸官网，产品页、参数页、认证页本来就希望被更多人看到，我们的建议是公开内容全部放行，只把后台、购物车、搜索结果页这类无价值或敏感路径屏蔽。示例：</p>
+<pre><code>User-agent: *
+Disallow: /admin/
+Disallow: /cart/
+Allow: /
+
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Disallow: /admin/
+Disallow: /cart/
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml</code></pre>
+<p>写法上有三个细节最常出错：</p>
+<ul>
+<li><strong>专属分组不继承通配分组。</strong>按 robots.txt 标准（RFC 9309），爬虫只执行与自己名字最匹配的那一组规则。一旦你给 GPTBot 单独写了一组，它就不再读 <code>User-agent: *</code> 下的规则，所以要屏蔽的路径必须在专属分组里再写一遍，如上例所示。</li>
+<li><strong>一个子域名一个 robots.txt。</strong>www.example.com 和 shop.example.com 各自独立，产品页放在哪个子域名，就要在那个子域名根目录配置。</li>
+<li><strong>别忘了 Sitemap。</strong>在文件末尾声明站点地图地址，帮助爬虫更快找到新的产品页和文章。</li>
+</ul>
+<p>想看一份实际在用的配置，可以直接打开本站的 <a href="/robots.txt">robots.txt</a>；分步操作也可参考<a href="/how-to.html#robots-ai">操作指南里的 robots.txt 配置步骤</a>。</p>
+
+<h2>为什么 robots.txt 写了 Allow，AI 还是抓不到？</h2>
+<p>robots.txt 只是给守规矩的爬虫看的「告示牌」，它不负责放人进门。真正把 AI 爬虫挡在外面的，往往是下面几层：</p>
+<ul>
+<li><strong>CDN 与防火墙的机器人管理。</strong>Cloudflare 在 2025 年 7 月 1 日宣布，对未经许可抓取内容的 AI 爬虫默认拦截，新接入的域名在注册时会被询问是否允许 AI 爬虫。如果建站公司替你点了「拦截」，robots.txt 写什么都没用。其他 CDN 和云 WAF 也常有类似的「AI 机器人」开关。</li>
+<li><strong>主机或建站平台的安全插件。</strong>部分 WordPress 安全插件、外贸建站平台会按 User-agent 或访问频率拦截陌生爬虫，返回 403 或验证码页面。</li>
+<li><strong>地区封锁。</strong>有的工厂为防恶意访问屏蔽了海外 IP 段，而 AI 公司的爬虫多从美国数据中心发起访问。</li>
+<li><strong>内容本身读不到。</strong>参数全在 PDF 或图片里、页面依赖 JavaScript 才渲染出文字——爬虫进来了，也拿不到可引用的信息。</li>
+</ul>
+<p>所以排查顺序应该是：先看 robots.txt，再看 CDN / WAF 设置，最后看页面在不执行脚本时是否有完整文字。</p>
+
+<h2>改完之后怎么确认真的生效了？</h2>
+<p>建议按下面四步复查，每一步都能自己完成，不需要技术团队：</p>
+<ol>
+<li><strong>直接访问。</strong>浏览器打开「你的域名/robots.txt」，确认看到的是新内容，且返回的不是 404 或跳转页。</li>
+<li><strong>查服务器日志。</strong>在主机或 CDN 后台按 User-agent 搜索 GPTBot、OAI-SearchBot、ClaudeBot、PerplexityBot，看是否有访问记录，状态码是 200 还是 403。出现 403 说明还有一层在拦截。</li>
+<li><strong>等待生效。</strong>各平台读取新规则需要时间，OpenAI 与 Perplexity 的说明中都提到搜索侧变更大约需要 24 小时左右反映出来，重新收录内容则可能更久。</li>
+<li><strong>用 AI 实测。</strong>在 ChatGPT、Perplexity 里用买家的问法提问，例如「某规格产品的中国供应商有哪些」，观察回答是否开始引用你的页面，并按月记录。</li>
+</ol>
+<p>robots.txt 只是 AI 能见度的入口，同一批检查项还包括结构化数据、参数 HTML 化、llms.txt 等，可以用本站的 <a href="/checklist.html">GEO 自查工具</a>一次过一遍，或参考《<a href="/news/b2b-website-ai-optimization.html">外贸独立站 AI 优化清单：上线前必须检查的 12 项</a>》。</p>
+
+<h2>国内 AI 平台的爬虫要不要放行？</h2>
+<p>如果你同时做国内市场，或者希望豆包、文心、通义等国内平台也能读到你的内容，可以一并放行 Baiduspider、Bytespider 等国内搜索与平台爬虫。需要注意的是，国内部分 AI 平台并未公开专用爬虫标识，网上流传的一些名称无法核实。比较稳妥的做法是：用 <code>User-agent: *</code> 保持默认放行，不在通配组里屏蔽未知爬虫，再按服务器日志里实际出现的标识补充规则。</p>
+
+<h2>放行 AI 爬虫之后还要做什么？</h2>
+<p>放行解决的是「能不能读到」，而 AI 推不推荐你，取决于读到的内容是否可验证、可引用：产品参数是否写成 HTML 表格，认证和标准号是否清楚，有没有第三方来源交叉印证。这正是立德引擎<a href="/method.html">方法论</a>中语义重塑与权威语料喂养要解决的问题。</p>
+<p>如果不确定自己的网站现在对 AI 是否「可见」，可以申请一份<a href="/contact.html">免费 AI 能见度诊断</a>，我们会检查 robots.txt、CDN 拦截、页面可读性，并用买家问法实测主流 AI 平台的回答。</p>
+<h2>常见问题</h2>
+<p><strong>问：robots.txt 屏蔽 GPTBot 会让网站从 ChatGPT 里消失吗？</strong><br>
+答：不一定。GPTBot 主要用于抓取可能用于训练的内容，ChatGPT 搜索收录由 OAI-SearchBot 负责；只屏蔽 GPTBot、保留 OAI-SearchBot，网站仍可能出现在 ChatGPT 搜索答案里。</p>
+<p><strong>问：屏蔽 Google-Extended 会影响谷歌排名吗？</strong><br>
+答：不会。Google 说明 Google-Extended 只控制内容是否用于改进 Gemini 应用和 Vertex AI，不影响网站在 Google 搜索中的收录和排名。</p>
+<p><strong>问：robots.txt 能阻止所有 AI 抓取吗？</strong><br>
+答：不能。robots.txt 只对遵守规则的爬虫有效，Perplexity 官方也说明用户触发的 Perplexity-User 一般不遵循 robots.txt；真正需要拦截的内容应放在登录后或通过服务器、WAF 规则限制。</p>
+<p><strong>问：改了 robots.txt 多久生效？</strong><br>
+答：通常要等一天左右。OpenAI 与 Perplexity 都提到搜索侧变更大约需要 24 小时反映，之后重新收录和被 AI 引用还需要更长时间，建议按月复测。</p>
+<p><strong>问：外贸网站是不是应该放行所有 AI 爬虫？</strong><br>
+答：公开的产品、参数和认证页面建议放行，后台、购物车、客户专区等路径单独屏蔽。如果对训练用途有顾虑，可只屏蔽训练类爬虫，保留搜索类爬虫。</p>
+<div class="post-src"><strong>参考来源</strong><ul><li><a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI：Overview of OpenAI Crawlers</a></li><li><a href="https://privacy.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">Anthropic：Does Anthropic crawl data from the web, and how can site owners block the crawler?</a></li><li><a href="https://www.seroundtable.com/anthropic-updates-its-crawler-docs-40978.html" target="_blank" rel="noopener">Search Engine Roundtable：Anthropic Updates Crawler Docs（2026-02）</a></li><li><a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers.md" target="_blank" rel="noopener">Perplexity：Perplexity Crawlers</a></li><li><a href="https://www.seroundtable.com/google-extended-seo-36865.html" target="_blank" rel="noopener">Search Engine Roundtable：Google-Extended Does Not Affect Google Search</a></li><li><a href="https://www.cloudflare.com/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large" target="_blank" rel="noopener">Cloudflare 新闻稿（2025-07-01）：默认拦截 AI 爬虫</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9309" target="_blank" rel="noopener">RFC 9309：Robots Exclusion Protocol</a></li></ul></div>
+    </div>
+  </div>
+</article>
+<aside class="inline-cta reveal">
+  <div class="inline-cta-txt"><strong>先看看 AI 现在怎么回答你的品类</strong><p>用海外买家的真实问法实测你的品牌与品类，3 个工作日交付带截图的《AI 能见度诊断报告》，免费。</p></div>
+  <div class="btn-row"><a class="btn btn--primary" href="/contact.html">免费领取诊断报告</a><a class="btn btn--ghost" href="/news.html">更多动态 →</a></div>
+</aside>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/index.html">
+          <svg class="brand-mark" viewBox="-1 -1 102 103" aria-hidden="true"><path d="M99.8 0 46.6 21.5 42.7 78.4 18.9 68.5 17.6 14.2 0.2 3.8 2.75 81.1 45.3 100.4 90.4 82.5 93 65.3 65.6 74.5 61.8 65.5 92.2 51.2 96.4 34.2 66.1 43.7 61.9 35.5 95.7 18.5Z"/></svg>
+          <span>立德引擎<span class="brand-sub">Lead Engine · GEO</span></span>
+        </a>
+        <p style="margin-top:14px;max-width:34ch">为中国出海工厂搭建询盘产线：一条主动线用 Email 找到他，一条被动线用 GEO 让他找到你。覆盖全行业，尤擅技术型与参数密集型产品。</p>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="/method.html">GEO 方法论</a></li>
+          <li><a href="/pipeline.html">出海询盘产线</a></li>
+          <li><a href="/pricing.html">服务档位与报价</a></li>
+          <li><a href="/solutions.html">行业方案</a></li>
+          <li><a href="/contact.html">AI 能见度诊断</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/about.html">关于立德引擎</a></li>
+          <li><a href="/insights.html">资源中心</a></li>
+          <li><a href="/cases.html">客户实证</a></li>
+          <li><a href="/downloads.html">资料下载</a></li>
+          <li><a href="/checklist.html">GEO 自查工具</a></li>
+          <li><a href="/faq.html">技术问答</a></li>
+          <li><a href="/how-to.html">操作指南</a></li>
+          <li><a href="/quality.html">交付质量控制</a></li>
+          <li><a href="/privacy.html">隐私政策与合规</a></li>
+          <li><a href="/search.html">站内搜索</a></li>
+          <li><a href="/playbook.html">内容运营手册</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li><a href="mailto:sales@ileadengine.com">sales@ileadengine.com</a></li>
+          <li><a href="tel:+8618950174503">+86 189 5017 4503</a>
+        <a href="tel:+16196093350">+1 619-609-3350</a></li>
+          <li>工作时间：周一至周五 9:00–18:00 (GMT+8)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> 立德引擎 Lead Engine 是立德引擎（龙岩市新罗区）科技有限责任公司旗下品牌，创始人蒋军· 统一社会信用代码 91350802MAKK5JW986 · 福建省龙岩市新罗区西陂街道商务板块青年创业大厦 2106</span>
+      <span><a href="/about.html#credentials">营业执照与企业资质</a> · 本站结构化数据与内容策略即为我们交付能力的样板间。</span>
+    </div>
+  </div>
+</footer>
+<!-- 常驻咨询条 -->
+<aside class="rail" aria-label="快捷联系">
+  <div class="rail-item">
+    <a href="tel:+8618950174503">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+      电话咨询
+    </a>
+    <div class="rail-pop"><strong>+86 189 5017 4503</strong><br>+1 619-609-3350</div>
+  </div>
+<div class="rail-item">
+    <button type="button" id="open-chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.9 8.9 0 01-4-.9L3 21l1.9-4.9A8.4 8.4 0 013 11.5a8.4 8.4 0 019-8.4 8.4 8.4 0 019 8.4z"/></svg>
+      在线咨询
+    </button>
+    <div class="rail-pop">留下联系方式，1 个工作日内回复</div>
+  </div>
+  <div class="rail-item">
+    <a href="mailto:sales@ileadengine.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+      邮件咨询
+    </a>
+    <div class="rail-pop">sales@ileadengine.com</div>
+  </div>
+  <div class="rail-item">
+    <a href="/contact.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg>
+      免费诊断
+    </a>
+    <div class="rail-pop">3 个工作日交付《AI 能见度诊断报告》</div>
+  </div>
+  <div class="rail-item">
+    <button type="button" id="to-top" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      顶部
+    </button>
+  </div>
+</aside>
+
+<script src="/main.js?v=40"></script>
+</body>
+</html>

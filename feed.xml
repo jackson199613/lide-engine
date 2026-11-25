@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Wed, 25 Nov 2026 07:09:19 +0800</lastBuildDate>
+<lastBuildDate>Thu, 26 Nov 2026 06:12:48 +0800</lastBuildDate>
+<item>
+<title>robots.txt 放行 AI 爬虫：写法与生效检查</title>
+<link>https://ileadengine.com/news/robots-txt-ai-crawlers.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/robots-txt-ai-crawlers.html</guid>
+<pubDate>Thu, 26 Nov 2026 06:12:48 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>robots.txt 放行 AI 爬虫，关键是为 OAI-SearchBot、Claude-SearchBot、PerplexityBot 等搜索类爬虫写 Allow，并确认 CDN 和防火墙没有拦截。本文按公司拆解训练、搜索、用户抓取三类爬虫，附可复制配置与生效检查清单。</description>
+</item>
 <item>
 <title>外贸邮件进垃圾箱？SPF、DKIM、DMARC 一次讲清（2026）</title>
 <link>https://ileadengine.com/news/email-deliverability-spf-dkim-dmarc.html</link>
