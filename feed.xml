@@ -6,7 +6,15 @@
 <atom:link href="https://ileadengine.com/feed.xml" rel="self" type="application/rss+xml"/>
 <description>立德引擎（Lead Engine）关于 GEO 生成式引擎优化、AI 推荐可见度实测与中国工厂出海获客的动态与研究。</description>
 <language>zh-CN</language>
-<lastBuildDate>Thu, 26 Nov 2026 07:04:33 +0800</lastBuildDate>
+<lastBuildDate>Fri, 27 Nov 2026 06:06:51 +0800</lastBuildDate>
+<item>
+<title>AI 能见度诊断怎么做？用 10 个买家问题自测你的品牌</title>
+<link>https://ileadengine.com/news/ai-visibility-audit.html</link>
+<guid isPermaLink="true">https://ileadengine.com/news/ai-visibility-audit.html</guid>
+<pubDate>Fri, 27 Nov 2026 06:06:51 +0800</pubDate>
+<author>sales@ileadengine.com (蒋军)</author>
+<description>AI 能见度诊断就是用海外买家的真实采购问题，在 ChatGPT、Perplexity、Claude、Gemini 里逐个提问，记录品牌是否被点名、引用来源和参数是否准确。本文给出 10 个问题的选题方法、提问规则、记录表和五种常见结果的解读。</description>
+</item>
 <item>
 <title>饲料添加剂出口：注册资质如何成为 AI 推荐的信任信号</title>
 <link>https://ileadengine.com/news/feed-additives-export.html</link>
